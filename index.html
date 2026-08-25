@@ -3,75 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swa</title>
+  <title>Swa — Lugha ya Kupanga ya Kiswahili</title>
+  <meta name="description" content="Swa ni lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili. Mkusanyaji wa kujikusanya — inakusanya moja kwa moja hadi msimbo wa mashine.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <a href="/" class="site-name">Swa</a>
-    <nav>
-      <a href="https://github.com/lugha-swa/swa">Msimbo</a>
-      <a href="https://github.com/lugha-swa/swa/issues">Masuala</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">swa<span class="dot">.</span></a>
+      <nav class="nav">
+        <a href="/" class="active">Mwanzo</a>
+        <a href="jifunze.html">Jifunze</a>
+        <a href="sakinisha.html">Sakinisha</a>
+        <a href="jamii.html">Jamii</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h1>Swa</h1>
-    <p class="lede">Lugha ya kupanga yenye sintaksia kamili ya Kiswahili.</p>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">Lugha ya kupanga ya <span class="accent">Kiswahili</span></h1>
+          <p class="hero-desc">
+            Swa ni mkusanyaji wa lugha ya mifumo unaojikusanya. Sintaksia yake ni Kiswahili
+            kamili — hakuna neno la Kiingereza. Inakusanya moja kwa moja hadi msimbo wa
+            mashine, kwa njia asilia ya x86-64 bila LLVM wala mkusanyaji msaidizi.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="jifunze.html">Jifunze Swa</a>
+            <a class="btn btn-ghost" href="https://github.com/lugha-swa/swa">Msimbo kwenye GitHub</a>
+          </div>
+        </div>
+        <div class="codeblock">
+          <div class="bar"><span>●</span><span class="fname">salamu.swa</span></div>
+<pre><code><span class="tok-kw">husisha</span> C::stdio
 
-    <p>
-      Swa ni mkusanyaji wa lugha ya mifumo unaojikusanya. Inakusanya moja kwa moja
-      hadi msimbo wa mashine: kwa njia asilia inayotoa ELF ya x86-64 bila LLVM wala
-      mkusanyaji msaidizi, na pia kwa njia ya LLVM kwa majukwaa zaidi.
-    </p>
-
-    <h2>Mfano</h2>
-<pre><code>husisha C::stdio
-
-N32 kadirifu(N32 x) {
-    kama (x &gt; 0) {
-        rudisha 1;
-    }
-    sivyo {
-        kama (x &lt; 0) {
-            rudisha -1;
-        }
-    }
-    rudisha 0;
+<span class="tok-kw">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
+    <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, %s!\n"</span>, jina);
 }
 
-N32 main() {
-    andika("kadirifu(-5) = %d\n", kadirifu(-5));
-    andika("kadirifu(42) = %d\n", kadirifu(42));
-    rudisha 0;
-}</code></pre>
+<span class="tok-type">N32</span> <span class="tok-fn">kadirifu</span>(<span class="tok-type">N32</span> x) {
+    <span class="tok-kw">kama</span> (x &gt; 0) {
+        <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>;
+    }
+    <span class="tok-kw">sivyo</span> {
+        <span class="tok-kw">kama</span> (x &lt; 0) {
+            <span class="tok-kw">rudisha</span> <span class="tok-num">-1</span>;
+        }
+    }
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}
 
-    <h2>Kujenga</h2>
-    <p>Mahitaji: LLVM 18+ (C API), Rust, na Clang. Hakuna kiunganishi kinachohitajika kwa mnyororo wa kujikusanya.</p>
-<pre><code>cargo build --release
-cargo test</code></pre>
+<span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);</code></pre>
+        </div>
+      </div>
+    </section>
 
-    <p>Kusanya faili ya Swa:</p>
-<pre><code>cargo run -- programu.swa</code></pre>
+    <!-- ===================== VIPENGELE ===================== -->
+    <section class="section alt">
+      <div class="wrap">
+        <h2 class="section-title">Kwa nini Swa?</h2>
+        <p class="section-sub">Mkusanyaji wa mifumo unaojiandika wenyewe, kwa Kiswahili.</p>
+        <div class="features">
+          <div class="feature">
+            <h3>Kiswahili kamili</h3>
+            <p>Maneno muhimu 13 ya Kiswahili — hakuna neno la Kiingereza katika sintaksia.
+            Aina za nambari hutambuliwa kisintaksia kwa herufi kubwa.</p>
+          </div>
+          <div class="feature">
+            <h3>Inajikusanya</h3>
+            <p>Mnyororo wa kujikusanya umefungwa kabisa: <code>baiti za mkono</code>,
+            <code>mbegu</code>, <code>stage1-exe</code>, na <code>stage2-exe == stage3-exe</code>
+            sawa kwa baiti — bila kiunganishi wala libc.</p>
+          </div>
+          <div class="feature">
+            <h3>Kizalishe asilia cha x86-64</h3>
+            <p>Hutoa ELF ya x86-64 moja kwa moja. LLVM iko kwa majukwaa zaidi.</p>
+          </div>
+          <div class="feature">
+            <h3>Familia 5 za aina</h3>
+            <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali,
+            <code>B</code> buli, <code>W</code> upana wa mashine — upana wowote.</p>
+          </div>
+          <div class="feature">
+            <h3>Kumbukumbu ya moja kwa moja</h3>
+            <p><code>tenga</code> na <code>achilia</code>. Hakuna mkusanyaji wa takataka.</p>
+          </div>
+          <div class="feature">
+            <h3>Ilioandikwa kwa Swa</h3>
+            <p>Msomaji, mchanganuzi, mkaguzi, na kizalishe vyote vimeandikwa kwa Swa yenyewe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Hali ya mradi</h2>
-    <ul>
-      <li>Msomaji, mchanganuzi, mkaguzi, na kizalishe asilia vimekamilika.</li>
-      <li>Mnyororo wa kujikusanya umefungwa: baiti za mkono, mbegu, stage1-exe, na stage2-exe == stage3-exe sawa kwa baiti.</li>
-      <li>Majaribio 227 yanapita (146 ya maktaba, 80 ya ujumuishaji, 1 ya nyaraka).</li>
-      <li>Dereva wa Rust (LLVM) ni wa majaribio — mnyororo wa uzalishaji ni mbegu/exe pekee.</li>
-    </ul>
-
-    <h2>Viungo</h2>
-    <ul>
-      <li><a href="https://github.com/lugha-swa/swa">Hazina ya msimbo</a></li>
-      <li><a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a></li>
-      <li><a href="https://github.com/lugha-swa/swa/issues">Masuala</a></li>
-    </ul>
+    <!-- ===================== KUJIKUSANYA ===================== -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Mnyororo wa kujikusanya</h2>
+        <p class="section-sub">Kila hatua hutoa kizazi kinachofuata, hadi mkusanyaji unajithibitisha yenyewe.</p>
+        <div class="chain">
+          <div class="chain-step">
+            <div class="node">baiti za mkono</div>
+            <div class="desc">kwanza — baiti 393</div>
+          </div>
+          <span class="chain-arrow">→</span>
+          <div class="chain-step">
+            <div class="node">mbegu</div>
+            <div class="desc">mbegu.bin, kutoka hex</div>
+          </div>
+          <span class="chain-arrow">→</span>
+          <div class="chain-step">
+            <div class="node">stage1-exe</div>
+            <div class="desc">ET_EXEC tuli</div>
+          </div>
+          <span class="chain-arrow">→</span>
+          <div class="chain-step">
+            <div class="node">stage2-exe == stage3-exe</div>
+            <div class="desc">sawa kwa baiti</div>
+          </div>
+        </div>
+        <p class="section-sub" style="text-align:left; max-width:52em;">
+          Hakuna <code>gcc</code>, <code>ld</code>, <code>clang</code>, wala <code>libc</code>
+          popote kwenye mnyororo wa uzalishaji.
+        </p>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>Imetengenezwa Afrika ya Mashariki.</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Nyaraka</h4>
+        <a href="jifunze.html">Jifunze</a>
+        <a href="sakinisha.html">Sakinisha</a>
+      </div>
+      <div class="footer-col">
+        <h4>Mradi</h4>
+        <a href="https://github.com/lugha-swa/swa">Msimbo</a>
+        <a href="https://github.com/lugha-swa/swa/issues">Masuala</a>
+        <a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a>
+      </div>
+      <div class="footer-col">
+        <h4>Jamii</h4>
+        <a href="jamii.html">Kuchangia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Imetengenezwa Afrika ya Mashariki. Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a>.
+    </div>
   </footer>
 </body>
 </html>

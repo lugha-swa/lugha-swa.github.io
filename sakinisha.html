@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakinisha Swa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">swa<span class="dot">.</span></a>
+      <nav class="nav">
+        <a href="/">Mwanzo</a>
+        <a href="jifunze.html">Jifunze</a>
+        <a href="sakinisha.html" class="active">Sakinisha</a>
+        <a href="jamii.html">Jamii</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Sakinisha</h1>
+      <p class="lede">Mahitaji na hatua za kujenga mkusanyaji kutoka chanzo.</p>
+    </div>
+  </div>
+
+  <main class="wrap prose">
+    <h2>Mahitaji</h2>
+    <ul>
+      <li>LLVM 18 au mpya (C API) — imejaribiwa kwenye LLVM 22.1 (Arch Linux) na LLVM 18 (Windows).</li>
+      <li>Rust (toleo jipya zaidi).</li>
+      <li>Clang — kwa majaribio ya ujumuishaji.</li>
+    </ul>
+    <p>Hakuna kiunganishi kinachohitajika kwa mnyororo wa kujikusanya. Mbegu (<code>--exe</code>)
+    hutoa ET_EXEC tuli moja kwa moja, bila gcc, ld, clang, wala libc.</p>
+
+    <h2>Pakua</h2>
+    <div class="codeblock">
+      <div class="bar"><span>●</span><span class="fname">bash</span></div>
+<pre><code>git clone https://github.com/lugha-swa/swa.git
+<span class="tok-kw">cd</span> swa</code></pre>
+    </div>
+
+    <h2>Jenga</h2>
+    <div class="codeblock">
+      <div class="bar"><span>●</span><span class="fname">bash</span></div>
+<pre><code>cargo build --release
+cargo test    <span class="tok-com"># majaribio 227</span></code></pre>
+    </div>
+
+    <h2>Kusanya mpango wa Swa</h2>
+    <div class="codeblock">
+      <div class="bar"><span>●</span><span class="fname">bash</span></div>
+<pre><code><span class="tok-com"># Kusanya faili ya Swa</span>
+cargo run -- programu.swa
+
+<span class="tok-com"># Kutumia stage1 ya kujitegemea</span>
+./stage1 msingi/msomaji.swa</code></pre>
+    </div>
+
+    <h2>Mfano wa haraka</h2>
+    <div class="codeblock">
+      <div class="bar"><span>●</span><span class="fname">salamu.swa</span></div>
+<pre><code><span class="tok-kw">husisha</span> C::stdio
+
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, Swa!\n"</span>);
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+    </div>
+    <div class="codeblock">
+      <div class="bar"><span>●</span><span class="fname">bash</span></div>
+<pre><code>cargo run -- salamu.swa -o salamu
+./salamu</code></pre>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Nyaraka</h4>
+        <a href="jifunze.html">Jifunze</a>
+        <a href="sakinisha.html">Sakinisha</a>
+      </div>
+      <div class="footer-col">
+        <h4>Mradi</h4>
+        <a href="https://github.com/lugha-swa/swa">Msimbo</a>
+        <a href="https://github.com/lugha-swa/swa/issues">Masuala</a>
+        <a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a>
+      </div>
+      <div class="footer-col">
+        <h4>Jamii</h4>
+        <a href="jamii.html">Kuchangia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Imetengenezwa Afrika ya Mashariki. Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a>.
+    </div>
+  </footer>
+</body>
+</html>
