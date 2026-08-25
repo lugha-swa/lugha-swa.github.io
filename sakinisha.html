@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sakinisha Swa</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="logo">swa<span class="dot">.</span></a>
+      <a href="/" class="logo"><img src="logo.svg" alt="">swa</a>
       <nav class="nav">
         <a href="/">Mwanzo</a>
         <a href="jifunze.html">Jifunze</a>
+        <a href="marejeo.html">Marejeo</a>
         <a href="sakinisha.html" class="active">Sakinisha</a>
         <a href="jamii.html">Jamii</a>
+        <a class="github" href="https://github.com/lugha-swa/swa">GitHub</a>
       </nav>
     </div>
   </header>
@@ -79,24 +85,30 @@ cargo run -- programu.swa
 
   <footer class="site-footer">
     <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo"><img src="logo.svg" alt="">swa</a>
+        <p>Lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili.</p>
+      </div>
       <div class="footer-col">
         <h4>Nyaraka</h4>
         <a href="jifunze.html">Jifunze</a>
+        <a href="marejeo.html">Marejeo</a>
         <a href="sakinisha.html">Sakinisha</a>
       </div>
       <div class="footer-col">
         <h4>Mradi</h4>
         <a href="https://github.com/lugha-swa/swa">Msimbo</a>
+        <a href="habari.html">Habari</a>
         <a href="https://github.com/lugha-swa/swa/issues">Masuala</a>
-        <a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a>
       </div>
       <div class="footer-col">
         <h4>Jamii</h4>
         <a href="jamii.html">Kuchangia</a>
+        <a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a>
       </div>
     </div>
     <div class="footer-bottom">
-      Imetengenezwa Afrika ya Mashariki. Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a>.
+      Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a>.
     </div>
   </footer>
 </body>
