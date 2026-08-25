@@ -8,12 +8,4 @@ unaokusanya moja kwa moja hadi msimbo wa mashine.
 - Msimbo: https://github.com/lugha-swa/swa
 - Tovuti: https://lugha-swa.github.io
 
-## Muundo
-
-| Njia | Maelezo |
-|---|---|
-| `index.html` | Ukurasa wa kwanza |
-| `assets/style.css` | Mitindo |
-| `assets/favicon.svg` | Ikoni |
-
 Imetengenezwa Afrika ya Mashariki.
