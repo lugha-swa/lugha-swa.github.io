@@ -1,0 +1,416 @@
+/* ============================================================
+   Swa — Lugha ya Kupanga ya Kiswahili
+   Tovuti ya lugha-swa.github.io
+   ============================================================ */
+
+:root {
+  --bg: #0b0f14;
+  --bg-alt: #0f141b;
+  --surface: #151b24;
+  --surface-2: #1b222e;
+  --border: #263041;
+  --text: #e6edf3;
+  --text-muted: #9aa7b4;
+  --accent: #e8a33d;      /* dhahabu ya machweo */
+  --accent-2: #f5c76a;
+  --green: #3fb950;
+  --mono: "SFMono-Regular", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============ Header ============ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+}
+.brand:hover { text-decoration: none; }
+
+.brand-mark {
+  font-size: 1.5rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.brand-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.95rem;
+}
+
+.site-nav a { color: var(--text-muted); }
+.site-nav a:hover { color: var(--text); text-decoration: none; }
+
+.nav-cta {
+  padding: 7px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent) !important;
+}
+.nav-cta:hover { background: rgba(232, 163, 61, 0.1); }
+
+/* ============ Hero ============ */
+.hero {
+  padding: 96px 0 72px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% -10%, rgba(232, 163, 61, 0.15), transparent),
+    var(--bg);
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+  color: var(--accent-2);
+  border: 1px solid rgba(232, 163, 61, 0.35);
+  border-radius: 999px;
+  background: rgba(232, 163, 61, 0.08);
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.accent { color: var(--accent); }
+
+.hero-sub {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--accent);
+  color: #1a1205;
+}
+.btn-primary:hover { background: var(--accent-2); }
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent-2); }
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat { display: flex; flex-direction: column; }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ============ Sections ============ */
+.section { padding: 72px 0; }
+.section-alt { background: var(--bg-alt); }
+
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 40px;
+}
+
+/* ============ Code windows ============ */
+.code-window {
+  max-width: 680px;
+  margin: 0 auto 32px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.code-window-small { max-width: 560px; }
+
+.code-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot-red { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green { background: #28c840; }
+
+.code-window-title {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.code {
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  padding: 18px 20px;
+  overflow-x: auto;
+  color: var(--text);
+}
+
+.code.inline { font-size: 0.85rem; }
+
+/* sintaksia ya Swa */
+.c-kw    { color: #ff7b72; }  /* maneno muhimu */
+.c-type  { color: #79c0ff; }  /* aina */
+.c-fn    { color: #d2a8ff; }  /* kazi */
+.c-str   { color: #a5d6ff; }  /* mifuatano */
+.c-num   { color: #f2cc60; }  /* namba */
+.c-cmt   { color: #8b949e; }  /* maoni */
+
+/* ============ Features ============ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  transition: border-color 0.15s ease;
+}
+.feature:hover { border-color: var(--accent); }
+
+.feature-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--accent-2);
+}
+
+.feature-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.feature-text code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--surface-2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+/* ============ Bootstrap chain ============ */
+.chain {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chain-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 160px;
+  max-width: 220px;
+}
+
+.chain-node {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 12px;
+  width: 100%;
+}
+
+.chain-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.chain-arrow {
+  align-self: center;
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.chain-note {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 28px;
+  font-size: 0.9rem;
+}
+.chain-note code {
+  font-family: var(--mono);
+  background: var(--surface-2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+/* ============ Getting started ============ */
+.getting-started {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+}
+
+.step .code {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.requirements {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 32px;
+  font-size: 0.9rem;
+}
+
+/* ============ Community ============ */
+.community-links {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============ Footer ============ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  background: var(--bg-alt);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-note { font-size: 0.85rem; }
+
+/* ============ Responsive ============ */
+@media (max-width: 720px) {
+  .site-nav { gap: 14px; font-size: 0.85rem; }
+  .site-nav a:not(.nav-cta) { display: none; }
+  .hero { padding: 64px 0 48px; }
+  .section { padding: 56px 0; }
+  .hero-stats { gap: 24px; }
+  .chain { flex-direction: column; align-items: center; }
+  .chain-arrow { transform: rotate(90deg); }
+  .chain-step { max-width: 280px; }
+}
