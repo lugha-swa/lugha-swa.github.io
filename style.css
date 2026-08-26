@@ -1,360 +1,1201 @@
+/* ============================================================
+   Swa — mtindo wa tovuti
+   ------------------------------------------------------------
+   Utambulisho: "mlango uliochongwa" — milango ya mninga ya
+   Zanzibar. Mandhari ya mwanga ni ukuta wa chokaa wa asubuhi;
+   mandhari ya giza ni mlango usiku. Shaba ni accent, bahari ni
+   rangi ya pili, na nyota ya pembe nane ndiyo pambo pekee.
+   Maelezo kamili ya muundo: /tmp/swa-tovuti-kazi/mwelekeo-wa-muundo.md
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1a. Tokens za mandhari ya mwanga (chaguo-msingi)
+   ------------------------------------------------------------ */
 :root {
-  --bg: #fdfcf9;
-  --bg-soft: #f5f1e8;
-  --surface: #ffffff;
-  --ink: #1c1a16;
-  --muted: #6d675e;
-  --faint: #a29b90;
-  --accent: #c2410c;
-  --accent-strong: #93320a;
-  --accent-soft: #fbeee0;
-  --border: #e8e2d6;
-  --code-bg: #171c24;
-  --code-ink: #e8e4da;
-  --kw: #ff9066;
-  --type: #7dd3fc;
-  --str: #a9d7a0;
-  --com: #7c8594;
-  --fn: #e9cc77;
-  --num: #f0b429;
-  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  color-scheme: light;
+
+  /* Mfuko na gridi */
+  --container: 70rem;
+  --container-narrow: 45rem;
+
+  /* Familia za fonti (mistari ya kuhifadhi) */
+  --font-sans:    "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", "Cascadia Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Kiwango cha ukubwa (uwiano 1.25) */
+  --fs-xs:  0.75rem;   /* tarehe, lebo za kando */
+  --fs-sm:  0.875rem;  /* vichwa vya kolamu, jina la faili, mawimbi ya terminal */
+  --fs-base: 1rem;     /* maandishi ya msingi */
+  --fs-md:  1.125rem;  /* lede, kichwa cha kadi, vitufe vikubwa */
+  --fs-1:   1.25rem;   /* kichwa cha h3 (ndani ya prose) */
+  --fs-2:   1.5625rem; /* kichwa cha h3 maalum, kauli */
+  --fs-3:   1.953rem;  /* kichwa cha h2 cha sehemu */
+  --fs-4:   2.441rem;  /* kichwa cha h1 cha kurasa ndogo */
+  --fs-5:   3.052rem;  /* kichwa cha hero (kikubwa) */
+  --fs-6:   3.815rem;  /* kichwa cha hero (kikubwa zaidi, 1200px+) */
+
+  /* Kiwango cha nafasi */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Rangi za msingi */
+  --bg:              #FAF7EF;  /* ukuta wa chokaa */
+  --bg-alt:          #F2ECDF;  /* kivuli cha chokaa */
+  --surface:         #FFFFFF;  /* uso wa kadi */
+  --ink:             #26201A;  /* mninga */
+  --muted:           #6E6252;  /* mchanga mweusi */
+  --faint:           #766A51;  /* mchanga mweusi zaidi (lebo, tarehe) */
+  --accent:          #A34E14;  /* shaba (viungo, vitufe) */
+  --accent-strong:   #7E3A0C;  /* shaba iliyokolea (hover) */
+  --accent-soft:     #F6E6D3;  /* chip ya accent (kipengele kinachotumika) */
+  --ocean:           #1D4E77;  /* bahari (accent ya pili) */
+  --ocean-soft:      #E9F1F8;  /* callout ya maelezo */
+  --kijani-soft:     #EBF2E5;  /* callout ya kidokezo */
+  --btn-text:        #FFFDF6;  /* maandishi kwenye vitufe vya shaba */
+  --border:          #E4DBC6;  /* mpaka wa mapambo (1px) */
+  --border-strong:   #9B8D6E;  /* mpaka wa vipengele vya UI */
+  --inline-code-bg:  #F2ECDF;
+  --inline-code-ink: #7E3A0C;
+  --focus-outline:   #A34E14;
+
+  /* Kisima cha msimbo = bendi ya usiku */
+  --code-bg:         #161009;  /* mninga giza */
+  --code-ink:        #F0E8D6;  /* mwanga wa mbao */
+  --code-muted:      #9C9080;  /* jina la faili, mwongozo */
+  --code-link:       #F2B45C;  /* shaba angavu: viungo kwenye bendi, neno muhimu */
+  --code-link-hover: #E8A070;
+  --code-border:     #3A3120;  /* mpaka wa mapambo ndani ya kisima */
+  --code-shadow:     0 0.3rem 1rem rgba(0, 0, 0, 0.25);  /* kivuli kimoja tu, kwa mwanga */
+
+  /* Sintaksia (kwenye --code-bg) */
+  --syn-kw:   #F2B45C;  /* neno muhimu */
+  --syn-type: #7DB4E6;  /* aina */
+  --syn-fn:   #E8A070;  /* kazi */
+  --syn-str:  #A9C97F;  /* mfuatano */
+  --syn-num:  #E8B64D;  /* nambari */
+  --syn-com:  #9C9080;  /* maoni */
+
+  /* Rangi za ziada za callouts (zilizopimwa katika 3.5) */
+  --kijani:             #3E5C2E;  /* mpaka wa callout ya kidokezo */
+  --accent-soft-callout: #FBEBDD; /* usuli wa callout ya tahadhari */
 }
 
-* { box-sizing: border-box; }
+/* ------------------------------------------------------------
+   1b. Mandhari ya giza kutoka kwa mfumo (bila JS, bila uchaguzi)
+       — mlango wa mninga usiku. Mtumiaji aliyechagua "mwanga"
+       kwa uwazi huzuia block hii.
+   ------------------------------------------------------------ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mandhari="mwanga"]) {
+    color-scheme: dark;
 
-html { scroll-behavior: smooth; }
+    --bg:              #16110A;  /* mninga usiku */
+    --bg-alt:          #1D1710;
+    --surface:         #221B12;
+    --ink:             #F1E9D6;  /* mwanga wa mbao */
+    --muted:           #B7AC97;
+    --faint:           #9C8F7E;
+    --accent:          #E3A04B;  /* shaba angavu */
+    --accent-strong:   #C98532;
+    --accent-soft:     #3A2B17;
+    --ocean:           #7FB8E8;  /* bahari ya usiku */
+    --ocean-soft:      #16222E;
+    --kijani-soft:     #1A2417;
+    --btn-text:        #1A140B;
+    --border:          #33291B;
+    --border-strong:   #76674E;
+    --inline-code-bg:  #2A2113;
+    --inline-code-ink: #E3A04B;
+    --focus-outline:   #E3A04B;
+
+    --code-bg:         #0D0905;
+    --code-ink:        #F2EAD8;
+    --code-muted:      #A79A88;
+    --code-link:       #F4BA63;
+    --code-link-hover: #EC9E6E;
+    --code-border:     #2E2414;
+    --code-shadow:     0 0.3rem 1rem rgba(0, 0, 0, 0.45);
+
+    --syn-kw:   #F4BA63;
+    --syn-type: #83BCEF;
+    --syn-fn:   #EC9E6E;
+    --syn-str:  #B2D389;
+    --syn-num:  #ECC05E;
+    --syn-com:  #A79A88;
+
+    --kijani:              #A9C97F;
+    --accent-soft-callout: #2E2417;
+  }
+
+  /* Marekebisho ya vipengele kwa giza (nguvu zaidi ya mistari ya chini) */
+  :root:not([data-mandhari="mwanga"]) .site-footer { background: var(--bg); }
+  :root:not([data-mandhari="mwanga"]) .docs-link.active,
+  :root:not([data-mandhari="mwanga"]) .docs-link[aria-current="location"] { color: var(--code-link); }
+  :root:not([data-mandhari="mwanga"]) .callout-tahadhari .callout-title { color: var(--accent); }
+}
+
+/* ------------------------------------------------------------
+   1c. Mandhari ya giza iliyochaguliwa na mtumiaji (inashinda
+       kila kitu, pande zote mbili)
+   ------------------------------------------------------------ */
+:root[data-mandhari="giza"] {
+  color-scheme: dark;
+
+  --bg:              #16110A;
+  --bg-alt:          #1D1710;
+  --surface:         #221B12;
+  --ink:             #F1E9D6;
+  --muted:           #B7AC97;
+  --faint:           #9C8F7E;
+  --accent:          #E3A04B;
+  --accent-strong:   #C98532;
+  --accent-soft:     #3A2B17;
+  --ocean:           #7FB8E8;
+  --ocean-soft:      #16222E;
+  --kijani-soft:     #1A2417;
+  --btn-text:        #1A140B;
+  --border:          #33291B;
+  --border-strong:   #76674E;
+  --inline-code-bg:  #2A2113;
+  --inline-code-ink: #E3A04B;
+  --focus-outline:   #E3A04B;
+
+  --code-bg:         #0D0905;
+  --code-ink:        #F2EAD8;
+  --code-muted:      #A79A88;
+  --code-link:       #F4BA63;
+  --code-link-hover: #EC9E6E;
+  --code-border:     #2E2414;
+  --code-shadow:     0 0.3rem 1rem rgba(0, 0, 0, 0.45);
+
+  --syn-kw:   #F4BA63;
+  --syn-type: #83BCEF;
+  --syn-fn:   #EC9E6E;
+  --syn-str:  #B2D389;
+  --syn-num:  #ECC05E;
+  --syn-com:  #A79A88;
+
+  --kijani:              #A9C97F;
+  --accent-soft-callout: #2E2417;
+}
+
+:root[data-mandhari="giza"] .site-footer { background: var(--bg); }
+:root[data-mandhari="giza"] .docs-link.active,
+:root[data-mandhari="giza"] .docs-link[aria-current="location"] { color: var(--code-link); }
+:root[data-mandhari="giza"] .callout-tahadhari .callout-title { color: var(--accent); }
+
+/* ------------------------------------------------------------
+   2. Msingi
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;  /* kichwa kinachonata hakifichi vichwa vya ndani */
+}
+
+html,
+body { overflow-x: clip; }  /* hakuna ukanda wa mlalo kwenye mwili kamwe */
 
 body {
   margin: 0;
-  font-family: var(--sans);
-  color: var(--ink);
   background: var(--bg);
-  line-height: 1.65;
-  font-size: 17px;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
-a { color: var(--accent); }
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd { margin: 0; }
+
+ul, ol { margin: 0; padding: 0; }
+
+code { font-family: var(--font-mono); }
+
+pre { font-family: var(--font-mono); }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 a:hover { color: var(--accent-strong); }
 
-/* ============ header ============ */
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* Mwelekeo unaoonekana kwa kibodi pekee */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Kiungo cha kuruka — kinaonekana kwa Shift+Tab ya kwanza */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--btn-text);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+/* Kificho cha skrini pekee */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------
+   3. Mfuko, gridi, mdundo wa sehemu
+   ------------------------------------------------------------ */
+.wrap,
+.header-inner,
+.footer-inner,
+.footer-bottom {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.container-narrow { max-width: var(--container-narrow); }
+
+section.hero > .hero-grid:not(.wrap),
+section > .split-grid:not(.wrap) {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Mdundo wa sehemu: kubwa (96px) kwenye desktop, 48px chini yake */
+.section,
+.band { padding-block: var(--space-7); }
+
+.section-alt {
+  background: var(--bg-alt);
+  padding-block: var(--space-6);  /* sehemu za pili: kompakt kidogo */
+}
+
+.section-head { margin-bottom: var(--space-6); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-3);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-2);
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  max-width: 55ch;
+  margin: 0;
+}
+
+/* Bendi ya usiku (mnyororo wa kujikusanya) — ukuta wa kisima */
+.band {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border-top: 1px solid var(--code-border);
+  border-bottom: 1px solid var(--code-border);
+}
+.band .section-title { color: var(--code-ink); }
+.band .section-sub { color: var(--code-muted); }
+.band a { color: var(--code-link); }
+.band a:hover { color: var(--code-link-hover); }
+.band :focus-visible,
+.codeblock :focus-visible { outline-color: var(--code-link); }  /* shaba juu ya mbao */
+.band .btn-primary {
+  background: var(--code-link);
+  color: var(--code-bg);
+}
+.band .btn-primary:hover {
+  background: var(--code-link-hover);
+  color: var(--code-bg);
+}
+
+/* ------------------------------------------------------------
+   4. Kichwa na urambazaji
+   ------------------------------------------------------------ */
 .site-header {
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 40;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: 0.75rem;  /* urefu wa kichwa: 64px */
 }
 
+/* Nembo: alama + "swa" */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-}
-.logo img { width: 22px; height: 22px; }
-
-.nav { display: flex; gap: 24px; align-items: center; }
-.nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.98rem;
-}
-.nav a:hover { color: var(--ink); }
-.nav a.active { color: var(--ink); font-weight: 650; }
-
-.nav .github {
-  padding: 6px 13px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  color: var(--ink);
-}
-.nav .github:hover { border-color: var(--accent); color: var(--accent); }
-
-/* ============ layout ============ */
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-main { padding-bottom: 64px; }
-
-/* ============ hero ============ */
-.hero {
-  padding: 84px 0 72px;
-  background:
-    radial-gradient(ellipse 70% 60% at 80% -20%, rgba(194,65,12,0.08), transparent 60%),
-    var(--bg);
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 52px;
-  align-items: center;
-}
-
-.hero-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.hero-title {
-  font-family: var(--serif);
-  font-size: clamp(2.6rem, 6vw, 4rem);
-  font-weight: 750;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
   letter-spacing: -0.02em;
-  margin: 0 0 16px;
-  line-height: 1.08;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
 }
-.hero-title .accent { color: var(--accent); }
+.logo-mark {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
 
-.hero-desc {
+/* Urambazaji */
+.nav-toggle {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
   color: var(--muted);
-  font-size: 1.14rem;
-  margin: 0 0 28px;
-  max-width: 34em;
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.nav-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  list-style: none;
 }
 
-.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0.25rem 0.125rem;
+  border-radius: 4px;
+}
+.nav-link:hover { color: var(--ink); }
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+.nav-link-msimbo { color: var(--accent); }
+.nav-link-msimbo:hover { color: var(--accent-strong); }
 
+/* Kitufe cha mandhari: maandishi yanaonyesha mandhari ya kwenda */
+.theme-toggle {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ------------------------------------------------------------
+   5. Vitufe
+   ------------------------------------------------------------ */
 .btn {
   display: inline-block;
-  padding: 11px 20px;
-  border-radius: 8px;
+  padding: 0.6875rem 1.25rem;  /* 11px 20px */
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
   text-decoration: none;
-  font-weight: 650;
-  font-size: 0.98rem;
   border: 1px solid transparent;
+  cursor: pointer;
 }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: var(--accent-strong); color: #fff; }
-.btn-ghost { border-color: var(--border); color: var(--ink); background: var(--surface); }
+.btn-primary { background: var(--accent); color: var(--btn-text); }
+.btn-primary:hover { background: var(--accent-strong); color: var(--btn-text); }
+.btn-ghost {
+  border-color: var(--border-strong);
+  color: var(--ink);
+  background: transparent;
+}
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn:focus-visible {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: 2px;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.5; cursor: default; }
 
-/* ============ code blocks ============ */
+/* Chip ya accent (kichwa kidogo cha toleo) */
+.chip {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  background: transparent;
+  padding: 0.25rem 0.875rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.chip:hover { color: var(--accent-strong); border-color: var(--accent-strong); }
+.hero .chip { margin-bottom: var(--space-5); }
+
+/* ------------------------------------------------------------
+   6. Kisima cha msimbo
+   ------------------------------------------------------------ */
 .codeblock {
   background: var(--code-bg);
   color: var(--code-ink);
-  border-radius: 12px;
-  overflow: hidden;
-  font-family: var(--mono);
-  font-size: 0.86rem;
-  line-height: 1.6;
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 20px 50px -20px rgba(23,28,36,0.5);
+  border-radius: 10px;
+  border: 1px solid var(--code-border);
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;  /* 15px — kubwa kuliko 13.8px ya zamani */
+  line-height: 1.7;
+  margin: 0;
+  box-shadow: var(--code-shadow);
+  min-width: 0;
 }
 
-.codeblock .bar {
+.codeblock-bar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  color: #8b93a3;
-  font-size: 0.78rem;
-}
-.codeblock .bar .fname { margin-left: 6px; }
-
-.codeblock pre { margin: 0; padding: 18px 20px; overflow-x: auto; }
-.codeblock code { font-family: inherit; }
-
-.tok-kw   { color: var(--kw); }
-.tok-type { color: var(--type); }
-.tok-str  { color: var(--str); }
-.tok-com  { color: var(--com); font-style: italic; }
-.tok-fn   { color: var(--fn); }
-.tok-num  { color: var(--num); }
-
-/* ============ sections ============ */
-.section { padding: 68px 0; }
-.section.alt { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-.section-head { max-width: 46em; margin-bottom: 32px; }
-.section-title {
-  font-family: var(--serif);
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0 0 8px;
-}
-.section-sub { color: var(--muted); margin: 0; font-size: 1.05rem; }
-
-/* ============ feature grid ============ */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--code-border);
+  font-size: 0.875rem;
+  color: var(--code-muted);
 }
 
-.feature {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
+.codeblock-fname::before {  /* nyota ndogo ya ngazi kabla ya jina */
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  background: var(--code-link);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  vertical-align: 0;
 }
-.feature h3 { margin: 0 0 8px; font-size: 1.08rem; font-weight: 700; }
-.feature p { margin: 0; color: var(--muted); font-size: 0.96rem; }
-.feature code {
-  font-family: var(--mono);
-  font-size: 0.86em;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  padding: 1px 6px;
+
+.codeblock-copy {
+  border: 1px solid var(--code-border);
   border-radius: 4px;
+  background: transparent;
+  color: var(--code-link);
+  font-family: inherit;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.codeblock-copy:hover { border-color: var(--code-link); }
+.codeblock-copy.imenakiliwa { border-color: var(--code-link); }
+
+.codeblock pre {
+  margin: 0;
+  padding: 1rem 1.25rem 1.25rem;
+  overflow-x: auto;
+  tab-size: 4;
 }
 
-/* ============ bootstrap chain ============ */
-.chain {
+.codeblock-tokeo {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--code-border);
+  color: var(--code-ink);
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin: 22px 0;
 }
-.chain-step {
+.codeblock-prompt { color: var(--code-muted); }
+
+/* Tokens za sintaksia (zote zimepimwa dhidi ya --code-bg) */
+.tok-kw   { color: var(--syn-kw); }
+.tok-type { color: var(--syn-type); }
+.tok-fn   { color: var(--syn-fn); }
+.tok-str  { color: var(--syn-str); }
+.tok-num  { color: var(--syn-num); font-variant-numeric: tabular-nums; }
+.tok-com  { color: var(--syn-com); font-style: italic; }
+
+/* ------------------------------------------------------------
+   7. Prose, msimbo wa ndani, callouts, majedwali
+   ------------------------------------------------------------ */
+.prose,
+.docs-content { max-width: var(--container-narrow); min-width: 0; }
+
+/* .docs-content hushiriki uchapaji ule ule — inaweza kutumika pekee
+   au pamoja na .prose */
+.prose h2,
+.docs-content h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-3);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: var(--space-7) 0 var(--space-4);
+}
+.prose h2:first-child,
+.docs-content h2:first-child { margin-top: 0; }
+
+.prose h3,
+.docs-content h3 {
+  font-size: var(--fs-1);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: var(--space-6) 0 var(--space-2);
+}
+
+.prose h4,
+.docs-content h4 {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: var(--space-5) 0 var(--space-2);
+}
+
+.prose p,
+.docs-content p {
+  margin: 0 0 var(--space-4);
+  line-height: 1.7;
+}
+
+.prose a,
+.docs-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose a:hover,
+.docs-content a:hover { color: var(--accent-strong); }
+
+.prose strong,
+.docs-content strong { font-weight: 600; }
+
+.prose ul,
+.prose ol,
+.docs-content ul,
+.docs-content ol {
+  margin: 0 0 var(--space-4);
+  padding-left: 1.375rem;
+}
+.prose li,
+.docs-content li {
+  margin-bottom: var(--space-2);
+  line-height: 1.7;
+}
+.prose li:last-child,
+.docs-content li:last-child { margin-bottom: 0; }
+
+.prose hr,
+.docs-content hr {
+  margin: var(--space-6) 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Msimbo wa ndani: toleo moja la rangi kwa mandhari yote */
+.prose code:not(pre code),
+.docs-content code:not(pre code) {
+  background: var(--inline-code-bg);
+  color: var(--inline-code-ink);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.prose .codeblock,
+.docs-content .codeblock { margin: var(--space-5) 0; }
+
+/* Callouts */
+.callout {
+  border-left: 4px solid;
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.callout p {
+  margin: 0 0 0.5rem;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-title {
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  font-size: 0.9375rem;
+}
+.callout-maelezo { border-left-color: var(--ocean); background: var(--ocean-soft); }
+.callout-maelezo .callout-title { color: var(--ocean); }
+.callout-tahadhari { border-left-color: var(--accent); background: var(--accent-soft-callout); }
+.callout-tahadhari .callout-title { color: var(--accent-strong); }
+.callout-kidokezo { border-left-color: var(--kijani); background: var(--kijani-soft); }
+.callout-kidokezo .callout-title { color: var(--kijani); }
+
+/* Majedwali */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 14px 18px;
-  background: var(--surface);
-  text-align: center;
 }
-.chain-step .node { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; }
-.chain-step .desc { font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
-.chain-arrow { color: var(--accent); font-weight: 700; font-size: 1.25rem; }
-
-/* ============ prose (subpages) ============ */
-.prose h2 {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 40px 0 12px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--border);
-}
-.prose h3 { font-size: 1.08rem; margin: 24px 0 6px; }
-.prose p { color: var(--ink); margin: 10px 0; }
-.prose ul { padding-left: 22px; }
-.prose li { margin: 6px 0; }
-.prose code {
-  font-family: var(--mono);
-  font-size: 0.86em;
-  background: var(--bg-soft);
-  padding: 1px 6px;
-  border-radius: 4px;
-}
-.prose .codeblock { margin: 14px 0; }
-
-.page-head {
-  padding: 52px 0 12px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-soft);
-}
-.page-head h1 {
-  font-family: var(--serif);
-  font-size: 2.6rem;
-  font-weight: 750;
-  letter-spacing: -0.02em;
-  margin: 0 0 8px;
-}
-.page-head .lede { color: var(--muted); font-size: 1.12rem; margin: 0; }
-
-/* ============ tables (reference) ============ */
-table {
+.table-wrap table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
-  margin: 14px 0;
+  font-size: 0.9375rem;
 }
-th, td {
+.table-wrap th,
+.table-wrap td {
   text-align: left;
-  padding: 10px 14px;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border);
+  vertical-align: top;
 }
-th {
-  font-weight: 650;
+.table-wrap tr:last-child td { border-bottom: none; }
+.table-wrap th {
+  font-weight: 600;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  background: var(--bg-alt);
 }
-td code { font-family: var(--mono); }
+.table-wrap td code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  white-space: nowrap;
+}
 
-/* ============ news ============ */
-.post {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 22px 24px;
-  margin-bottom: 18px;
+/* ------------------------------------------------------------
+   8. Kadi za sifa, kadi za habari, mnyororo wa kujikusanya
+   ------------------------------------------------------------ */
+.feature-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.feature-card {
   background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: var(--space-5);
 }
-.post .date { color: var(--faint); font-size: 0.85rem; font-family: var(--mono); }
-.post h2 { border: none; margin: 6px 0 10px; padding: 0; }
-.post h2 a { color: var(--ink); text-decoration: none; }
-.post h2 a:hover { color: var(--accent); }
-.post p { margin: 0; color: var(--muted); }
 
-/* ============ footer ============ */
+.feature-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.feature-card code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--inline-code-bg);
+  color: var(--inline-code-ink);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+/* Kadi za habari */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.post {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: var(--space-5);
+}
+
+.post .date,
+.post .post-date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+  margin-bottom: var(--space-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.post h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-1);
+  line-height: 1.3;
+  margin: 0 0 var(--space-2);
+}
+
+.post h2 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.post h2 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.news-more {
+  display: inline-block;
+  margin-top: var(--space-5);
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.news-more:hover { color: var(--accent-strong); }
+
+/* Mnyororo wa kujikusanya — viunganishi ni mistari ya CSS, si vishale */
+.chain {
+  list-style: none;
+  margin: var(--space-6) 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6);
+  counter-reset: hatua;
+}
+
+.chain-step {
+  position: relative;
+  counter-increment: hatua;
+}
+
+.chain-step::before {  /* namba ya mono kwenye duara la shaba */
+  content: counter(hatua);
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  background: var(--code-link);
+  color: var(--code-bg);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.chain-step:not(:last-child)::after {  /* kiunganishi: mstari + nyota ndogo */
+  content: "";
+  position: absolute;
+  top: 0.875rem;
+  left: calc(100% + var(--space-6) / 2 - 1px);
+  width: var(--space-6);
+  height: 1px;
+  background: var(--code-link);
+  opacity: 0.6;
+}
+
+.chain-step code {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--code-ink);
+}
+
+.chain-desc {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--code-muted);
+}
+
+.chain-thibitisho {  /* mlango wa uthibitisho */
+  border: 1px solid var(--code-link);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin: -0.75rem -1rem 0;
+  background: color-mix(in srgb, var(--code-link) 8%, transparent);
+}
+.chain-thibitisho::after { display: none; }
+
+/* ------------------------------------------------------------
+   9. Upau wa faharasa wa kurasa za nyaraka
+   ------------------------------------------------------------ */
+.docs {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: start;
+  padding-block: var(--space-7);
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 5rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}
+
+.docs-nav-title {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  margin: 0 0 var(--space-2);
+  font-weight: 600;
+}
+
+.docs-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.docs-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.docs-link:hover { color: var(--ink); background: var(--bg-alt); }
+.docs-link.active,
+.docs-link[aria-current="location"] {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------
+   10. Kichwa chini — mhimili wa shaba unaashiria mwisho wa jengo
+   ------------------------------------------------------------ */
 .site-footer {
-  border-top: 1px solid var(--border);
-  background: var(--bg-soft);
-  padding: 40px 0;
-  font-size: 0.92rem;
+  border-top: 3px solid var(--accent);  /* mhimili */
+  background: var(--bg-alt);
+  padding-block: var(--space-7) var(--space-6);
+  font-size: 0.9375rem;
   color: var(--muted);
 }
+
 .footer-inner {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 24px;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 32px;
-}
-.footer-brand { max-width: 26em; }
-.footer-brand .logo { margin-bottom: 10px; }
-.footer-brand p { margin: 0; }
-.footer-col h4 {
-  margin: 0 0 10px;
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--faint);
-}
-.footer-col a { display: block; color: var(--muted); text-decoration: none; margin: 5px 0; }
-.footer-col a:hover { color: var(--accent); }
-.footer-bottom {
-  max-width: 1040px;
-  margin: 28px auto 0;
-  padding: 18px 24px 0;
-  border-top: 1px solid var(--border);
-  font-size: 0.85rem;
+  gap: var(--space-6);
 }
 
-/* ============ responsive ============ */
-@media (max-width: 820px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-  .hero-title { font-size: 2.5rem; }
-  .nav { gap: 16px; }
-  .nav a:not(.active):not(.github) { display: none; }
+.footer-brand { max-width: 24rem; }
+.footer-brand .logo { margin-bottom: var(--space-3); }
+.footer-brand p { line-height: 1.7; }
+
+.footer-col h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+  font-weight: 600;
+}
+
+.footer-col a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--faint);
+}
+.footer-bottom a { color: var(--faint); text-decoration: underline; }
+.footer-bottom a:hover { color: var(--accent); }
+
+/* ------------------------------------------------------------
+   11. Sehemu za mwanzo (hero) na gridi ya pande mbili
+   ------------------------------------------------------------ */
+.hero {
+  padding-block: clamp(3rem, 8vw, 5.5rem) 0;
+}
+
+.hero-grid,
+.split-grid {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.441rem, 4vw + 1.25rem, 3.815rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-5);
+}
+
+.accent { color: var(--accent); }
+
+.hero-lede,
+.hero-desc {
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 55ch;
+  margin: 0 0 var(--space-6);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-6);
+}
+
+.hero-stats {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+/* ------------------------------------------------------------
+   12. Kichwa cha kurasa ndogo
+   ------------------------------------------------------------ */
+.page-head {
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.page-head h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-4);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.page-head p {
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 55ch;
+  margin: var(--space-3) 0 0;
+}
+
+/* ------------------------------------------------------------
+   13. Mipaka ya upana: 600px, 900px, 1200px pekee
+   ------------------------------------------------------------ */
+@media (min-width: 900px) {
+  .section,
+  .band { padding-block: var(--space-9); }
+
+  .section-alt { padding-block: var(--space-7); }
+
+  .section-head { margin-bottom: var(--space-7); }
+
+  .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .split-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+  .footer-inner { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+@media (max-width: 899px) {
+  /* Urambazaji wa simu: kitufe cha menyu. Bila JS orodha inabaki wazi. */
+  html.js .nav-toggle { display: inline-block; }
+
+  html.js .nav { position: relative; }
+
+  html.js .nav-list {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 13rem;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: var(--space-2);
+    display: none;
+  }
+
+  html.js .nav.open .nav-list { display: block; }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: var(--space-2) var(--space-4);
+    font-size: 1rem;
+  }
+
+  /* Kurasa za nyaraka: upau unakuwa safu ya usawa inayoteleza */
+  .docs {
+    grid-template-columns: minmax(0, 1fr);  /* minmax(0,1fr): chips zisizopanue wimbo */
+    gap: var(--space-4);
+  }
+
+  .docs-sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .docs-nav ul {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.25rem;
+    padding-bottom: var(--space-1);
+  }
+
+  .docs-link { white-space: nowrap; }
+
+  /* Kadi za sifa: kolamu 2 katikati */
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Mnyororo: safu moja, viunganishi vya wima */
+  .chain {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .chain-step:not(:last-child)::after {
+    top: auto;
+    left: 0.875rem;
+    bottom: calc(-1 * var(--space-5) + 1px);
+    width: 1px;
+    height: var(--space-5);
+  }
+
+  /* Kichwa chini: 2x2 */
   .footer-inner { grid-template-columns: 1fr 1fr; }
-  .chain { flex-direction: column; align-items: center; }
-  .chain-arrow { transform: rotate(90deg); }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 599px) {
+  .wrap,
+  .header-inner,
+  .footer-inner,
+  .footer-bottom,
+  section.hero > .hero-grid:not(.wrap),
+  section > .split-grid:not(.wrap) { padding-inline: 1rem; }
+
+  .feature-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 1200px) {
+  /* Hero ya pande mbili katika umbo lake kamili */
+  .hero-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+
+/* ------------------------------------------------------------
+   14. Mwendo uliopunguzwa
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
