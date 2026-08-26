@@ -4,50 +4,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Swa — Lugha ya Kupanga ya Kiswahili</title>
-  <meta name="description" content="Swa ni lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili. Mkusanyaji wa kujikusanya — inakusanya moja kwa moja hadi msimbo wa mashine.">
-  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <meta name="description" content="Swa ni lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili, inayojikusanya yenyewe hadi msimbo wa mashine. Toleo 1.0 limewasili: majaribio 227/227, mnyororo wa Swa 104/104.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="canonical" href="https://lugha-swa.github.io/">
+  <meta property="og:title" content="Swa — Lugha ya Kupanga ya Kiswahili">
+  <meta property="og:description" content="Swa ni lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili, inayojikusanya yenyewe hadi msimbo wa mashine. Toleo 1.0: majaribio 227/227, x86-64 Linux.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lugha-swa.github.io/">
+  <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
+  <meta name="theme-color" content="#FAF7EF">
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem("swa-mandhari");
+      if (t === "giza" || (t === null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-mandhari", "giza");
+      } else if (t === "mwanga") {
+        document.documentElement.setAttribute("data-mandhari", "mwanga");
+      }
+    } catch (e) {}
+  })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#yaliyomo">Ruka hadi yaliyomo</a>
+
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="logo"><img src="logo.svg" alt="">swa</a>
-      <nav class="nav">
-        <a href="/" class="active">Mwanzo</a>
-        <a href="jifunze.html">Jifunze</a>
-        <a href="marejeo.html">Marejeo</a>
-        <a href="sakinisha.html">Sakinisha</a>
-        <a href="jamii.html">Jamii</a>
-        <a class="github" href="https://github.com/lugha-swa/swa">GitHub</a>
+      <a class="logo" href="/" aria-label="Swa — kurasa ya mwanzo">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M6 42 V22 A18 18 0 0 1 42 22 V42 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+          <g fill="currentColor">
+            <g transform="translate(14 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(24 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(34 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(14 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(24 25)"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g>
+            <g transform="translate(34 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(14 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(24 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(34 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+          </g>
+        </svg>swa
+      </a>
+      <nav class="nav" aria-label="Urambazaji mkuu" id="urambazaji">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="urambazaji">Menyu</button>
+        <ul class="nav-list">
+          <li><a class="nav-link active" href="/" aria-current="page">Mwanzo</a></li>
+          <li><a class="nav-link" href="jifunze.html">Jifunze</a></li>
+          <li><a class="nav-link" href="marejeo.html">Marejeo</a></li>
+          <li><a class="nav-link" href="sakinisha.html">Sakinisha</a></li>
+          <li><a class="nav-link" href="habari.html">Habari</a></li>
+          <li><a class="nav-link" href="jamii.html">Jamii</a></li>
+          <li><a class="nav-link nav-link-msimbo" href="https://github.com/lugha-swa/swa">Msimbo</a></li>
+        </ul>
       </nav>
+      <button class="theme-toggle" type="button" data-mandhari-btn aria-pressed="false">Giza</button>
     </div>
   </header>
 
-  <main>
-    <!-- ===================== HERO ===================== -->
+  <main id="yaliyomo">
+    <!-- ===================== MWANZO (HERO) ===================== -->
     <section class="hero">
-      <div class="wrap hero-grid">
+      <div class="hero-grid">
         <div>
-          <div class="hero-kicker">Mkusanyaji wa kujikusanya</div>
+          <a class="chip" href="habari.html">Toleo 1.0 limewasili</a>
           <h1 class="hero-title">Lugha ya kupanga ya <span class="accent">Kiswahili</span></h1>
-          <p class="hero-desc">
-            Swa ni mkusanyaji wa lugha ya mifumo unaojiandika wenyewe. Sintaksia yake ni
-            Kiswahili kamili — hakuna neno la Kiingereza. Inakusanya moja kwa moja hadi
-            msimbo wa mashine.
+          <p class="hero-lede">
+            Swa ni lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili —
+            hakuna neno la Kiingereza katika sintaksia yake — inayojikusanya yenyewe
+            moja kwa moja hadi msimbo wa mashine, bila lugha nyingine yoyote kwenye
+            mnyororo wake wa uzalishaji.
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="jifunze.html">Jifunze Swa</a>
             <a class="btn btn-ghost" href="sakinisha.html">Sakinisha</a>
           </div>
+          <div class="hero-stats">
+            <span>Toleo 1.0</span>
+            <span>Majaribio 227/227</span>
+            <span>Mnyororo wa Swa 104/104</span>
+            <span>x86-64 Linux</span>
+            <span>Apache 2.0 au MIT</span>
+          </div>
         </div>
-        <div class="codeblock">
-          <div class="bar"><span>●</span><span class="fname">salamu.swa</span></div>
-<pre><code><span class="tok-kw">husisha</span> C::stdio
-
-<span class="tok-kw">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
+        <figure class="codeblock" data-fname="salamu.swa">
+          <figcaption class="codeblock-bar">
+            <span class="codeblock-fname">salamu.swa</span>
+            <button class="codeblock-copy" type="button">Nakili</button>
+          </figcaption>
+          <pre><code><span class="tok-type">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, %s!\n"</span>, jina);
 }
 
@@ -63,103 +114,132 @@
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }
 
-<span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);</code></pre>
-        </div>
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);
+    <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">5</span>) != <span class="tok-num">1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
+    <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">-5</span>) != <span class="tok-num">-1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">2</span>; }
+    <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">0</span>) != <span class="tok-num">0</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">3</span>; }
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+          <div class="codeblock-tokeo">
+            <span class="codeblock-prompt">$ ./salamu</span>
+            <span class="codeblock-pato">Habari, Dunia!</span>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <!-- ===================== VIPENGELE ===================== -->
-    <section class="section alt">
+    <!-- ===================== KWA NINI SWA? ===================== -->
+    <section class="section">
       <div class="wrap">
         <div class="section-head">
           <h2 class="section-title">Kwa nini Swa?</h2>
           <p class="section-sub">Mkusanyaji wa mifumo unaojiandika wenyewe, kwa Kiswahili.</p>
         </div>
-        <div class="features">
-          <div class="feature">
+        <ul class="feature-grid">
+          <li class="feature-card">
+            <span class="feature-num" aria-hidden="true">01</span>
             <h3>Kiswahili kamili</h3>
-            <p>Maneno muhimu 13 ya Kiswahili — hakuna neno la Kiingereza katika sintaksia.
-            Aina za nambari hutambuliwa kisintaksia kwa herufi kubwa.</p>
-          </div>
-          <div class="feature">
-            <h3>Inajikusanya</h3>
-            <p>Mnyororo wa kujikusanya umefungwa kabisa: <code>baiti za mkono</code>,
-            <code>mbegu</code>, <code>stage1-exe</code>, na <code>stage2-exe == stage3-exe</code>
-            sawa kwa baiti — bila kiunganishi wala libc.</p>
-          </div>
-          <div class="feature">
+            <p>Maneno muhimu 13 — hakuna neno la Kiingereza katika sintaksia. Aina za nambari hutambuliwa kisintaksia kwa herufi kubwa, si kama maneno muhimu.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-num" aria-hidden="true">02</span>
+            <h3>Uhuru kamili wa kujikusanya</h3>
+            <p>Mnyororo wa uzalishaji hautegemei lugha nyingine: Kwanza (baiti 393 za mkono), mbegu, stage1-exe, na <code>stage2-exe == stage3-exe</code> — sawa kwa baiti. Hakuna gcc, ld, clang, wala libc.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-num" aria-hidden="true">03</span>
             <h3>Kizalishe asilia cha x86-64</h3>
-            <p>Hutoa ELF ya x86-64 moja kwa moja. LLVM iko kwa majukwaa zaidi.</p>
-          </div>
-          <div class="feature">
+            <p>Kizalishe asilia kinatoa ELF ya x86-64 moja kwa moja, hata ET_EXEC tuli kwa bendera <code>--exe</code>. Njia ya LLVM ipo kwenye dereva wa Rust lakini ni ya majaribio tu.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-num" aria-hidden="true">04</span>
             <h3>Familia 5 za aina</h3>
-            <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali,
-            <code>B</code> buli, <code>W</code> upana wa mashine — upana wowote.</p>
-          </div>
-          <div class="feature">
+            <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali, <code>B</code> buli, <code>W</code> upana wa mashine — kila familia ikifuatiwa na upana wa tarakimu, kama <code>N32</code> na <code>D64</code>.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-num" aria-hidden="true">05</span>
             <h3>Kumbukumbu ya moja kwa moja</h3>
-            <p><code>tenga</code> na <code>achilia</code>. Hakuna mkusanyaji wa takataka.</p>
-          </div>
-          <div class="feature">
-            <h3>Ilioandikwa kwa Swa</h3>
-            <p>Msomaji, mchanganuzi, mkaguzi, na kizalishe vyote vimeandikwa kwa Swa yenyewe.</p>
-          </div>
-        </div>
+            <p><code>tenga</code> hutenga, <code>achilia</code> huachilia — hakuna mkusanyaji wa takataka. Maktaba hutumia arena ya kumbukumbu (mmap).</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-num" aria-hidden="true">06</span>
+            <h3>Imeandikwa kwa Swa</h3>
+            <p>Msomaji, mchanganuzi, mkaguzi wa kisemantiki, kiteremshi, na kizalishe asilia — vyote ni faili za .swa, pamoja na maktaba ya kawaida.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- ===================== KUJIKUSANYA ===================== -->
-    <section class="section">
+    <!-- ===================== MNYORORO WA KUJIKUSANYA ===================== -->
+    <section class="band">
       <div class="wrap">
         <div class="section-head">
           <h2 class="section-title">Mnyororo wa kujikusanya</h2>
           <p class="section-sub">Kila hatua hutoa kizazi kinachofuata, hadi mkusanyaji unajithibitisha yenyewe.</p>
         </div>
-        <div class="chain">
-          <div class="chain-step">
-            <div class="node">baiti za mkono</div>
-            <div class="desc">kwanza — baiti 393</div>
-          </div>
-          <span class="chain-arrow">→</span>
-          <div class="chain-step">
-            <div class="node">mbegu</div>
-            <div class="desc">mbegu.bin, kutoka hex</div>
-          </div>
-          <span class="chain-arrow">→</span>
-          <div class="chain-step">
-            <div class="node">stage1-exe</div>
-            <div class="desc">ET_EXEC tuli</div>
-          </div>
-          <span class="chain-arrow">→</span>
-          <div class="chain-step">
-            <div class="node">stage2-exe == stage3-exe</div>
-            <div class="desc">sawa kwa baiti</div>
+        <ol class="chain" aria-label="Mnyororo wa kujikusanya">
+          <li class="chain-step"><code>Kwanza</code><span class="chain-desc">baiti 393 za mkono</span></li>
+          <li class="chain-step"><code>mbegu</code><span class="chain-desc">kutoka hex, bila kiunganishi</span></li>
+          <li class="chain-step"><code>stage1-exe</code><span class="chain-desc">ET_EXEC tuli</span></li>
+          <li class="chain-step chain-thibitisho"><code>stage2-exe == stage3-exe</code><span class="chain-desc">sawa kwa baiti</span></li>
+        </ol>
+        <p class="section-sub">Hakuna <code>gcc</code>, <code>ld</code>, <code>clang</code>, wala <code>libc</code> popote kwenye mnyororo wa uzalishaji.</p>
+        <p><a href="habari.html">Soma historia kamili</a></p>
+      </div>
+    </section>
+
+    <!-- ===================== ANZA SASA ===================== -->
+    <section class="section">
+      <div class="split-grid">
+        <div>
+          <h2 class="section-title">Anza kwa dakika tano</h2>
+          <p class="section-sub">
+            Jenga mkusanyaji wa kwanza wa Swa kutoka chanzo, kisha ukusanye program
+            yako — mnyororo safi wa Swa, bila Rust, LLVM, clang, wala libc.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="sakinisha.html">Sakinisha</a>
+            <a class="btn btn-ghost" href="https://github.com/lugha-swa/swa">Mwongozo wa kujenga</a>
           </div>
         </div>
-        <p class="section-sub">
-          Hakuna <code>gcc</code>, <code>ld</code>, <code>clang</code>, wala <code>libc</code>
-          popote kwenye mnyororo wa uzalishaji.
-        </p>
+        <figure class="codeblock" data-fname="bash">
+          <figcaption class="codeblock-bar">
+            <span class="codeblock-fname">bash</span>
+            <button class="codeblock-copy" type="button">Nakili</button>
+          </figcaption>
+          <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa msingi/msomaji.swa \
+    msingi/msambazaji.swa msingi/mteremko.swa msingi/mkaguzi.swa \
+    msingi/uzalishaji.swa msingi/orodha.swa msingi/ramani.swa \
+    msingi/stage1.swa > zima.swa
+./msingi/mbegu.bin --exe zima.swa > stage1-exe
+chmod +x stage1-exe
+./stage1-exe --exe programu.swa > programu.bin
+chmod +x programu.bin &amp;&amp; ./programu.bin</code></pre>
+        </figure>
       </div>
     </section>
 
     <!-- ===================== HABARI ===================== -->
-    <section class="section alt">
+    <section class="section section-alt">
       <div class="wrap">
         <div class="section-head">
           <h2 class="section-title">Habari za hivi karibuni</h2>
+          <p class="section-sub">Mafanikio muhimu ya mradi, kwa tarehe — kila moja yanaweza kuthibitishwa kwenye historia ya git.</p>
         </div>
-        <div class="post">
-          <div class="date">2026-08-25</div>
-          <h2><a href="habari.html">Mbegu imerekebishwa: hesabu za baiti 8</a></h2>
-          <p>Hitilafu ya FPE kwenye hesabu za N64 imetatuliwa kwenye mzizi — mbegu sasa hukusanya desimali na kukataa wito wa D64 kwa usahihi.</p>
-        </div>
-        <div class="post">
-          <div class="date">2026-08</div>
-          <h2><a href="habari.html">Maktaba ya kawaida imekamilika</a></h2>
-          <p>Hesabu, mifuatano, orodha, mpangilio, na ramani — vyote vimeandikwa kwa Swa.</p>
-        </div>
-        <p><a href="habari.html">Habari zote →</a></p>
+        <ul class="news-grid">
+          <li class="post">
+            <time class="post-date" datetime="2026-08-25">2026-08-25</time>
+            <h2><a href="habari.html">Mbegu imerekebishwa: hesabu za baiti 8</a></h2>
+            <p>FPE ya N64 imetatuliwa; maneno muhimu yamepunguzwa hadi 13; halisi za N64 zinafanya kazi kwenye mnyororo wa .swa; majaribio yote 227/227 yanapita.</p>
+          </li>
+          <li class="post">
+            <time class="post-date" datetime="2026-08-19">2026-08-19</time>
+            <h2><a href="habari.html">Toleo v1.0.0 limewasili</a></h2>
+            <p>Lebo ya git v1.0.0 imewekwa na maktaba ya kawaida imekamilika — hesabu, mifuatano, na soma_mstari — zote kwa Swa yenyewe.</p>
+          </li>
+        </ul>
+        <a class="news-more" href="habari.html">Habari zote</a>
       </div>
     </section>
   </main>
@@ -167,29 +247,45 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="logo.svg" alt="">swa</a>
-        <p>Lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili. Imetengenezwa Afrika ya Mashariki.</p>
+        <a class="logo" href="/" aria-label="Swa — kurasa ya mwanzo">
+          <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <path d="M6 42 V22 A18 18 0 0 1 42 22 V42 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+            <g fill="currentColor">
+              <g transform="translate(14 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(24 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(34 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(14 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(24 25)"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g>
+              <g transform="translate(34 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(14 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(24 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(34 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            </g>
+          </svg>swa
+        </a>
+        <p>Lugha ya mifumo yenye sintaksia kamili ya Kiswahili, inayojikusanya yenyewe. Imetengenezwa Afrika ya Mashariki.</p>
       </div>
-      <div class="footer-col">
+      <nav class="footer-col" aria-label="Nyaraka">
         <h4>Nyaraka</h4>
         <a href="jifunze.html">Jifunze</a>
         <a href="marejeo.html">Marejeo</a>
         <a href="sakinisha.html">Sakinisha</a>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Mradi">
         <h4>Mradi</h4>
         <a href="https://github.com/lugha-swa/swa">Msimbo</a>
         <a href="habari.html">Habari</a>
         <a href="https://github.com/lugha-swa/swa/issues">Masuala</a>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Jamii">
         <h4>Jamii</h4>
         <a href="jamii.html">Kuchangia</a>
         <a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a>
-      </div>
+      </nav>
     </div>
     <div class="footer-bottom">
-      Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a>.
+      <span>Toleo 1.0 — Imetengenezwa Afrika ya Mashariki</span>
+      <span>Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a></span>
     </div>
   </footer>
 </body>
