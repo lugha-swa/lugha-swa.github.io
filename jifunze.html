@@ -3,159 +3,578 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jifunze Swa</title>
-  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <title>Jifunze Swa — Lugha ya Swa</title>
+  <meta name="description" content="Mafunzo ya taratibu ya lugha ya Swa katika hatua tisa: kutoka programu ya kwanza hadi maktaba kamili ya kawaida. Kila sampuli imejaribiwa kwa mkusanyaji halisi.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="canonical" href="https://lugha-swa.github.io/jifunze.html">
+  <meta property="og:title" content="Jifunze Swa — Lugha ya Swa">
+  <meta property="og:description" content="Mafunzo ya taratibu ya lugha ya Swa katika hatua tisa, kila sampuli imejaribiwa kwa mkusanyaji halisi.">
+  <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lugha-swa.github.io/jifunze.html">
+  <meta name="theme-color" content="#FAF7EF">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem("swa-mandhari");
+      if (t === "giza" || (t === null && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-mandhari", "giza");
+      } else if (t === "mwanga") {
+        document.documentElement.setAttribute("data-mandhari", "mwanga");
+      }
+    } catch (e) {}
+  })();
+  </script>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#yaliyomo">Ruka hadi yaliyomo</a>
+
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="logo"><img src="logo.svg" alt="">swa</a>
-      <nav class="nav">
-        <a href="/">Mwanzo</a>
-        <a href="jifunze.html" class="active">Jifunze</a>
-        <a href="marejeo.html">Marejeo</a>
-        <a href="sakinisha.html">Sakinisha</a>
-        <a href="jamii.html">Jamii</a>
-        <a class="github" href="https://github.com/lugha-swa/swa">GitHub</a>
+      <a class="logo" href="/" aria-label="Swa — kurasa ya mwanzo">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M6 42 V22 A18 18 0 0 1 42 22 V42 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+          <g fill="currentColor">
+            <g transform="translate(14 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(24 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(34 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(14 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(24 25)"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g>
+            <g transform="translate(34 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(14 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(24 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            <g transform="translate(34 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+          </g>
+        </svg>swa
+      </a>
+      <nav class="nav" aria-label="Urambazaji mkuu" id="urambazaji">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="urambazaji">Menyu</button>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/">Mwanzo</a></li>
+          <li><a class="nav-link active" href="jifunze.html" aria-current="page">Jifunze</a></li>
+          <li><a class="nav-link" href="marejeo.html">Marejeo</a></li>
+          <li><a class="nav-link" href="sakinisha.html">Sakinisha</a></li>
+          <li><a class="nav-link" href="habari.html">Habari</a></li>
+          <li><a class="nav-link" href="jamii.html">Jamii</a></li>
+          <li><a class="nav-link nav-link-msimbo" href="https://github.com/lugha-swa/swa">Msimbo</a></li>
+        </ul>
       </nav>
+      <button class="theme-toggle" type="button" data-mandhari-btn aria-pressed="false">Giza</button>
     </div>
   </header>
 
-  <div class="page-head">
+  <main id="yaliyomo">
+    <section class="page-head">
+      <div class="wrap">
+        <h1>Jifunze Swa</h1>
+        <p>Mafunzo ya taratibu katika hatua tisa: kutoka programu ya kwanza hadi maktaba kamili ya kawaida. Kila sampuli imekusanywa kwa mkusanyaji halisi na kuendeshwa; pato lake limeandikwa chini yake.</p>
+      </div>
+    </section>
     <div class="wrap">
-      <h1>Jifunze Swa</h1>
-      <p class="lede">Mwongozo mfupi wa sintaksia ya Swa, kwa mfano.</p>
-    </div>
-  </div>
+      <div class="docs">
+        <aside class="docs-sidebar" aria-label="Faharasa ya kurasa hii">
+          <nav class="docs-nav">
+            <p class="docs-nav-title">Jifunze</p>
+            <ul>
+              <li><a class="docs-link active" href="#programu-ya-kwanza" aria-current="location">1. Programu ya kwanza</a></li>
+              <li><a class="docs-link" href="#aina">2. Aina na vigezo</a></li>
+              <li><a class="docs-link" href="#udhibiti">3. Mtiririko wa udhibiti</a></li>
+              <li><a class="docs-link" href="#kazi">4. Kazi</a></li>
+              <li><a class="docs-link" href="#miundo">5. Miundo</a></li>
+              <li><a class="docs-link" href="#vielekezi-na-safu">6. Vielekezi na safu</a></li>
+              <li><a class="docs-link" href="#kumbukumbu">7. Kumbukumbu na mifumo</a></li>
+              <li><a class="docs-link" href="#maktaba">8. Maktaba ya kawaida</a></li>
+              <li><a class="docs-link" href="#kuendesha">9. Kuendesha programu</a></li>
+            </ul>
+          </nav>
+        </aside>
 
-  <main class="wrap prose">
-    <h2>Aina za nambari</h2>
-    <p>Swa ina familia tano za aina: <code>N</code> (namba), <code>A</code> (asili, bila ishara),
-    <code>D</code> (desimali), <code>B</code> (buli), na <code>W</code> (upana wa mashine; W0 ni bila thamani).</p>
-    <div class="codeblock">
-      <div class="bar"><span>●</span><span class="fname">aina.swa</span></div>
-<pre><code><span class="tok-type">N32</span> umri = <span class="tok-num">25</span>;
+        <div class="docs-content">
+
+          <h2 id="programu-ya-kwanza">Hatua 1 — Programu ya kwanza</h2>
+          <p>Faili ya <code>.swa</code> ni mfuatano wa matamko ya kiwango cha juu: kazi, miundo, na vigezo vya ulimwengu. Sehemu ya kuingia ni kazi <code>main</code> — katika hali ya <code>--exe</code>, sahihi ni <code>N32 main()</code> au <code>N32 main(N32 argc, N8** argv)</code>.</p>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p>Taarifa ya kiwango cha juu ni kosa la mchanganuzi. Programu ni mfuatano wa matamko pekee — wito kama <code>salamu("Dunia");</code> nje ya kazi hauruhusiwi. Kila kitu kinachotekelezwa lazima kiwe ndani ya kazi.</p>
+          </aside>
+          <p>Hii ni programu ya kwanza kabisa:</p>
+          <figure class="codeblock" data-fname="hello.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">hello.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, Swa!\n"</span>);
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./hello.bin</span>
+              <span class="codeblock-pato">Habari, Swa!</span>
+            </div>
+          </figure>
+          <p>Ili kuendesha, maktaba ya kumbukumbu huunganishwa kwanza kwa <code>cat</code> — <code>andika</code> inatoka hapo, si kwenye mkusanyaji:</p>
+          <figure class="codeblock" data-fname="amri">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">amri</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code>cat msingi/kumbukumbu.swa hello.swa &gt; hello_zima.swa
+./msingi/mbegu.bin --exe hello_zima.swa &gt; hello.bin
+chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
+          </figure>
+          <aside class="callout callout-maelezo" role="note">
+            <p class="callout-title">Maelezo</p>
+            <p><code>andika</code> si kazi ya C stdio. Ni kazi ya maktaba ya msingi (<code>msingi/kumbukumbu.swa</code>) inayotumia wito wa mfumo wa Linux moja kwa moja — haina libc yoyote. Usiandike <code>husisha C::stdio</code> kwenye mfano: kiungo hicho hakitoi kazi yoyote.</p>
+          </aside>
+
+          <h2 id="aina">Hatua 2 — Aina na vigezo</h2>
+          <p>Familia tano za aina za nambari, kila moja ikifuatiwa na upana wa tarakimu:</p>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Familia tano za aina za nambari za Swa</caption>
+              <thead>
+                <tr><th scope="col">Familia</th><th scope="col">Jina</th><th scope="col">Mifano</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>N</code></td><td>kamili yenye ishara</td><td><code>N8</code> (baiti 1), <code>N16</code> (baiti 2), <code>N32</code> (baiti 4), <code>N64</code> (baiti 8)</td></tr>
+                <tr><td><code>A</code></td><td>asili, bila ishara</td><td>mfano <code>A32</code></td></tr>
+                <tr><td><code>D</code></td><td>desimali</td><td><code>D64</code> (baiti 8, IEEE 754)</td></tr>
+                <tr><td><code>B</code></td><td>buli/biti</td><td><code>B1</code> — matokeo ya ulinganisho na mantiki</td></tr>
+                <tr><td><code>W</code></td><td>upana wa mashine</td><td><code>W0</code> — bila thamani, kwa kazi tu</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Halisi: nambari kamili kama <code>25</code> — aina yake ya chaguo-msingi ni <code>N32</code> ikiwa inatoshea ndani ya 32-bit yenye ishara, vinginevyo <code>N64</code>. Desimali kama <code>21.5</code> — <code>D64</code>. Mfuatano kama <code>"habari"</code> — baiti za <code>N8</code> zikifuatiwa na 0; utorokaji <code>\n</code>, <code>\t</code>, <code>\\</code>, <code>\"</code> unasaidiwa. Maoni: <code>//</code> na <code>/* ... */</code>; maoni ya kijiuzi hayaruhusiwi.</p>
+          <p>Hakuna maneno <code>kweli</code>, <code>uongo</code>, wala <code>tupu</code>: ukweli ni 1, si kweli ni 0; matokeo ya ulinganisho ni 1 au 0. Vigezo vya ulimwengu na safu za ulimwengu vinaruhusiwa (<code>N32 KIKOMO = 0;</code>, <code>N8 bafa[1024];</code>).</p>
+          <figure class="codeblock" data-fname="aina.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">aina.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> umri = <span class="tok-num">25</span>;
 <span class="tok-type">N64</span> idadi_ya_watu = <span class="tok-num">8000000000</span>;
-<span class="tok-type">D64</span> wastani = <span class="tok-num">3.14</span>;
-<span class="tok-type">B1</span>  imewashwa = <span class="tok-num">1</span>;
-<span class="tok-type">N8</span>  herufi = <span class="tok-str">'A'</span>;</code></pre>
-    </div>
+<span class="tok-type">N8</span> herufi = <span class="tok-num">65</span>;
 
-    <h2>Kazi</h2>
-    <p>Kazi hutangazwa kwa aina ya kurudi, jina, na vigezo. <code>W0</code> inaashiria kazi isiyorudisha thamani.</p>
-    <div class="codeblock">
-      <div class="bar"><span>●</span><span class="fname">kazi.swa</span></div>
-<pre><code><span class="tok-type">N32</span> <span class="tok-fn">jumlisha</span>(<span class="tok-type">N32</span> a, <span class="tok-type">N32</span> b) {
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">D64</span> wastani = <span class="tok-num">3.14</span>;
+    <span class="tok-kw">kama</span> (umri != <span class="tok-num">25</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
+    <span class="tok-kw">kama</span> (herufi != <span class="tok-num">65</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">2</span>; }
+    <span class="tok-kw">kama</span> (wastani &gt; <span class="tok-num">3.0</span>) {
+        <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+    }
+    <span class="tok-kw">rudisha</span> <span class="tok-num">3</span>;
+}</code></pre>
+          </figure>
+          <p>Programu hii haichapishi chochote: inarudi msimbo 0 ikiwa kila kigezo kinashikilia thamani yake sahihi.</p>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p>Halisi za herufi hazipo kwenye lugha: <code>'A'</code> si halali — tumia nambari ya ASCII (<code>65</code>). <code>B1</code> ni aina ya ndani (matokeo ya ulinganisho): tangazo la kigezo cha <code>B1</code> linavunja mbegu (SEGV) na mkaguzi wa .swa analikataa. Tangazo la <code>D64</code> lenye kianzilishi kwenye kiwango cha juu linashindikana kwenye mbegu (<code>Hitilafu: ulichanganuzi</code>) — tangaza desimali ndani ya kazi, kama hapa.</p>
+          </aside>
+          <aside class="callout callout-maelezo" role="note">
+            <p class="callout-title">Maelezo</p>
+            <p>Kigezo kisichoanzishwa kina thamani isiyofahamika (kumbukumbu ya rafu isiyoanzishwa) — usisome kabla ya kuweka thamani. Pia: <code>N64</code> kubwa zaidi ya 2^31 - 1 inahifadhiwa kwa usahihi kwenye kigezo cha ulimwengu kwenye mbegu, lakini kigezo cha ndani chenye thamani kubwa kama hiyo kinahifadhi thamani mbovu kimya kwenye mbegu. Kwenye mnyororo wa .swa (stage1) halisi za N64 ni kamili.</p>
+          </aside>
+
+          <h2 id="udhibiti">Hatua 3 — Mtiririko wa udhibiti</h2>
+          <p><code>kama (sharti) { ... }</code> na <code>sivyo { ... }</code> (hiari). Tawi-jingine huandikwa kwa kuingiza <code>kama</code> ndani ya <code>sivyo</code> — hakuna maneno <code>kamasivyo</code> wala <code>sivyo kama</code>.</p>
+          <p><code>wakati (sharti) { ... }</code> ni kitanzi. <code>kwa (kianzilishi; sharti; hatua) { ... }</code> — sehemu zote tatu ni za hiari. Semantiki ya <code>endelea</code> ndani ya <code>kwa</code>: inaruka hadi HATUA (ya tatu), si kwenye sharti — semantiki ya C. <code>vunja;</code> inatoka nje ya kitanzi cha ndani; <code>endelea;</code> inaruka hadi mwisho wa mwili wa kitanzi.</p>
+          <p><code>&amp;&amp;</code> na <code>||</code> zinatathmini kwa fupi-hali: <code>a &amp;&amp; b</code> haitathmini <code>b</code> ikiwa <code>a</code> ni 0 — hii inaruhusu <code>j &gt;= 0 &amp;&amp; a[j] == x</code> bila kusoma nje ya mipaka. Opereta ya ternary <code>sharti ? kweli : uwongo</code> inasaidiwa.</p>
+          <figure class="codeblock" data-fname="udhibiti.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">udhibiti.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">jumla_kwa_kwa</span>(<span class="tok-type">N32</span> n) {
+    <span class="tok-type">N32</span> s = <span class="tok-num">0</span>;
+    <span class="tok-kw">kwa</span> (<span class="tok-type">N32</span> i = <span class="tok-num">0</span>; i &lt; n; i = i + <span class="tok-num">1</span>) {
+        <span class="tok-kw">kama</span> (i == <span class="tok-num">3</span>) { <span class="tok-kw">endelea</span>; }
+        <span class="tok-kw">kama</span> (i == <span class="tok-num">8</span>) { <span class="tok-kw">vunja</span>; }
+        s = s + i;
+    }
+    <span class="tok-kw">rudisha</span> s;
+}
+
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">N32</span> x = <span class="tok-num">-4</span>;
+    <span class="tok-type">N32</span> hali = <span class="tok-num">0</span>;
+    <span class="tok-kw">kama</span> (x &gt; <span class="tok-num">0</span>) {
+        hali = <span class="tok-num">1</span>;
+    } <span class="tok-kw">sivyo</span> {
+        <span class="tok-kw">kama</span> (x &lt; <span class="tok-num">0</span>) {
+            hali = <span class="tok-num">-1</span>;
+        }
+    }
+    <span class="tok-type">N32</span> n = <span class="tok-num">0</span>;
+    <span class="tok-kw">wakati</span> (n &lt; <span class="tok-num">3</span>) {
+        n = n + <span class="tok-num">1</span>;
+    }
+    <span class="tok-fn">andika</span>(<span class="tok-str">"wakati: %d, kwa: %d\n"</span>, n, <span class="tok-fn">jumla_kwa_kwa</span>(<span class="tok-num">10</span>));
+    <span class="tok-kw">kama</span> (hali != <span class="tok-num">-1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./udhibiti.bin</span>
+              <span class="codeblock-pato">wakati: 3, kwa: 25</span>
+            </div>
+          </figure>
+          <p><code>jumla_kwa_kwa(10)</code> ni 0+1+2+4+5+6+7 = 25: <code>i = 3</code> imerukwa na <code>endelea</code>, na <code>i = 8</code> imevunja kitanzi — semantiki ya C ya <code>endelea</code> ndani ya <code>kwa</code>.</p>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p><code>chagua</code> na <code>hali</code> hazifanyi kazi kwenye mnyororo asilia wa uzalishaji. Mbegu hukataa <code>chagua</code> kabisa (<code>Hitilafu: ulichanganuzi</code>). Mnyororo wa .swa hukusanya <code>chagua</code> lakini hulinganisha hali ya KWANZA pekee — matokeo si sahihi kwa hali nyingi — na <code>sivyo:</code> (hali ya kawaida) haichanganuliwi hata kidogo. Zinafanya kazi kwenye dereva wa majaribio wa Rust/LLVM pekee. Hadi marekebisho yafike, andika uteuzi kwa <code>kama</code> / <code>sivyo</code> zilizopachikwa, kama kwenye mfano hapo juu.</p>
+          </aside>
+
+          <h2 id="kazi">Hatua 4 — Kazi</h2>
+          <p>Umbo: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;mwili&gt; }</code>. Vigezo hupitishwa kwa thamani au kwa kielekezi. <code>rudisha &lt;usemi&gt;;</code> kwa kazi yenye thamani; <code>rudisha;</code> kwa <code>W0</code>. Wito wa mbele unaruhusiwa (kazi inaweza kuitwa kabla ya kutangazwa); kujirudia kunasaidiwa.</p>
+          <figure class="codeblock" data-fname="kazi.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">kazi.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">jumlisha</span>(<span class="tok-type">N32</span> a, <span class="tok-type">N32</span> b) {
     <span class="tok-kw">rudisha</span> a + b;
 }
 
-<span class="tok-kw">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
+<span class="tok-type">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, %s!\n"</span>, jina);
-}</code></pre>
-    </div>
-
-    <h2>Mtiririko wa udhibiti</h2>
-    <p><code>kama</code> na <code>sivyo</code> ndizo pekee za masharti. Tawi-jingine huandikwa kwa
-    kuingiza <code>kama</code> ndani ya <code>sivyo</code>.</p>
-    <div class="codeblock">
-      <div class="bar"><span>●</span><span class="fname">udhibiti.swa</span></div>
-<pre><code><span class="tok-type">N32</span> <span class="tok-fn">kadirifu</span>(<span class="tok-type">N32</span> x) {
-    <span class="tok-kw">kama</span> (x &gt; 0) {
-        <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>;
-    }
-    <span class="tok-kw">sivyo</span> {
-        <span class="tok-kw">kama</span> (x &lt; 0) {
-            <span class="tok-kw">rudisha</span> <span class="tok-num">-1</span>;
-        }
-    }
-    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }
 
-<span class="tok-com">// Kitanzi cha wakati</span>
-<span class="tok-kw">W0</span> <span class="tok-fn">hesabu_hadi</span>(<span class="tok-type">N32</span> n) {
-    <span class="tok-type">N32</span> i = <span class="tok-num">0</span>;
-    <span class="tok-kw">wakati</span> (i &lt; n) {
-        <span class="tok-fn">andika</span>(<span class="tok-str">"%d\n"</span>, i);
-        i = i + <span class="tok-num">1</span>;
-    }
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);
+    <span class="tok-kw">rudisha</span> <span class="tok-fn">jumlisha</span>(<span class="tok-num">3</span>, <span class="tok-num">4</span>);
 }</code></pre>
-    </div>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./kazi.bin</span>
+              <span class="codeblock-pato">Habari, Dunia!</span>
+            </div>
+          </figure>
+          <p>Programu inarudi msimbo 7 — matokeo ya <code>jumlisha(3, 4)</code> — ukionyesha kwamba kurejesha thamani kunafanya kazi.</p>
+          <p>Kujirudia ni rahisi kama C:</p>
+          <figure class="codeblock" data-fname="kujirudia.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">kujirudia.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">fibonacci</span>(<span class="tok-type">N32</span> n) {
+    <span class="tok-kw">kama</span> (n &lt;= <span class="tok-num">1</span>) { <span class="tok-kw">rudisha</span> n; }
+    <span class="tok-kw">rudisha</span> <span class="tok-fn">fibonacci</span>(n - <span class="tok-num">1</span>) + <span class="tok-fn">fibonacci</span>(n - <span class="tok-num">2</span>);
+}
 
-    <h2>Miundo</h2>
-    <p>Muundo hutangazwa kwa <code>muundo</code>. Sehemu zake hupatikana kwa <code>.</code> au <code>-&gt;</code>.</p>
-    <div class="codeblock">
-      <div class="bar"><span>●</span><span class="fname">muundo.swa</span></div>
-<pre><code><span class="tok-kw">muundo</span> <span class="tok-type">Nukta</span> {
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">N32</span> n = <span class="tok-num">10</span>;
+    <span class="tok-fn">andika</span>(<span class="tok-str">"fibonacci(%d) = %d\n"</span>, n, <span class="tok-fn">fibonacci</span>(n));
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./kujirudia.bin</span>
+              <span class="codeblock-pato">fibonacci(10) = 55</span>
+            </div>
+          </figure>
+
+          <h2 id="miundo">Hatua 5 — Miundo</h2>
+          <p><code>muundo Nukta { N32 x; N32 y; };</code> — upatikanaji wa sehemu kwa <code>p.x</code> (thamani) na <code>p-&gt;x</code> (kielekezi). Miundo inaweza kupitishwa kwa thamani na kurejeshwa kwa thamani (sret imetekelezwa). Hakuna urithi, hakuna miundo ya kijiuzi.</p>
+          <figure class="codeblock" data-fname="muundo.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">muundo.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-kw">muundo</span> <span class="tok-type">Nukta</span> {
     <span class="tok-type">N32</span> x;
     <span class="tok-type">N32</span> y;
 };
 
-<span class="tok-type">N32</span> <span class="tok-fn">pata_x</span>(<span class="tok-type">Nukta</span> p) {
-    <span class="tok-kw">rudisha</span> p.x;
+<span class="tok-type">N32</span> <span class="tok-fn">pata_x</span>(<span class="tok-type">Nukta</span>* p) {
+    <span class="tok-kw">rudisha</span> p-&gt;x;
 }
 
-<span class="tok-kw">W0</span> <span class="tok-fn">weka_x</span>(<span class="tok-type">Nukta</span>* p, <span class="tok-type">N32</span> v) {
+<span class="tok-type">W0</span> <span class="tok-fn">weka_x</span>(<span class="tok-type">Nukta</span>* p, <span class="tok-type">N32</span> v) {
     p-&gt;x = v;
-}</code></pre>
-    </div>
-
-    <h2>Kumbukumbu</h2>
-    <p>Kumbukumbu hutengwa kwa <code>tenga</code> na kuachiliwa kwa <code>achilia</code>. Hakuna mkusanyaji wa takataka.</p>
-    <div class="codeblock">
-      <div class="bar"><span>●</span><span class="fname">kumbukumbu.swa</span></div>
-<pre><code><span class="tok-kw">W0</span> <span class="tok-fn">mfano_kumbukumbu</span>() {
-    <span class="tok-type">N32</span>* p = <span class="tok-kw">tenga</span> <span class="tok-type">N32</span>;
-    *p = <span class="tok-num">42</span>;
-    <span class="tok-kw">achilia</span>(p);
-}</code></pre>
-    </div>
-
-    <h2>Maktaba ya mfuatano</h2>
-    <p>Swa inakuja na maktaba ndogo ya kawaida: hesabu, mifuatano, orodha, mpangilio, na ramani.
-    Kila faili la maktaba linaweza kuunganishwa kwa <code>husisha</code>.</p>
-    <div class="codeblock">
-      <div class="bar"><span>●</span><span class="fname">mfuatano.swa</span></div>
-<pre><code><span class="tok-kw">husisha</span> { mfuatano.swa }
+}
 
 <span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">Nukta</span> n;
+    n.x = <span class="tok-num">3</span>;
+    n.y = <span class="tok-num">9</span>;
+    <span class="tok-fn">weka_x</span>(&amp;n, <span class="tok-num">12</span>);
+    <span class="tok-fn">andika</span>(<span class="tok-str">"x = %d, jumla = %d\n"</span>, n.x, n.x + n.y);
+    <span class="tok-kw">rudisha</span> <span class="tok-fn">pata_x</span>(&amp;n);
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./muundo.bin</span>
+              <span class="codeblock-pato">x = 12, jumla = 21</span>
+            </div>
+          </figure>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p>Hoja za muundo kwa THAMANI zinavunjika kwenye mbegu: <code>pata_x(n)</code> ilirudisha 72 badala ya 12, kimya. Pitisha miundo kwa kielekezi (<code>Nukta* p</code>, <code>p-&gt;x</code>) — kinachofanya kazi kwenye minyororo yote miwili. Kurudisha muundo kwa thamani (sret) kunafanya kazi.</p>
+          </aside>
+
+          <h2 id="vielekezi-na-safu">Hatua 6 — Vielekezi na safu</h2>
+          <p><code>&amp;x</code> — anwani ya kigezo au sehemu ya muundo; <code>*p</code> — nyoosha; <code>p-&gt;sehemu</code> — sehemu kupitia kielekezi; <code>a[i]</code> — ni <code>*(a + i * ukubwa_wa_kipengele)</code>; usemi wa safu pekee hutathminiwa kama kielekezi kwa kipengele chake cha kwanza.</p>
+          <figure class="codeblock" data-fname="kielekezi.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">kielekezi.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">W0</span> <span class="tok-fn">badilishana</span>(<span class="tok-type">N32</span>* a, <span class="tok-type">N32</span>* b) {
+    <span class="tok-type">N32</span> t = *a;
+    *a = *b;
+    *b = t;
+}
+
+<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">N32</span> x = <span class="tok-num">3</span>;
+    <span class="tok-type">N32</span> y = <span class="tok-num">8</span>;
+    <span class="tok-fn">andika</span>(<span class="tok-str">"kabla: x = %d, y = %d\n"</span>, x, y);
+    <span class="tok-fn">badilishana</span>(&amp;x, &amp;y);
+    <span class="tok-fn">andika</span>(<span class="tok-str">"baada: x = %d, y = %d\n"</span>, x, y);
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./kielekezi.bin</span>
+              <span class="codeblock-pato">kabla: x = 3, y = 8</span>
+              <span class="codeblock-pato">baada: x = 8, y = 3</span>
+            </div>
+          </figure>
+          <p>Safu za ndani, safu za ulimwengu, na vianzishi vya safu (<code>N32 namba[5] = {1, 2, 3, 4, 5};</code>) zinasaidiwa:</p>
+          <figure class="codeblock" data-fname="safu.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">safu.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">N32</span> safu[<span class="tok-num">5</span>];
+    <span class="tok-type">N32</span> i = <span class="tok-num">0</span>;
+    <span class="tok-kw">wakati</span> (i &lt; <span class="tok-num">5</span>) {
+        safu[i] = i * <span class="tok-num">10</span>;
+        i = i + <span class="tok-num">1</span>;
+    }
+    <span class="tok-type">N32</span> jumla = <span class="tok-num">0</span>;
+    i = <span class="tok-num">0</span>;
+    <span class="tok-kw">wakati</span> (i &lt; <span class="tok-num">5</span>) {
+        jumla = jumla + safu[i];
+        i = i + <span class="tok-num">1</span>;
+    }
+    <span class="tok-fn">andika</span>(<span class="tok-str">"jumla: %d, safu[3]: %d\n"</span>, jumla, safu[<span class="tok-num">3</span>]);
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./safu.bin</span>
+              <span class="codeblock-pato">jumla: 100, safu[3]: 30</span>
+            </div>
+          </figure>
+          <aside class="callout callout-kidokezo" role="note">
+            <p class="callout-title">Kidokezo</p>
+            <p>Kianzilishi cha safu kutoka kwenye mfuatano (<code>N8 s[] = "habari"</code> au <code>N8 s[4] = "Swa"</code>) kimevunjika kwenye minyororo yote miwili asilia. Njia sahihi: <code>nakili_mfuatano(b, "habari")</code> au kuandika baiti kwa baiti.</p>
+          </aside>
+
+          <h2 id="kumbukumbu">Hatua 7 — Kumbukumbu na mifumo</h2>
+          <p><code>tenga(ukubwa)</code> hutenga kumbukumbu; <code>achilia(p)</code> huachilia; <code>badili(p, ukubwa)</code> hupanua kipande (inayolingana na realloc). <code>ukubwa(T)</code> hutoa ukubwa wa aina kwa baiti.</p>
+          <p>Kwa mifumo: <code>wito_wa_mfumo(namba, a1, ..., a6)</code> ni simu ya syscall ya Linux moja kwa moja (ABI: rax, rdi, rsi, rdx, r10, r8, r9). <code>tekeleza(N8* kazi, N32 argc, N8** argv, N32 ofseti)</code> hutekeleza msimbo wa JIT; <code>anwani_ya_kazi(N8* jina)</code> hutoa anwani ya kazi ya ndani.</p>
+          <figure class="codeblock" data-fname="kumbukumbu.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">kumbukumbu.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">N8</span>* p = <span class="tok-fn">tenga</span>(<span class="tok-num">8</span>);
+    <span class="tok-kw">kama</span> (p == <span class="tok-num">0</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
+    p[<span class="tok-num">0</span>] = <span class="tok-num">42</span>;
+    <span class="tok-fn">andika</span>(<span class="tok-str">"thamani: %d\n"</span>, p[<span class="tok-num">0</span>]);
+    <span class="tok-fn">achilia</span>(p);
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./kumbukumbu.bin</span>
+              <span class="codeblock-pato">thamani: 42</span>
+            </div>
+          </figure>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p>Umbo la taarifa <code>tenga N32</code> limevunjika kwenye minyororo yote miwili asilia: kwenye mbegu linakusanyika lakini binary inaanguka SEGV hata maktaba ikiunganishwa; kwenye stage1 linatoa <code>[KITAMB] haijulikani: 'tenga'</code> na mkusanyaji anaendelea kutoa binary batili. Tumia umbo la wito pekee: <code>tenga(ukubwa)</code>.</p>
+          </aside>
+          <aside class="callout callout-maelezo" role="note">
+            <p class="callout-title">Maelezo</p>
+            <p>Maktaba ya msingi inatumia arena ya kumbukumbu (mmap ya baiti 1,048,576) badala ya malloc/realloc/free; <code>achilia</code> haifungui kipande kweli — kinarejeshwa kwenye arena. <code>tenga</code>, <code>achilia</code>, na <code>badili</code> ni kazi za <code>msingi/kumbukumbu.swa</code>: moduli hiyo lazima iunganishwe kwa <code>cat</code>. Pia: mbegu hukataa wito wa kazi wenye D64 kama hoja au kama thamani ya kurudi (<code>Hitilafu: D64 kwenye wito wa kazi haisaidiwi bado na mbegu</code>) — mnyororo wa .swa una ABI kamili ya xmm0-xmm7.</p>
+          </aside>
+
+          <h2 id="maktaba">Hatua 8 — Maktaba ya kawaida</h2>
+          <p>Maktaba ya kawaida iko kwenye <code>msingi/</code> na imeandikwa kwa Swa yenyewe. Moduli tisa za watumiaji, kwa kila moja kile inachotoa kweli:</p>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Moduli tisa za maktaba ya kawaida ya Swa na kazi zao</caption>
+              <thead>
+                <tr><th scope="col">Moduli</th><th scope="col">Inachotoa</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>msingi/kumbukumbu.swa</code></td><td><code>andika</code> (muundo wa %d, %s, %c), <code>andika_stderr</code>, <code>andika_n64</code>, <code>andika_mfuatano</code>; <code>nakili</code>, <code>weka_sifuri</code>, <code>linganisha_kumbukumbu</code>; <code>ukubwa</code>; syscalls (<code>sys_soma</code>, <code>sys_andika</code>, <code>sys_fungua</code>, <code>sys_funga</code>, <code>sys_mmap</code>, <code>sys_munmap</code>); arena: <code>tenga</code>, <code>achilia</code>, <code>badili</code>; <code>soma_mstari</code>, <code>bits_ya_d64_swa</code></td></tr>
+                <tr><td><code>msingi/mfuatano.swa</code></td><td><code>urefu_wa_mfuatano</code>, <code>linganisha_mfuatano</code>, <code>nakili_mfuatano</code>, <code>unganisha_mfuatano</code>, <code>tafuta_herufi</code>, <code>tafuta_herufi_mwisho</code>, <code>tafuta_mfuatano</code>, <code>kata_nafasi</code>, <code>geuza_mfuatano</code>, <code>herufi_ya_juu</code>, <code>herufi_ya_chini</code>, <code>anza_kwa_mfuatano</code>, <code>isha_kwa_mfuatano</code>, <code>idadi_ya_herufi</code>; ugeuzi: <code>mfuatano_hadi_n32</code>, <code>mfuatano_hadi_n64</code>, <code>nambari_kwa_mfuatano</code>, <code>nambari_kwa_mfuatano_heksa</code>; <code>heshi_mfuatano</code></td></tr>
+                <tr><td><code>msingi/hesabu.swa</code></td><td><code>hesabu_kamili</code>, <code>hesabu_ndogo</code> (N32), <code>hesabu_kubwa</code>, <code>hesabu_dogo</code> (N64), <code>neneo_n32</code>, <code>neneo_n64</code>, <code>gcd_hesabu</code> (Euclid), <code>pow_kamili</code>, <code>isqrt_hesabu</code> (Newton), <code>fibonacci_hesabu</code>, <code>kipengele_hesabu</code> (n!, 0 kwa n&lt;0 au n&gt;12), <code>ni_kuu_hesabu</code>, <code>lcm_hesabu</code>, <code>pow_mod_hesabu</code> (kikomo: mod &lt; 32768)</td></tr>
+                <tr><td><code>msingi/orodha.swa</code></td><td><code>Orodha</code> (data, idadi, uwezo); <code>orodha_mpya</code>, <code>orodha_ongeza</code> (inakua mara mbili), <code>orodha_pata</code> (0 nje ya mipaka), <code>orodha_futa_mwisho</code>, <code>orodha_urefu</code>, <code>orodha_huru</code></td></tr>
+                <tr><td><code>msingi/mpangilio.swa</code></td><td><code>pangilia_n32</code>, <code>pangilia_n32_kushuka</code>, <code>pangilia_n64</code>, <code>pangilia_n64_kushuka</code> (aina ya kiputo)</td></tr>
+                <tr><td><code>msingi/ramani.swa</code></td><td><code>Ramani</code> (funguo, thamani, uwezo, idadi); <code>ramani_mpya</code>, <code>ramani_weka</code>, <code>ramani_pata</code> (-1 kama haipo), <code>ramani_ina</code>, <code>ramani_futa</code>, <code>ramani_huru</code> (funguo za N32; mchanganyiko wazi, utafutaji wa mstari)</td></tr>
+                <tr><td><code>msingi/faili.swa</code></td><td><code>faili_fungua</code>, <code>faili_funga</code>, <code>faili_soma</code>, <code>faili_andika</code>, <code>faili_soma_yote</code>, <code>faili_andika_yote</code>, <code>faili_ipo</code>, <code>faili_soma_mstari</code> — vifunko vya stdio ya C (fopen, fread, fwrite)</td></tr>
+                <tr><td><code>msingi/nasibu.swa</code></td><td><code>nasibu_anzisha</code>, <code>nasibu_n32</code>, <code>nasibu_katikati</code> — vifunko vya rand/srand ya C</td></tr>
+                <tr><td><code>msingi/wakati.swa</code></td><td><code>wakati_sasa</code> (wakati wa UNIX kwa sekunde) — kifunko cha time() ya C</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Mfano wa mfuatano — angalia: faili mbili za maktaba huunganishwa kwa <code>cat</code>:</p>
+          <figure class="codeblock" data-fname="mfuatano.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">mfuatano.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
     <span class="tok-type">N8</span> b[<span class="tok-num">16</span>];
     <span class="tok-fn">nakili_mfuatano</span>(b, <span class="tok-str">"habari"</span>);
     <span class="tok-fn">andika</span>(<span class="tok-str">"urefu: %d\n"</span>, <span class="tok-fn">urefu_wa_mfuatano</span>(b));
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./mfuatano.bin</span>
+              <span class="codeblock-pato">urefu: 6</span>
+            </div>
+          </figure>
+          <p>Na safari kamili ya mifuatano — kunakili, kulinganisha, kutafuta, kugeuza, na kubadili nambari hadi mfuatano:</p>
+          <figure class="codeblock" data-fname="mfuatano_z.swa">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">mfuatano_z.swa</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">N8</span> b[<span class="tok-num">32</span>];
+    <span class="tok-fn">nakili_mfuatano</span>(b, <span class="tok-str">"habari"</span>);
+    <span class="tok-fn">andika</span>(<span class="tok-str">"urefu: %d\n"</span>, <span class="tok-fn">urefu_wa_mfuatano</span>(b));
+    <span class="tok-fn">andika</span>(<span class="tok-str">"linganisho na habari: %d\n"</span>, <span class="tok-fn">linganisha_mfuatano</span>(b, <span class="tok-str">"habari"</span>));
+    <span class="tok-fn">andika</span>(<span class="tok-str">"herufi b iko faharisi: %d\n"</span>, <span class="tok-fn">tafuta_herufi</span>(b, <span class="tok-num">98</span>));
+    <span class="tok-fn">geuza_mfuatano</span>(b);
+    <span class="tok-fn">andika</span>(<span class="tok-str">"geuzi: %s\n"</span>, b);
+    <span class="tok-type">N8</span> namba[<span class="tok-num">16</span>];
+    <span class="tok-fn">nambari_kwa_mfuatano</span>(<span class="tok-num">1234</span>, namba);
+    <span class="tok-fn">andika</span>(<span class="tok-str">"namba: %s\n"</span>, namba);
+    <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
+}</code></pre>
+            <div class="codeblock-tokeo">
+              <span class="codeblock-prompt">$ ./mfuatano_z.bin</span>
+              <span class="codeblock-pato">urefu: 6</span>
+              <span class="codeblock-pato">linganisho na habari: 0</span>
+              <span class="codeblock-pato">herufi b iko faharisi: 2</span>
+              <span class="codeblock-pato">geuzi: irabah</span>
+              <span class="codeblock-pato">namba: 1234</span>
+            </div>
+          </figure>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p>Moduli tatu — <code>faili.swa</code>, <code>nasibu.swa</code>, na <code>wakati.swa</code> — ni vifunko vya maktaba ya C (fopen, rand, time). Hazifanyi kazi kwenye mnyororo safi wa <code>--exe</code>; zinahitaji kuunganishwa na maktaba ya C.</p>
+          </aside>
+          <aside class="callout callout-maelezo" role="note">
+            <p class="callout-title">Maelezo</p>
+            <p><code>orodha.swa</code> na <code>ramani.swa</code> zinafanya kazi kwenye mnyororo wa .swa (stage1). Kwenye mbegu bado zimeandikwa kama zinazoshindwa (FAIL) kwenye MANIFEST kwa sababu mbegu bado haijui hesabu ya anwani ya <code>tenga</code>/<code>badili</code> ndani ya maktaba hizi.</p>
+          </aside>
+
+          <h2 id="kuendesha">Hatua 9 — Kuendesha programu</h2>
+          <p>Njia ya uzalishaji ni mnyororo wa mbegu/exe — bila Rust, LLVM, clang, wala libc. Programu zinazotumia maktaba huunganishwa kwa <code>cat</code> kwanza:</p>
+          <figure class="codeblock" data-fname="amri">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">amri</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa sampuli.swa &gt; sampuli_zima.swa
+./msingi/mbegu.bin --exe sampuli_zima.swa &gt; sampuli.bin
+chmod +x sampuli.bin &amp;&amp; ./sampuli.bin</code></pre>
+          </figure>
+          <p>Au kujenga mkusanyaji kamili wa .swa (stage1-exe) kutoka chanzo, kisha kuitumia kwa programu zako:</p>
+          <figure class="codeblock" data-fname="amri">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">amri</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa msingi/msomaji.swa \
+    msingi/msambazaji.swa msingi/mteremko.swa msingi/mkaguzi.swa \
+    msingi/uzalishaji.swa msingi/orodha.swa msingi/ramani.swa \
+    msingi/stage1.swa &gt; zima.swa
+./msingi/mbegu.bin --exe zima.swa &gt; stage1-exe
+chmod +x stage1-exe
+./stage1-exe --exe programu.swa &gt; programu.bin
+chmod +x programu.bin &amp;&amp; ./programu.bin</code></pre>
+          </figure>
+          <p>Dereva wa Rust (wa majaribio) unatoa njia zaidi za kuchunguza:</p>
+          <figure class="codeblock" data-fname="amri">
+            <figcaption class="codeblock-bar">
+              <span class="codeblock-fname">amri</span>
+              <button class="codeblock-copy" type="button">Nakili</button>
+            </figcaption>
+            <pre><code>cargo run -- programu.swa
+cargo run -- --check programu.swa
+cargo run -- --llvm programu.swa
+cargo run -- --ir programu.swa
+cargo run -- --tokens programu.swa</code></pre>
+          </figure>
+          <aside class="callout callout-tahadhari" role="note">
+            <p class="callout-title">Tahadhari</p>
+            <p><code>husisha { faili.swa }</code> ni TANGAZO LA UTEGEMEAJI, si kiingizi cha faili kinachofanya kazi. Mbegu hukiruka kabisa; mnyororo wa .swa huondoa mistari ya <code>husisha</code> kabla ya kuchanganua (kazi <code>ondoa_husisha</code>). Hata hivyo, faili halisi lazima ziunganishwe kwa <code>cat</code>: programu yenye <code>husisha { mfuatano.swa }</code> bila kuunganisha inakusanyika lakini inaanguka SEGV wakati wa utekelezaji. Mfumo halisi wa moduli ni kazi ya siku zijazo.</p>
+          </aside>
+          <aside class="callout callout-maelezo" role="note">
+            <p class="callout-title">Maelezo</p>
+            <p>Uthibitisho wa hazina: majaribio 227/227 kwenye dereva wa Rust (146 ya maktaba + 80 ya ujumuishaji + 1 ya nyaraka), na 104/104 kwenye mnyororo wa Swa pekee (<code>gharama/jaribu-mnyororo.sh</code>).</p>
+          </aside>
+          <aside class="callout callout-kidokezo" role="note">
+            <p class="callout-title">Kidokezo</p>
+            <p>Kwa orodha kamili ya maneno muhimu 12, familia za aina, waendeshaji, kazi za ndani, na mipaka inayojulikana ya toleo la 1.0 — fungua <a href="marejeo.html">kurasa ya Marejeo</a>.</p>
+          </aside>
+
+        </div>
+      </div>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="logo"><img src="logo.svg" alt="">swa</a>
-        <p>Lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili.</p>
+        <a class="logo" href="/" aria-label="Swa — kurasa ya mwanzo">
+          <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <path d="M6 42 V22 A18 18 0 0 1 42 22 V42 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+            <g fill="currentColor">
+              <g transform="translate(14 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(24 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(34 15)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(14 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(24 25)"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g>
+              <g transform="translate(34 25)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(14 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(24 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+              <g transform="translate(34 35)"><rect x="-3" y="-3" width="6" height="6"/><rect x="-3" y="-3" width="6" height="6" transform="rotate(45)"/></g>
+            </g>
+          </svg>swa
+        </a>
+        <p>Lugha ya mifumo yenye sintaksia kamili ya Kiswahili, inayojikusanya yenyewe. Imetengenezwa Afrika ya Mashariki.</p>
       </div>
-      <div class="footer-col">
+      <nav class="footer-col" aria-label="Nyaraka">
         <h4>Nyaraka</h4>
         <a href="jifunze.html">Jifunze</a>
         <a href="marejeo.html">Marejeo</a>
         <a href="sakinisha.html">Sakinisha</a>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Mradi">
         <h4>Mradi</h4>
         <a href="https://github.com/lugha-swa/swa">Msimbo</a>
         <a href="habari.html">Habari</a>
         <a href="https://github.com/lugha-swa/swa/issues">Masuala</a>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Jamii">
         <h4>Jamii</h4>
         <a href="jamii.html">Kuchangia</a>
         <a href="https://github.com/lugha-swa/swa/discussions">Majadiliano</a>
-      </div>
+      </nav>
     </div>
     <div class="footer-bottom">
-      Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a>.
+      <span>Toleo 1.0 - Imetengenezwa Afrika ya Mashariki</span>
+      <span>Leseni: <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-APACHE">Apache 2.0</a> au <a href="https://github.com/lugha-swa/swa/blob/main/LICENSE-MIT">MIT</a></span>
     </div>
   </footer>
 </body>
