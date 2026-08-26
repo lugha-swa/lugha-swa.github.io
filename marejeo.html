@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marejeo ya Lugha — Lugha ya Swa</title>
-  <meta name="description" content="Marejeo kamili ya Swa 1.0: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana. Kila kitu kimejaribiwa kwa mkusanyaji halisi.">
+  <meta name="description" content="Marejeo kamili ya Swa 1.0: maneno muhimu 12, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana. Kila kitu kimejaribiwa kwa mkusanyaji halisi.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://lugha-swa.github.io/marejeo.html">
   <meta property="og:title" content="Marejeo ya Lugha — Lugha ya Swa">
-  <meta property="og:description" content="Marejeo kamili ya Swa 1.0: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana.">
+  <meta property="og:description" content="Marejeo kamili ya Swa 1.0: maneno muhimu 12, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana.">
   <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lugha-swa.github.io/marejeo.html">
@@ -72,7 +72,7 @@
     <section class="page-head">
       <div class="wrap">
         <h1>Marejeo ya Lugha</h1>
-        <p>Marejeo kamili ya toleo la 1.0: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, na muundo wa sarufi — pamoja na mipaka inayojulikana, iliyoandikwa kwa uwazi. Kila kitu kimejaribiwa kwa mkusanyaji halisi.</p>
+        <p>Marejeo kamili ya toleo la 1.0: maneno muhimu 12, familia za aina 5, waendeshaji, kazi za ndani, na muundo wa sarufi — pamoja na mipaka inayojulikana, iliyoandikwa kwa uwazi. Kila kitu kimejaribiwa kwa mkusanyaji halisi.</p>
       </div>
     </section>
     <div class="wrap">
@@ -95,10 +95,10 @@
         <div class="docs-content">
 
           <h2 id="maneno-muhimu">1. Maneno muhimu</h2>
-          <p>Maneno muhimu 13 ya Swa, maana yao, na umbo la matumizi:</p>
+          <p>Maneno muhimu 12 ya Swa, maana yao, na umbo la matumizi:</p>
           <div class="table-wrap">
             <table>
-              <caption class="sr-only">Maneno muhimu 13 ya Swa, maana yao, na umbo la matumizi</caption>
+              <caption class="sr-only">Maneno muhimu 12 ya Swa, maana yao, na umbo la matumizi</caption>
               <thead>
                 <tr><th scope="col">Neno</th><th scope="col">Maana</th><th scope="col">Umbo la matumizi</th></tr>
               </thead>
@@ -113,7 +113,6 @@
                 <tr><td><code>endelea</code></td><td>endelea kitanzi</td><td><code>endelea;</code> (ndani ya <code>kwa</code> inaruka hadi hatua)</td></tr>
                 <tr><td><code>rudisha</code></td><td>rudisha thamani</td><td><code>rudisha &lt;usemi&gt;;</code> au <code>rudisha;</code> kwa <code>W0</code></td></tr>
                 <tr><td><code>muundo</code></td><td>muundo wa data</td><td><code>muundo Jina { N32 x; };</code></td></tr>
-                <tr><td><code>tenga</code></td><td>tenga kumbukumbu</td><td><code>N32* p = tenga(ukubwa);</code></td></tr>
                 <tr><td><code>achilia</code></td><td>achilia kumbukumbu</td><td><code>achilia(p);</code></td></tr>
                 <tr><td><code>husisha</code></td><td>tangazo la utegemezi</td><td><code>husisha { faili.swa }</code> au <code>husisha C::stdio</code></td></tr>
               </tbody>
@@ -122,6 +121,7 @@
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
             <p>Maneno muhimu hayawezi kutumika kama majina ya vitambulisho. Aina za nambari SI maneno muhimu — hutambuliwa kisintaksia kwa herufi kubwa <code>[N|A|D|B|W]</code> ikifuatiwa na tarakimu.</p>
+            <p><code>tenga</code> SI neno muhimu. Ni kazi ya kawaida ya maktaba kutoka <code>msingi/kumbukumbu.swa</code>, hivyo moduli hiyo lazima iunganishwe: <code>N32* p = tenga(ukubwa(N32));</code>. Umbo la <code>tenga N32</code> halijawahi kutekelezwa — halitengi kumbukumbu na sasa linakataliwa.</p>
           </aside>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
@@ -250,7 +250,7 @@
           <p>Faharasa ya vipimo rasmi, kipande kwa kipande:</p>
           <ol>
             <li>Muundo wa kimsingi: matamko ya kiwango cha juu — kazi, miundo, vigezo na safu za ulimwengu, na matamko ya <code>husisha</code>. Sehemu ya kuingia ni <code>N32 main()</code> (au <code>N32 main(N32 argc, N8** argv)</code>). Taarifa ya kiwango cha juu ni kosa la mchanganuzi.</li>
-            <li>Leksia: vitambulisho (herufi au <code>_</code> kwanza), maneno muhimu 13, halisi (kamili hadi N32/N64, desimali hadi D64, mfuatano), maoni (<code>//</code> na <code>/* ... */</code>, bila kijiuzi), ishara.</li>
+            <li>Leksia: vitambulisho (herufi au <code>_</code> kwanza), maneno muhimu 12, halisi (kamili hadi N32/N64, desimali hadi D64, mfuatano), maoni (<code>//</code> na <code>/* ... */</code>, bila kijiuzi), ishara.</li>
             <li>Aina: familia 5 (<code>N</code>, <code>A</code>, <code>D</code>, <code>B</code>, <code>W</code>), kielekezi, safu, miundo.</li>
             <li>Usemi na utangulizi: vina 6 hadi 1, fupi-hali, hesabu ya kielekezi (<code>&amp;</code>, <code>*</code>, <code>-&gt;</code>, <code>a[i]</code>).</li>
             <li>Tangazo la kazi: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;mwili&gt; }</code>.</li>
