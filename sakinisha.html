@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sakinisha — Swa</title>
-  <meta name="description" content="Jinsi ya kujenga Swa 1.0 kwenye x86-64 Linux: mnyororo safi wa Swa bila gcc, ld, clang wala libc, na dereva wa Rust/LLVM wa majaribio.">
+  <meta name="description" content="Jinsi ya kujenga Swa kwenye x86-64 Linux: mnyororo safi wa Swa bila gcc, ld, clang, libc, Rust wala LLVM.">
   <link rel="canonical" href="https://lugha-swa.github.io/sakinisha.html">
   <meta property="og:title" content="Sakinisha — Swa">
-  <meta property="og:description" content="Njia mbili za kujenga Swa 1.0: mnyororo safi wa Swa (njia ya uzalishaji) na dereva wa Rust/LLVM wa majaribio. Jukwaa: x86-64 Linux.">
+  <meta property="og:description" content="Njia moja ya kujenga Swa: mnyororo safi wa Swa (njia ya uzalishaji) bila gcc, ld, clang, libc, Rust wala LLVM. Jukwaa: x86-64 Linux.">
   <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
   <meta name="theme-color" content="#FAF7EF">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -69,7 +69,7 @@
   <main id="yaliyomo" class="wrap">
     <div class="page-head">
       <h1>Sakinisha</h1>
-      <p>Swa ina njia mbili za kujenga. Njia ya kwanza ni mnyororo safi wa Swa — njia ya uzalishaji, bila gcc, ld, clang wala libc. Njia ya pili ni dereva wa Rust/LLVM — wa majaribio tu.</p>
+      <p>Swa ina njia moja ya kujenga: mnyororo safi wa Swa — njia ya uzalishaji, bila gcc, ld, clang, libc, Rust wala LLVM. Dereva wa zamani wa Rust/LLVM umehamishiwa hazina ya kumbukumbu <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a> (2026-09-05).</p>
     </div>
 
     <div class="prose">
@@ -173,65 +173,16 @@ chmod +x salamu.bin
         </div>
       </figure>
 
-      <h2 id="njia-2">Njia ya 2 — Dereva wa Rust/LLVM (majaribio)</h2>
-      <p>Njia hii inakusanya kupitia LLVM na dereva wa Rust. Ni ya majaribio pekee — mnyororo wa uzalishaji ni mbegu/exe.</p>
+      <h2 id="njia-2">Dereva wa Rust/LLVM — hazina ya kumbukumbu</h2>
+      <p>Dereva wa Rust/LLVM (kande) ulikuwa njia ya majaribio ya kukusanya
+      kupitia LLVM. Tarehe 2026-09-05 umehamishiwa hazina ya kumbukumbu
+      iliyohifadhiwa: <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a>.
+      Hazina kuu ya Swa sasa ina lugha moja tu: Swa.</p>
 
       <aside class="callout callout-tahadhari" role="note">
-        <p class="callout-title">Tahadhari</p>
-        <p>Mwisho wa LLVM umeshushwa hadhi kuwa wa majaribio (uamuzi wa 2026-08-19): uboreshaji wa O0 unakataa kazi yenye vizuizi zaidi ya 40, na majaribio yanaendeshwa kwa O1. Mnyororo wa uzalishaji ni mbegu/exe pekee.</p>
+        <p class="callout-title">Kumbuka</p>
+        <p>Uamuzi wa 2026-08-19 (hati/mipaka.md 6): mwisho wa LLVM umeshushwa hadhi kuwa wa majaribio. Mnyororo wa uzalishaji ni mbegu/exe pekee. Uamuzi wa 2026-09-05: dereva umehamishiwa kumbukumbu.</p>
       </aside>
-
-      <p>Mahitaji:</p>
-      <ul>
-        <li>LLVM 18 au mpya (API ya C) — imejaribiwa kwenye LLVM 22.1 na LLVM 18.</li>
-        <li>Rust (toleo jipya zaidi la stable).</li>
-        <li>clang — kwa majaribio ya ujumuishaji na kwa kuunganisha.</li>
-      </ul>
-
-      <h3>Kujenga</h3>
-
-      <figure class="codeblock" data-fname="bash">
-        <figcaption class="codeblock-bar">
-          <span class="codeblock-fname">bash</span>
-          <button class="codeblock-copy" type="button">Nakili</button>
-        </figcaption>
-        <pre><code>git clone https://github.com/lugha-swa/swa.git
-cd swa
-cargo build --release
-cargo test   # majaribio 227: 146 maktaba + 80 ujumuishaji + 1 nyaraka</code></pre>
-      </figure>
-
-      <h3>Matumizi</h3>
-      <p>Dereva hukusanya hadi faili la kitu kwa chaguo-msingi. Vionjo vya amri:</p>
-
-      <figure class="codeblock" data-fname="bash">
-        <figcaption class="codeblock-bar">
-          <span class="codeblock-fname">bash</span>
-          <button class="codeblock-copy" type="button">Nakili</button>
-        </figcaption>
-        <pre><code>cargo run -- programu.swa             # inatoa programu.o (faili la kitu)
-cargo run -- --check programu.swa     # kukagua bila kutoa msimbo
-cargo run -- --llvm programu.swa      # LLVM IR
-cargo run -- --ir programu.swa        # Swa IR
-cargo run -- --tokens programu.swa    # mkondo wa tokeni</code></pre>
-      </figure>
-
-      <h3>Kuendesha programu</h3>
-      <p>Dereva huunganisha pekee pato lenye kiambishi .exe. Njia iliyothibitishwa ya kuunganisha na kuendesha program ni kupitia gharama/trampoline.c — mbinu ile ile inayotumiwa na majaribio ya hazina:</p>
-
-      <figure class="codeblock" data-fname="bash">
-        <figcaption class="codeblock-bar">
-          <span class="codeblock-fname">bash</span>
-          <button class="codeblock-copy" type="button">Nakili</button>
-        </figcaption>
-        <pre><code>cargo run -- salamu.swa -o salamu.o
-clang salamu.o gharama/trampoline.c -o salamu -no-pie
-./salamu</code></pre>
-        <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ ./salamu</span>
-          <span class="codeblock-pato">Habari, Swa!</span>
-        </div>
-      </figure>
 
       <h2 id="jukwaa">Jukwaa linaloungwa mkono</h2>
       <ul>

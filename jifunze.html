@@ -225,7 +225,7 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
           <p><code>jumla_kwa_kwa(10)</code> ni 0+1+2+4+5+6+7 = 25: <code>i = 3</code> imerukwa na <code>endelea</code>, na <code>i = 8</code> imevunja kitanzi — semantiki ya C ya <code>endelea</code> ndani ya <code>kwa</code>.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>chagua</code> na <code>hali</code> hazifanyi kazi kwenye mnyororo asilia wa uzalishaji. Mbegu hukataa <code>chagua</code> kabisa (<code>Hitilafu: ulichanganuzi</code>). Mnyororo wa .swa hukusanya <code>chagua</code> lakini hulinganisha hali ya KWANZA pekee — matokeo si sahihi kwa hali nyingi — na <code>sivyo:</code> (hali ya kawaida) haichanganuliwi hata kidogo. Zinafanya kazi kwenye dereva wa majaribio wa Rust/LLVM pekee. Hadi marekebisho yafike, andika uteuzi kwa <code>kama</code> / <code>sivyo</code> zilizopachikwa, kama kwenye mfano hapo juu.</p>
+            <p><code>chagua</code> na <code>hali</code> hazifanyi kazi kwenye mnyororo wa uzalishaji. Mbegu hukataa <code>chagua</code> kabisa (<code>Hitilafu: ulichanganuzi</code>). Mnyororo wa .swa hukusanya <code>chagua</code> lakini hulinganisha hali ya KWANZA pekee — matokeo si sahihi kwa hali nyingi — na <code>sivyo:</code> (hali ya kawaida) haichanganuliwi hata kidogo. Dereva wa zamani wa Rust/LLVM ulizitekeleza, lakini umehamishiwa kumbukumbu. Hadi marekebisho yafike, andika uteuzi kwa <code>kama</code> / <code>sivyo</code> zilizopachikwa, kama kwenye mfano hapo juu.</p>
           </aside>
 
           <h2 id="kazi">Hatua 4 — Kazi</h2>
@@ -503,18 +503,7 @@ chmod +x stage1-exe
 ./stage1-exe --exe programu.swa &gt; programu.bin
 chmod +x programu.bin &amp;&amp; ./programu.bin</code></pre>
           </figure>
-          <p>Dereva wa Rust (wa majaribio) unatoa njia zaidi za kuchunguza:</p>
-          <figure class="codeblock" data-fname="amri">
-            <figcaption class="codeblock-bar">
-              <span class="codeblock-fname">amri</span>
-              <button class="codeblock-copy" type="button">Nakili</button>
-            </figcaption>
-            <pre><code>cargo run -- programu.swa
-cargo run -- --check programu.swa
-cargo run -- --llvm programu.swa
-cargo run -- --ir programu.swa
-cargo run -- --tokens programu.swa</code></pre>
-          </figure>
+          <p>Dereva wa zamani wa Rust/LLVM (kande) umehamishiwa hazina ya kumbukumbu <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a> (2026-09-05). Hazina kuu ina lugha moja tu: Swa.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
             <p><code>husisha { faili.swa }</code> ni TANGAZO LA UTEGEMEAJI, si kiingizi cha faili kinachofanya kazi. Mbegu hukiruka kabisa; mnyororo wa .swa huondoa mistari ya <code>husisha</code> kabla ya kuchanganua (kazi <code>ondoa_husisha</code>). Hata hivyo, faili halisi lazima ziunganishwe kwa <code>cat</code>: programu yenye <code>husisha { mfuatano.swa }</code> bila kuunganisha inakusanyika lakini inaanguka SEGV wakati wa utekelezaji. Mfumo halisi wa moduli ni kazi ya siku zijazo.</p>
