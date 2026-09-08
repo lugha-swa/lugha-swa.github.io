@@ -71,9 +71,28 @@
   <main id="yaliyomo">
     <!-- ===================== MWANZO (HERO) ===================== -->
     <section class="hero">
+      <svg class="mlango-sanaa" viewBox="0 0 560 760" aria-hidden="true" focusable="false">
+        <rect x="40" y="30" width="480" height="700" rx="3" fill="none" stroke="var(--ink)" stroke-width="1.5" opacity=".09"/>
+        <rect x="66" y="56" width="428" height="648" fill="none" stroke="var(--border-strong)" stroke-width="1" opacity=".14"/>
+        <line x1="280" y1="56" x2="280" y2="704" stroke="var(--border-strong)" stroke-width="1" opacity=".14"/>
+        <line x1="66" y1="230" x2="280" y2="230" stroke="var(--border-strong)" stroke-width="1" opacity=".1"/>
+        <line x1="66" y1="530" x2="280" y2="530" stroke="var(--border-strong)" stroke-width="1" opacity=".1"/>
+        <line x1="280" y1="230" x2="494" y2="230" stroke="var(--border-strong)" stroke-width="1" opacity=".1"/>
+        <line x1="280" y1="530" x2="494" y2="530" stroke="var(--border-strong)" stroke-width="1" opacity=".1"/>
+        <g class="mwanga"><circle cx="280" cy="380" r="70" fill="url(#mlango-mwanga-grad)"/></g>
+        <g class="nyota" transform="translate(280 380)">
+          <polygon points="0,-17 4.7,-6.5 16,0 4.7,6.5 0,17 -4.7,6.5 -16,0 -4.7,-6.5" fill="var(--accent)" opacity=".85"/>
+        </g>
+        <defs>
+          <radialGradient id="mlango-mwanga-grad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="var(--accent)" stop-opacity=".28"/>
+            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+      </svg>
       <div class="hero-grid">
         <div>
-          <a class="chip" href="habari.html">Toleo 1.0 limewasili</a>
+          <a class="eyebrow" href="habari.html">Toleo 1.0 limewasili</a>
           <h1 class="hero-title">Lugha ya kupanga ya <span class="accent">Kiswahili</span></h1>
           <p class="hero-lede">
             Swa ni lugha ya kupanga ya mifumo yenye sintaksia kamili ya Kiswahili —
@@ -83,7 +102,7 @@
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="jifunze.html">Jifunze Swa</a>
-            <a class="btn btn-ghost" href="sakinisha.html">Sakinisha</a>
+            <a class="kiungo-pembeni" href="sakinisha.html">Sakinisha →</a>
           </div>
           <div class="hero-stats">
             <span>Toleo 1.0</span>
@@ -131,41 +150,53 @@
 
     <!-- ===================== KWA NINI SWA? ===================== -->
     <section class="section">
-      <div class="wrap">
-        <div class="section-head">
+      <div class="wrap sifa-eneo">
+        <div class="sifa-utangulizi taa-onekana">
           <h2 class="section-title">Kwa nini Swa?</h2>
           <p class="section-sub">Mkusanyaji wa mifumo unaojiandika wenyewe, kwa Kiswahili.</p>
         </div>
-        <ul class="feature-grid">
-          <li class="feature-card">
-            <span class="feature-num" aria-hidden="true">01</span>
-            <h3>Kiswahili kamili</h3>
-            <p>Maneno muhimu 12 — hakuna neno la Kiingereza katika sintaksia. Aina za nambari hutambuliwa kisintaksia kwa herufi kubwa, si kama maneno muhimu.</p>
+        <ul class="sifa-orodha taa-onekana">
+          <li class="sifa-mstari">
+            <span class="sifa-namba" aria-hidden="true">01</span>
+            <div>
+              <h3>Kiswahili kamili</h3>
+              <p>Maneno muhimu 12 — hakuna neno la Kiingereza katika sintaksia. Aina za nambari hutambuliwa kisintaksia kwa herufi kubwa, si kama maneno muhimu.</p>
+            </div>
           </li>
-          <li class="feature-card">
-            <span class="feature-num" aria-hidden="true">02</span>
-            <h3>Uhuru kamili wa kujikusanya</h3>
-            <p>Mnyororo wa uzalishaji hautegemei lugha nyingine: Kwanza (baiti 393 za mkono), mbegu, stage1-exe, na <code>stage2-exe == stage3-exe</code> — sawa kwa baiti. Hakuna gcc, ld, clang, wala libc.</p>
+          <li class="sifa-mstari">
+            <span class="sifa-namba" aria-hidden="true">02</span>
+            <div>
+              <h3>Uhuru kamili wa kujikusanya</h3>
+              <p>Mnyororo wa uzalishaji hautegemei lugha nyingine: Kwanza (baiti 393 za mkono), mbegu, stage1-exe, na <code>stage2-exe == stage3-exe</code> — sawa kwa baiti. Hakuna gcc, ld, clang, wala libc.</p>
+            </div>
           </li>
-          <li class="feature-card">
-            <span class="feature-num" aria-hidden="true">03</span>
-            <h3>Kizalishe asilia cha x86-64</h3>
-            <p>Kizalishe asilia kinatoa ELF ya x86-64 moja kwa moja, hata ET_EXEC tuli kwa bendera <code>--exe</code>. Njia ya LLVM ipo kwenye dereva wa Rust lakini ni ya majaribio tu.</p>
+          <li class="sifa-mstari">
+            <span class="sifa-namba" aria-hidden="true">03</span>
+            <div>
+              <h3>Kizalishe asilia cha x86-64</h3>
+              <p>Kizalishe asilia kinatoa ELF ya x86-64 moja kwa moja, hata ET_EXEC tuli kwa bendera <code>--exe</code>. Njia ya LLVM ipo kwenye dereva wa Rust lakini ni ya majaribio tu.</p>
+            </div>
           </li>
-          <li class="feature-card">
-            <span class="feature-num" aria-hidden="true">04</span>
-            <h3>Familia 5 za aina</h3>
-            <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali, <code>B</code> buli, <code>W</code> upana wa mashine — kila familia ikifuatiwa na upana wa tarakimu, kama <code>N32</code> na <code>D64</code>.</p>
+          <li class="sifa-mstari">
+            <span class="sifa-namba" aria-hidden="true">04</span>
+            <div>
+              <h3>Familia 5 za aina</h3>
+              <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali, <code>B</code> buli, <code>W</code> upana wa mashine — kila familia ikifuatiwa na upana wa tarakimu, kama <code>N32</code> na <code>D64</code>.</p>
+            </div>
           </li>
-          <li class="feature-card">
-            <span class="feature-num" aria-hidden="true">05</span>
-            <h3>Kumbukumbu ya moja kwa moja</h3>
-            <p><code>tenga</code> hutenga, <code>achilia</code> huachilia — hakuna mkusanyaji wa takataka. Maktaba hutumia arena ya kumbukumbu (mmap).</p>
+          <li class="sifa-mstari">
+            <span class="sifa-namba" aria-hidden="true">05</span>
+            <div>
+              <h3>Kumbukumbu ya moja kwa moja</h3>
+              <p><code>tenga</code> hutenga, <code>achilia</code> huachilia — hakuna mkusanyaji wa takataka. Maktaba hutumia arena ya kumbukumbu (mmap).</p>
+            </div>
           </li>
-          <li class="feature-card">
-            <span class="feature-num" aria-hidden="true">06</span>
-            <h3>Imeandikwa kwa Swa</h3>
-            <p>Msomaji, mchanganuzi, mkaguzi wa kisemantiki, kiteremshi, na kizalishe asilia — vyote ni faili za .swa, pamoja na maktaba ya kawaida.</p>
+          <li class="sifa-mstari">
+            <span class="sifa-namba" aria-hidden="true">06</span>
+            <div>
+              <h3>Imeandikwa kwa Swa</h3>
+              <p>Msomaji, mchanganuzi, mkaguzi wa kisemantiki, kiteremshi, na kizalishe asilia — vyote ni faili za .swa, pamoja na maktaba ya kawaida.</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -173,16 +204,19 @@
 
     <!-- ===================== MNYORORO WA KUJIKUSANYA ===================== -->
     <section class="band">
-      <div class="wrap">
+      <div class="wrap taa-onekana">
         <div class="section-head">
           <h2 class="section-title">Mnyororo wa kujikusanya</h2>
           <p class="section-sub">Kila hatua hutoa kizazi kinachofuata, hadi mkusanyaji unajithibitisha yenyewe.</p>
         </div>
-        <ol class="chain" aria-label="Mnyororo wa kujikusanya">
-          <li class="chain-step"><code>Kwanza</code><span class="chain-desc">baiti 393 za mkono</span></li>
-          <li class="chain-step"><code>mbegu</code><span class="chain-desc">kutoka hex, bila kiunganishi</span></li>
-          <li class="chain-step"><code>stage1-exe</code><span class="chain-desc">ET_EXEC tuli</span></li>
-          <li class="chain-step chain-thibitisho"><code>stage2-exe == stage3-exe</code><span class="chain-desc">sawa kwa baiti</span></li>
+        <ol class="mtiririko" aria-label="Mnyororo wa kujikusanya">
+          <li class="hatua-kipengele"><code>Kwanza</code><span>baiti 393 za mkono</span></li>
+          <li class="mtiririko-kiungo" aria-hidden="true">→</li>
+          <li class="hatua-kipengele"><code>mbegu</code><span>kutoka hex, bila kiunganishi</span></li>
+          <li class="mtiririko-kiungo" aria-hidden="true">→</li>
+          <li class="hatua-kipengele"><code>stage1-exe</code><span>ET_EXEC tuli</span></li>
+          <li class="mtiririko-kiungo" aria-hidden="true">→</li>
+          <li class="hatua-kipengele hatua-thibitisho"><code>stage2-exe ≡ stage3-exe</code><span>sawa kwa baiti</span></li>
         </ol>
         <p class="section-sub">Hakuna <code>gcc</code>, <code>ld</code>, <code>clang</code>, wala <code>libc</code> popote kwenye mnyororo wa uzalishaji.</p>
         <p><a href="habari.html">Soma historia kamili</a></p>
@@ -200,7 +234,7 @@
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="sakinisha.html">Sakinisha</a>
-            <a class="btn btn-ghost" href="https://github.com/lugha-swa/swa">Mwongozo wa kujenga</a>
+            <a class="kiungo-pembeni" href="https://github.com/lugha-swa/swa">Mwongozo wa kujenga →</a>
           </div>
         </div>
         <figure class="codeblock" data-fname="bash">

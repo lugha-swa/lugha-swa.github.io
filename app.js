@@ -25,6 +25,7 @@
     mandhari();
     menyu();
     kunakili();
+    taaOnekana();
   });
 
   /* ------------------------------------------------------------
@@ -144,6 +145,33 @@
         }, 1200);
       });
     });
+  }
+
+  /* ------------------------------------------------------------
+     Taa-onekana: sehemu zenye .taa-onekana zinafunuka mara moja
+     zinapoingia kwenye mwonekano wakati wa kusogeza. Bila
+     IntersectionObserver, zinabaki zikionekana mara moja (CSS
+     ya awali haizifichi kwa default katika hali hiyo).
+     ------------------------------------------------------------ */
+  function taaOnekana() {
+    var sehemu = document.querySelectorAll(".taa-onekana");
+    if (!sehemu.length) { return; }
+
+    if (typeof IntersectionObserver !== "function") {
+      for (var i = 0; i < sehemu.length; i++) { sehemu[i].classList.add("hai"); }
+      return;
+    }
+
+    var mtazamaji = new IntersectionObserver(function (viingilio) {
+      viingilio.forEach(function (kiingilio) {
+        if (kiingilio.isIntersecting) {
+          kiingilio.target.classList.add("hai");
+          mtazamaji.unobserve(kiingilio.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+    for (var j = 0; j < sehemu.length; j++) { mtazamaji.observe(sehemu[j]); }
   }
 
   function nakiliMaandishi(maandishi) {
