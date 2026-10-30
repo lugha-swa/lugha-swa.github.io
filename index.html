@@ -117,11 +117,13 @@
             <span class="codeblock-fname">salamu.swa</span>
             <button class="codeblock-copy" type="button">Nakili</button>
           </figcaption>
-          <pre><code><span class="tok-type">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
+          <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">w0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">n8</span>* jina) {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, %s!\n"</span>, jina);
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">kadirifu</span>(<span class="tok-type">N32</span> x) {
+<span class="tok-type">n32</span> <span class="tok-fn">kadirifu</span>(<span class="tok-type">n32</span> x) {
     <span class="tok-kw">kama</span> (x &gt; 0) {
         <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>;
     }
@@ -133,7 +135,7 @@
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
     <span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);
     <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">5</span>) != <span class="tok-num">1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
     <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">-5</span>) != <span class="tok-num">-1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">2</span>; }
@@ -160,7 +162,7 @@
             <span class="sifa-namba" aria-hidden="true">01</span>
             <div>
               <h3>Kiswahili kamili</h3>
-              <p>Maneno muhimu 12 — hakuna neno la Kiingereza katika sintaksia. Aina za nambari hutambuliwa kisintaksia kwa herufi kubwa, si kama maneno muhimu.</p>
+              <p>Maneno muhimu 13 — hakuna neno la Kiingereza katika sintaksia. Aina za nambari hutambuliwa kisintaksia kwa herufi ndogo (<code>n32</code>, <code>d64</code>), si kama maneno muhimu.</p>
             </div>
           </li>
           <li class="sifa-mstari">
@@ -181,7 +183,7 @@
             <span class="sifa-namba" aria-hidden="true">04</span>
             <div>
               <h3>Familia 5 za aina</h3>
-              <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali, <code>B</code> buli, <code>W</code> upana wa mashine — kila familia ikifuatiwa na upana wa tarakimu, kama <code>N32</code> na <code>D64</code>.</p>
+              <p><code>N</code> namba, <code>A</code> asili, <code>D</code> desimali, <code>B</code> buli, <code>W</code> upana wa mashine — kila familia ikifuatiwa na upana wa tarakimu, kama <code>n32</code> na <code>d64</code>.</p>
             </div>
           </li>
           <li class="sifa-mstari">
@@ -242,14 +244,9 @@
             <span class="codeblock-fname">bash</span>
             <button class="codeblock-copy" type="button">Nakili</button>
           </figcaption>
-          <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa msingi/msomaji.swa \
-    msingi/msambazaji.swa msingi/mteremko.swa msingi/mkaguzi.swa \
-    msingi/uzalishaji.swa msingi/orodha.swa msingi/ramani.swa \
-    msingi/stage1.swa > zima.swa
-./msingi/mbegu.bin --exe zima.swa > stage1-exe
-chmod +x stage1-exe
-./stage1-exe --exe programu.swa > programu.bin
-chmod +x programu.bin &amp;&amp; ./programu.bin</code></pre>
+          <pre><code>bash gharama/jenga.sh               # baiti za mkono -&gt; mbegu -&gt; stage1 -&gt; bin/swa
+bin/swa --exe programu.swa &gt; programu
+chmod +x programu &amp;&amp; ./programu</code></pre>
         </figure>
       </div>
     </section>
@@ -265,7 +262,7 @@ chmod +x programu.bin &amp;&amp; ./programu.bin</code></pre>
           <li class="post">
             <time class="post-date" datetime="2026-08-25">2026-08-25</time>
             <h2><a href="habari.html">Mbegu imerekebishwa: hesabu za baiti 8</a></h2>
-            <p>FPE ya N64 imetatuliwa; maneno muhimu yamepunguzwa hadi 13; halisi za N64 zinafanya kazi kwenye mnyororo wa .swa; majaribio yote 227/227 yanapita.</p>
+            <p>FPE ya n64 imetatuliwa; maneno muhimu yamepunguzwa hadi 13; halisi za n64 zinafanya kazi kwenye mnyororo wa .swa; majaribio yote 227/227 yanapita.</p>
           </li>
           <li class="post">
             <time class="post-date" datetime="2026-08-19">2026-08-19</time>
