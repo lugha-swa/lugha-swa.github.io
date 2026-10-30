@@ -84,7 +84,7 @@
         <div class="docs-content">
 
           <h2 id="programu-ya-kwanza">Hatua 1 — Programu ya kwanza</h2>
-          <p>Faili ya <code>.swa</code> ni mfuatano wa matamko ya kiwango cha juu: kazi, miundo, na vigezo vya ulimwengu. Sehemu ya kuingia ni kazi <code>main</code> — katika hali ya <code>--exe</code>, sahihi ni <code>N32 main()</code> au <code>N32 main(N32 argc, N8** argv)</code>.</p>
+          <p>Faili ya <code>.swa</code> ni mfuatano wa matamko ya kiwango cha juu: kazi, miundo, na vigezo vya ulimwengu. Sehemu ya kuingia ni kazi <code>main</code> — katika hali ya <code>--exe</code>, sahihi ni <code>n32 main()</code> au <code>n32 main(n32 argc, n8** argv)</code>.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
             <p>Taarifa ya kiwango cha juu ni kosa la mchanganuzi. Programu ni mfuatano wa matamko pekee — wito kama <code>salamu("Dunia");</code> nje ya kazi hauruhusiwi. Kila kitu kinachotekelezwa lazima kiwe ndani ya kazi.</p>
@@ -95,7 +95,9 @@
               <span class="codeblock-fname">hello.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, Swa!\n"</span>);
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }</code></pre>
@@ -110,13 +112,12 @@
               <span class="codeblock-fname">amri</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code>cat msingi/kumbukumbu.swa hello.swa &gt; hello_zima.swa
-./msingi/mbegu.bin --exe hello_zima.swa &gt; hello.bin
-chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
+            <pre><code>bin/swa --exe hello.swa &gt; hello
+chmod +x hello &amp;&amp; ./hello</code></pre>
           </figure>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p><code>andika</code> si kazi ya C stdio. Ni kazi ya maktaba ya msingi (<code>msingi/kumbukumbu.swa</code>) inayotumia wito wa mfumo wa Linux moja kwa moja — haina libc yoyote. Usiandike <code>husisha C::stdio</code> kwenye mfano: kiungo hicho hakitoi kazi yoyote.</p>
+            <p><code>andika</code> si kazi ya C stdio. Ni kazi ya maktaba ya msingi (<code>msingi/maktaba/kumbukumbu.swa</code>) inayotumia wito wa mfumo wa Linux moja kwa moja — haina libc yoyote. Iingize kwa <code>husisha { msingi/maktaba/kumbukumbu.swa }</code>, kama kwenye mfano. <code>husisha C::stdio</code> haipo.</p>
           </aside>
 
           <h2 id="aina">Hatua 2 — Aina na vigezo</h2>
@@ -128,27 +129,27 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
                 <tr><th scope="col">Familia</th><th scope="col">Jina</th><th scope="col">Mifano</th></tr>
               </thead>
               <tbody>
-                <tr><td><code>N</code></td><td>kamili yenye ishara</td><td><code>N8</code> (baiti 1), <code>N16</code> (baiti 2), <code>N32</code> (baiti 4), <code>N64</code> (baiti 8)</td></tr>
-                <tr><td><code>A</code></td><td>asili, bila ishara</td><td>mfano <code>A32</code></td></tr>
-                <tr><td><code>D</code></td><td>desimali</td><td><code>D64</code> (baiti 8, IEEE 754)</td></tr>
-                <tr><td><code>B</code></td><td>buli/biti</td><td><code>B1</code> — matokeo ya ulinganisho na mantiki</td></tr>
-                <tr><td><code>W</code></td><td>upana wa mashine</td><td><code>W0</code> — bila thamani, kwa kazi tu</td></tr>
+                <tr><td><code>n</code></td><td>kamili yenye ishara</td><td><code>n8</code> (baiti 1), <code>n16</code> (baiti 2), <code>n32</code> (baiti 4), <code>n64</code> (baiti 8)</td></tr>
+                <tr><td><code>a</code></td><td>asili, bila ishara</td><td>mfano <code>a32</code></td></tr>
+                <tr><td><code>d</code></td><td>desimali</td><td><code>d64</code> (baiti 8, IEEE 754)</td></tr>
+                <tr><td><code>b</code></td><td>mifumo ya biti (bendera, maski)</td><td><code>b8</code> (baiti 1), <code>b1</code> (biti moja) — <code>&amp; | ^ ~ &lt;&lt; &gt;&gt;</code>, si hesabu</td></tr>
+                <tr><td><code>w</code></td><td>upana wa mashine</td><td><code>w0</code> — bila thamani, kwa kazi tu</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Halisi: nambari kamili kama <code>25</code> — aina yake ya chaguo-msingi ni <code>N32</code> ikiwa inatoshea ndani ya 32-bit yenye ishara, vinginevyo <code>N64</code>. Desimali kama <code>21.5</code> — <code>D64</code>. Mfuatano kama <code>"habari"</code> — baiti za <code>N8</code> zikifuatiwa na 0; utorokaji <code>\n</code>, <code>\t</code>, <code>\\</code>, <code>\"</code> unasaidiwa. Maoni: <code>//</code> na <code>/* ... */</code>; maoni ya kijiuzi hayaruhusiwi.</p>
-          <p>Hakuna maneno <code>kweli</code>, <code>uongo</code>, wala <code>tupu</code>: ukweli ni 1, si kweli ni 0; matokeo ya ulinganisho ni 1 au 0. Vigezo vya ulimwengu na safu za ulimwengu vinaruhusiwa (<code>N32 KIKOMO = 0;</code>, <code>N8 bafa[1024];</code>).</p>
+          <p>Halisi: nambari kamili kama <code>25</code> — aina yake ya chaguo-msingi ni <code>n32</code> ikiwa inatoshea ndani ya 32-bit yenye ishara, vinginevyo <code>n64</code>. Desimali kama <code>21.5</code> — <code>d64</code>. Mfuatano kama <code>"habari"</code> — baiti za <code>n8</code> zikifuatiwa na 0; utorokaji <code>\n</code>, <code>\t</code>, <code>\\</code>, <code>\"</code> unasaidiwa. Maoni: <code>//</code> na <code>/* ... */</code>; maoni ya kijiuzi hayaruhusiwi.</p>
+          <p>Hakuna maneno <code>kweli</code>, <code>uongo</code>, wala <code>tupu</code>: ukweli ni 1, si kweli ni 0; matokeo ya ulinganisho ni 1 au 0. Vigezo vya ulimwengu na safu za ulimwengu vinaruhusiwa (<code>n32 KIKOMO = 0;</code>, <code>n8 bafa[1024];</code>).</p>
           <figure class="codeblock" data-fname="aina.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">aina.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> umri = <span class="tok-num">25</span>;
-<span class="tok-type">N64</span> idadi_ya_watu = <span class="tok-num">8000000000</span>;
-<span class="tok-type">N8</span> herufi = <span class="tok-num">65</span>;
+            <pre><code><span class="tok-type">n32</span> umri = <span class="tok-num">25</span>;
+<span class="tok-type">n64</span> idadi_ya_watu = <span class="tok-num">8000000000</span>;
+<span class="tok-type">n8</span> herufi = <span class="tok-num">65</span>;
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">D64</span> wastani = <span class="tok-num">3.14</span>;
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">d64</span> wastani = <span class="tok-num">3.14</span>;
     <span class="tok-kw">kama</span> (umri != <span class="tok-num">25</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
     <span class="tok-kw">kama</span> (herufi != <span class="tok-num">65</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">2</span>; }
     <span class="tok-kw">kama</span> (wastani &gt; <span class="tok-num">3.0</span>) {
@@ -160,11 +161,11 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
           <p>Programu hii haichapishi chochote: inarudi msimbo 0 ikiwa kila kigezo kinashikilia thamani yake sahihi.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p>Halisi za herufi hazipo kwenye lugha: <code>'A'</code> si halali — tumia nambari ya ASCII (<code>65</code>). <code>B1</code> ni aina ya ndani (matokeo ya ulinganisho): tangazo la kigezo cha <code>B1</code> linavunja mbegu (SEGV) na mkaguzi wa .swa analikataa. Tangazo la <code>D64</code> lenye kianzilishi kwenye kiwango cha juu linashindikana kwenye mbegu (<code>Hitilafu: ulichanganuzi</code>) — tangaza desimali ndani ya kazi, kama hapa.</p>
+            <p>Halisi za herufi hazipo kwenye lugha: <code>'A'</code> si halali — tumia nambari ya ASCII (<code>65</code>). <code>b1</code> ni aina ya ndani (matokeo ya ulinganisho): tangazo la kigezo cha <code>b1</code> linavunja mbegu (SEGV) na mkaguzi wa .swa analikataa. Tangazo la <code>d64</code> lenye kianzilishi kwenye kiwango cha juu linashindikana kwenye mbegu (<code>Hitilafu: ulichanganuzi</code>) — tangaza desimali ndani ya kazi, kama hapa.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Kigezo kisichoanzishwa kina thamani isiyofahamika (kumbukumbu ya rafu isiyoanzishwa) — usisome kabla ya kuweka thamani. Pia: <code>N64</code> kubwa zaidi ya 2^31 - 1 inahifadhiwa kwa usahihi kwenye kigezo cha ulimwengu kwenye mbegu, lakini kigezo cha ndani chenye thamani kubwa kama hiyo kinahifadhi thamani mbovu kimya kwenye mbegu. Kwenye mnyororo wa .swa (stage1) halisi za N64 ni kamili.</p>
+            <p>Kigezo kisichoanzishwa kina thamani isiyofahamika (kumbukumbu ya rafu isiyoanzishwa) — usisome kabla ya kuweka thamani. Pia: <code>n64</code> kubwa zaidi ya 2^31 - 1 inahifadhiwa kwa usahihi kwenye kigezo cha ulimwengu kwenye mbegu, lakini kigezo cha ndani chenye thamani kubwa kama hiyo kinahifadhi thamani mbovu kimya kwenye mbegu. Kwenye mnyororo wa .swa (stage1) halisi za n64 ni kamili.</p>
           </aside>
 
           <h2 id="udhibiti">Hatua 3 — Mtiririko wa udhibiti</h2>
@@ -176,9 +177,11 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-fname">udhibiti.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">jumla_kwa_kwa</span>(<span class="tok-type">N32</span> n) {
-    <span class="tok-type">N32</span> s = <span class="tok-num">0</span>;
-    <span class="tok-kw">kwa</span> (<span class="tok-type">N32</span> i = <span class="tok-num">0</span>; i &lt; n; i = i + <span class="tok-num">1</span>) {
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">jumla_kwa_kwa</span>(<span class="tok-type">n32</span> n) {
+    <span class="tok-type">n32</span> s = <span class="tok-num">0</span>;
+    <span class="tok-kw">kwa</span> (<span class="tok-type">n32</span> i = <span class="tok-num">0</span>; i &lt; n; i = i + <span class="tok-num">1</span>) {
         <span class="tok-kw">kama</span> (i == <span class="tok-num">3</span>) { <span class="tok-kw">endelea</span>; }
         <span class="tok-kw">kama</span> (i == <span class="tok-num">8</span>) { <span class="tok-kw">vunja</span>; }
         s = s + i;
@@ -186,22 +189,22 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
     <span class="tok-kw">rudisha</span> s;
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N32</span> x = <span class="tok-num">-4</span>;
-    <span class="tok-type">N32</span> hali = <span class="tok-num">0</span>;
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n32</span> x = <span class="tok-num">-4</span>;
+    <span class="tok-type">n32</span> ishara = <span class="tok-num">0</span>;
     <span class="tok-kw">kama</span> (x &gt; <span class="tok-num">0</span>) {
-        hali = <span class="tok-num">1</span>;
+        ishara = <span class="tok-num">1</span>;
     } <span class="tok-kw">sivyo</span> {
         <span class="tok-kw">kama</span> (x &lt; <span class="tok-num">0</span>) {
-            hali = <span class="tok-num">-1</span>;
+            ishara = <span class="tok-num">-1</span>;
         }
     }
-    <span class="tok-type">N32</span> n = <span class="tok-num">0</span>;
+    <span class="tok-type">n32</span> n = <span class="tok-num">0</span>;
     <span class="tok-kw">wakati</span> (n &lt; <span class="tok-num">3</span>) {
         n = n + <span class="tok-num">1</span>;
     }
     <span class="tok-fn">andika</span>(<span class="tok-str">"wakati: %d, kwa: %d\n"</span>, n, <span class="tok-fn">jumla_kwa_kwa</span>(<span class="tok-num">10</span>));
-    <span class="tok-kw">kama</span> (hali != <span class="tok-num">-1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
+    <span class="tok-kw">kama</span> (ishara != <span class="tok-num">-1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }</code></pre>
             <div class="codeblock-tokeo">
@@ -212,25 +215,27 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
           <p><code>jumla_kwa_kwa(10)</code> ni 0+1+2+4+5+6+7 = 25: <code>i = 3</code> imerukwa na <code>endelea</code>, na <code>i = 8</code> imevunja kitanzi — semantiki ya C ya <code>endelea</code> ndani ya <code>kwa</code>.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>chagua</code> na <code>hali</code> hazifanyi kazi kwenye mnyororo wa uzalishaji. Mbegu hukataa <code>chagua</code> kabisa (<code>Hitilafu: ulichanganuzi</code>). Mnyororo wa .swa hukusanya <code>chagua</code> lakini hulinganisha hali ya KWANZA pekee — matokeo si sahihi kwa hali nyingi — na <code>sivyo:</code> (hali ya kawaida) haichanganuliwi hata kidogo. Dereva wa zamani wa Rust/LLVM ulizitekeleza, lakini umehamishiwa kumbukumbu. Hadi marekebisho yafike, andika uteuzi kwa <code>kama</code> / <code>sivyo</code> zilizopachikwa, kama kwenye mfano hapo juu.</p>
+            <p><code>chagua</code> na <code>hali</code> zinafanya kazi kikamilifu kwenye <code>bin/swa</code> — hali nyingi na <code>sivyo:</code> ya kawaida. Mbegu iliyogandishwa pekee ndiyo haijui <code>chagua</code>. Neno <code>hali</code> ni neno muhimu: halitumiki kama jina la kigeu.</p>
           </aside>
 
           <h2 id="kazi">Hatua 4 — Kazi</h2>
-          <p>Umbo: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;mwili&gt; }</code>. Vigezo hupitishwa kwa thamani au kwa kielekezi. <code>rudisha &lt;usemi&gt;;</code> kwa kazi yenye thamani; <code>rudisha;</code> kwa <code>W0</code>. Wito wa mbele unaruhusiwa (kazi inaweza kuitwa kabla ya kutangazwa); kujirudia kunasaidiwa.</p>
+          <p>Umbo: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;mwili&gt; }</code>. Vigezo hupitishwa kwa thamani au kwa kielekezi. <code>rudisha &lt;usemi&gt;;</code> kwa kazi yenye thamani; <code>rudisha;</code> kwa <code>w0</code>. Wito wa mbele unaruhusiwa (kazi inaweza kuitwa kabla ya kutangazwa); kujirudia kunasaidiwa.</p>
           <figure class="codeblock" data-fname="kazi.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">kazi.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">jumlisha</span>(<span class="tok-type">N32</span> a, <span class="tok-type">N32</span> b) {
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">jumlisha</span>(<span class="tok-type">n32</span> a, <span class="tok-type">n32</span> b) {
     <span class="tok-kw">rudisha</span> a + b;
 }
 
-<span class="tok-type">W0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">N8</span>* jina) {
+<span class="tok-type">w0</span> <span class="tok-fn">salamu</span>(<span class="tok-type">n8</span>* jina) {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, %s!\n"</span>, jina);
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
     <span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);
     <span class="tok-kw">rudisha</span> <span class="tok-fn">jumlisha</span>(<span class="tok-num">3</span>, <span class="tok-num">4</span>);
 }</code></pre>
@@ -246,13 +251,15 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-fname">kujirudia.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">fibonacci</span>(<span class="tok-type">N32</span> n) {
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">fibonacci</span>(<span class="tok-type">n32</span> n) {
     <span class="tok-kw">kama</span> (n &lt;= <span class="tok-num">1</span>) { <span class="tok-kw">rudisha</span> n; }
     <span class="tok-kw">rudisha</span> <span class="tok-fn">fibonacci</span>(n - <span class="tok-num">1</span>) + <span class="tok-fn">fibonacci</span>(n - <span class="tok-num">2</span>);
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N32</span> n = <span class="tok-num">10</span>;
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n32</span> n = <span class="tok-num">10</span>;
     <span class="tok-fn">andika</span>(<span class="tok-str">"fibonacci(%d) = %d\n"</span>, n, <span class="tok-fn">fibonacci</span>(n));
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }</code></pre>
@@ -263,26 +270,28 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
           </figure>
 
           <h2 id="miundo">Hatua 5 — Miundo</h2>
-          <p><code>muundo Nukta { N32 x; N32 y; };</code> — upatikanaji wa sehemu kwa <code>p.x</code> (thamani) na <code>p-&gt;x</code> (kielekezi). Miundo inaweza kupitishwa kwa thamani na kurejeshwa kwa thamani (sret imetekelezwa). Hakuna urithi, hakuna miundo ya kijiuzi.</p>
+          <p><code>muundo Nukta { n32 x; n32 y; };</code> — upatikanaji wa sehemu kwa <code>p.x</code> (thamani) na <code>p-&gt;x</code> (kielekezi). Miundo inaweza kupitishwa kwa thamani na kurejeshwa kwa thamani (sret imetekelezwa). Hakuna urithi, hakuna miundo ya kijiuzi.</p>
           <figure class="codeblock" data-fname="muundo.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">muundo.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-kw">muundo</span> <span class="tok-type">Nukta</span> {
-    <span class="tok-type">N32</span> x;
-    <span class="tok-type">N32</span> y;
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-kw">muundo</span> <span class="tok-type">Nukta</span> {
+    <span class="tok-type">n32</span> x;
+    <span class="tok-type">n32</span> y;
 };
 
-<span class="tok-type">N32</span> <span class="tok-fn">pata_x</span>(<span class="tok-type">Nukta</span>* p) {
+<span class="tok-type">n32</span> <span class="tok-fn">pata_x</span>(<span class="tok-type">Nukta</span>* p) {
     <span class="tok-kw">rudisha</span> p-&gt;x;
 }
 
-<span class="tok-type">W0</span> <span class="tok-fn">weka_x</span>(<span class="tok-type">Nukta</span>* p, <span class="tok-type">N32</span> v) {
+<span class="tok-type">w0</span> <span class="tok-fn">weka_x</span>(<span class="tok-type">Nukta</span>* p, <span class="tok-type">n32</span> v) {
     p-&gt;x = v;
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
     <span class="tok-type">Nukta</span> n;
     n.x = <span class="tok-num">3</span>;
     n.y = <span class="tok-num">9</span>;
@@ -307,15 +316,17 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-fname">kielekezi.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">W0</span> <span class="tok-fn">badilishana</span>(<span class="tok-type">N32</span>* a, <span class="tok-type">N32</span>* b) {
-    <span class="tok-type">N32</span> t = *a;
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">w0</span> <span class="tok-fn">badilishana</span>(<span class="tok-type">n32</span>* a, <span class="tok-type">n32</span>* b) {
+    <span class="tok-type">n32</span> t = *a;
     *a = *b;
     *b = t;
 }
 
-<span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N32</span> x = <span class="tok-num">3</span>;
-    <span class="tok-type">N32</span> y = <span class="tok-num">8</span>;
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n32</span> x = <span class="tok-num">3</span>;
+    <span class="tok-type">n32</span> y = <span class="tok-num">8</span>;
     <span class="tok-fn">andika</span>(<span class="tok-str">"kabla: x = %d, y = %d\n"</span>, x, y);
     <span class="tok-fn">badilishana</span>(&amp;x, &amp;y);
     <span class="tok-fn">andika</span>(<span class="tok-str">"baada: x = %d, y = %d\n"</span>, x, y);
@@ -327,20 +338,22 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-pato">baada: x = 8, y = 3</span>
             </div>
           </figure>
-          <p>Safu za ndani, safu za ulimwengu, na vianzishi vya safu (<code>N32 namba[5] = {1, 2, 3, 4, 5};</code>) zinasaidiwa:</p>
+          <p>Safu za ndani, safu za ulimwengu, na vianzishi vya safu (<code>n32 namba[5] = {1, 2, 3, 4, 5};</code>) zinasaidiwa:</p>
           <figure class="codeblock" data-fname="safu.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">safu.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N32</span> safu[<span class="tok-num">5</span>];
-    <span class="tok-type">N32</span> i = <span class="tok-num">0</span>;
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n32</span> safu[<span class="tok-num">5</span>];
+    <span class="tok-type">n32</span> i = <span class="tok-num">0</span>;
     <span class="tok-kw">wakati</span> (i &lt; <span class="tok-num">5</span>) {
         safu[i] = i * <span class="tok-num">10</span>;
         i = i + <span class="tok-num">1</span>;
     }
-    <span class="tok-type">N32</span> jumla = <span class="tok-num">0</span>;
+    <span class="tok-type">n32</span> jumla = <span class="tok-num">0</span>;
     i = <span class="tok-num">0</span>;
     <span class="tok-kw">wakati</span> (i &lt; <span class="tok-num">5</span>) {
         jumla = jumla + safu[i];
@@ -356,19 +369,21 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
           </figure>
           <aside class="callout callout-kidokezo" role="note">
             <p class="callout-title">Kidokezo</p>
-            <p>Kianzilishi cha safu kutoka kwenye mfuatano (<code>N8 s[] = "habari"</code> au <code>N8 s[4] = "Swa"</code>) kimevunjika kwenye minyororo yote miwili asilia. Njia sahihi: <code>nakili_mfuatano(b, "habari")</code> au kuandika baiti kwa baiti.</p>
+            <p>Kianzilishi cha safu kutoka kwenye mfuatano (<code>n8 s[] = "habari"</code> au <code>n8 s[4] = "Swa"</code>) kimevunjika kwenye minyororo yote miwili asilia. Njia sahihi: <code>nakili_mfuatano(b, "habari")</code> au kuandika baiti kwa baiti.</p>
           </aside>
 
           <h2 id="kumbukumbu">Hatua 7 — Kumbukumbu na mifumo</h2>
           <p><code>tenga(ukubwa)</code> hutenga kumbukumbu; <code>achilia(p)</code> huachilia; <code>badili(p, ukubwa)</code> hupanua kipande (inayolingana na realloc). <code>ukubwa(T)</code> hutoa ukubwa wa aina kwa baiti.</p>
-          <p>Kwa mifumo: <code>wito_wa_mfumo(namba, a1, ..., a6)</code> ni simu ya syscall ya Linux moja kwa moja (ABI: rax, rdi, rsi, rdx, r10, r8, r9). <code>tekeleza(N8* kazi, N32 argc, N8** argv, N32 ofseti)</code> hutekeleza msimbo wa JIT; <code>anwani_ya_kazi(N8* jina)</code> hutoa anwani ya kazi ya ndani.</p>
+          <p>Kwa mifumo: <code>wito_wa_mfumo(namba, a1, ..., a6)</code> ni simu ya syscall ya Linux moja kwa moja (ABI: rax, rdi, rsi, rdx, r10, r8, r9). <code>tekeleza(n8* kazi, n32 argc, n8** argv, n32 ofseti)</code> hutekeleza msimbo wa JIT; <code>anwani_ya_kazi(n8* jina)</code> hutoa anwani ya kazi ya ndani.</p>
           <figure class="codeblock" data-fname="kumbukumbu.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">kumbukumbu.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N8</span>* p = <span class="tok-fn">tenga</span>(<span class="tok-num">8</span>);
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n8</span>* p = <span class="tok-fn">tenga</span>(<span class="tok-num">8</span>);
     <span class="tok-kw">kama</span> (p == <span class="tok-num">0</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
     p[<span class="tok-num">0</span>] = <span class="tok-num">42</span>;
     <span class="tok-fn">andika</span>(<span class="tok-str">"thamani: %d\n"</span>, p[<span class="tok-num">0</span>]);
@@ -382,11 +397,11 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
           </figure>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p>Umbo la taarifa <code>tenga N32</code> limevunjika kwenye minyororo yote miwili asilia: kwenye mbegu linakusanyika lakini binary inaanguka SEGV hata maktaba ikiunganishwa; kwenye stage1 linatoa <code>[KITAMB] haijulikani: 'tenga'</code> na mkusanyaji anaendelea kutoa binary batili. Tumia umbo la wito pekee: <code>tenga(ukubwa)</code>.</p>
+            <p>Umbo la taarifa <code>tenga n32</code> limevunjika kwenye minyororo yote miwili asilia: kwenye mbegu linakusanyika lakini binary inaanguka SEGV hata maktaba ikiunganishwa; kwenye stage1 linatoa <code>[KITAMB] haijulikani: 'tenga'</code> na mkusanyaji anaendelea kutoa binary batili. Tumia umbo la wito pekee: <code>tenga(ukubwa)</code>.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Maktaba ya msingi inatumia arena ya kumbukumbu (mmap ya baiti 1,048,576) badala ya malloc/realloc/free; <code>achilia</code> haifungui kipande kweli — kinarejeshwa kwenye arena. <code>tenga</code>, <code>achilia</code>, na <code>badili</code> ni kazi za <code>msingi/kumbukumbu.swa</code>: moduli hiyo lazima iunganishwe kwa <code>cat</code>. Pia: mbegu hukataa wito wa kazi wenye D64 kama hoja au kama thamani ya kurudi (<code>Hitilafu: D64 kwenye wito wa kazi haisaidiwi bado na mbegu</code>) — mnyororo wa .swa una ABI kamili ya xmm0-xmm7.</p>
+            <p>Maktaba ya msingi inatumia arena ya kumbukumbu (mmap ya baiti 1,048,576) badala ya malloc/realloc/free; <code>achilia</code> haifungui kipande kweli — kinarejeshwa kwenye arena. <code>tenga</code>, <code>achilia</code>, na <code>badili</code> ni kazi za <code>msingi/kumbukumbu.swa</code>: moduli hiyo lazima iunganishwe kwa <code>cat</code>. Pia: mbegu hukataa wito wa kazi wenye d64 kama hoja au kama thamani ya kurudi (<code>Hitilafu: d64 kwenye wito wa kazi haisaidiwi bado na mbegu</code>) — mnyororo wa .swa una ABI kamili ya xmm0-xmm7.</p>
           </aside>
 
           <h2 id="maktaba">Hatua 8 — Maktaba ya kawaida</h2>
@@ -400,10 +415,10 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <tbody>
                 <tr><td><code>msingi/kumbukumbu.swa</code></td><td><code>andika</code> (muundo wa %d, %s, %c), <code>andika_stderr</code>, <code>andika_n64</code>, <code>andika_mfuatano</code>; <code>nakili</code>, <code>weka_sifuri</code>, <code>linganisha_kumbukumbu</code>; <code>ukubwa</code>; syscalls (<code>sys_soma</code>, <code>sys_andika</code>, <code>sys_fungua</code>, <code>sys_funga</code>, <code>sys_mmap</code>, <code>sys_munmap</code>); arena: <code>tenga</code>, <code>achilia</code>, <code>badili</code>; <code>soma_mstari</code>, <code>bits_ya_d64_swa</code></td></tr>
                 <tr><td><code>msingi/mfuatano.swa</code></td><td><code>urefu_wa_mfuatano</code>, <code>linganisha_mfuatano</code>, <code>nakili_mfuatano</code>, <code>unganisha_mfuatano</code>, <code>tafuta_herufi</code>, <code>tafuta_herufi_mwisho</code>, <code>tafuta_mfuatano</code>, <code>kata_nafasi</code>, <code>geuza_mfuatano</code>, <code>herufi_ya_juu</code>, <code>herufi_ya_chini</code>, <code>anza_kwa_mfuatano</code>, <code>isha_kwa_mfuatano</code>, <code>idadi_ya_herufi</code>; ugeuzi: <code>mfuatano_hadi_n32</code>, <code>mfuatano_hadi_n64</code>, <code>nambari_kwa_mfuatano</code>, <code>nambari_kwa_mfuatano_heksa</code>; <code>heshi_mfuatano</code></td></tr>
-                <tr><td><code>msingi/hesabu.swa</code></td><td><code>hesabu_kamili</code>, <code>hesabu_ndogo</code> (N32), <code>hesabu_kubwa</code>, <code>hesabu_dogo</code> (N64), <code>neneo_n32</code>, <code>neneo_n64</code>, <code>gcd_hesabu</code> (Euclid), <code>pow_kamili</code>, <code>isqrt_hesabu</code> (Newton), <code>fibonacci_hesabu</code>, <code>kipengele_hesabu</code> (n!, 0 kwa n&lt;0 au n&gt;12), <code>ni_kuu_hesabu</code>, <code>lcm_hesabu</code>, <code>pow_mod_hesabu</code> (kikomo: mod &lt; 32768)</td></tr>
+                <tr><td><code>msingi/hesabu.swa</code></td><td><code>hesabu_kamili</code>, <code>hesabu_ndogo</code> (n32), <code>hesabu_kubwa</code>, <code>hesabu_dogo</code> (n64), <code>neneo_n32</code>, <code>neneo_n64</code>, <code>gcd_hesabu</code> (Euclid), <code>pow_kamili</code>, <code>isqrt_hesabu</code> (Newton), <code>fibonacci_hesabu</code>, <code>kipengele_hesabu</code> (n!, 0 kwa n&lt;0 au n&gt;12), <code>ni_kuu_hesabu</code>, <code>lcm_hesabu</code>, <code>pow_mod_hesabu</code> (kikomo: mod &lt; 32768)</td></tr>
                 <tr><td><code>msingi/orodha.swa</code></td><td><code>Orodha</code> (data, idadi, uwezo); <code>orodha_mpya</code>, <code>orodha_ongeza</code> (inakua mara mbili), <code>orodha_pata</code> (0 nje ya mipaka), <code>orodha_futa_mwisho</code>, <code>orodha_urefu</code>, <code>orodha_huru</code></td></tr>
                 <tr><td><code>msingi/mpangilio.swa</code></td><td><code>pangilia_n32</code>, <code>pangilia_n32_kushuka</code>, <code>pangilia_n64</code>, <code>pangilia_n64_kushuka</code> (aina ya kiputo)</td></tr>
-                <tr><td><code>msingi/ramani.swa</code></td><td><code>Ramani</code> (funguo, thamani, uwezo, idadi); <code>ramani_mpya</code>, <code>ramani_weka</code>, <code>ramani_pata</code> (-1 kama haipo), <code>ramani_ina</code>, <code>ramani_futa</code>, <code>ramani_huru</code> (funguo za N32; mchanganyiko wazi, utafutaji wa mstari)</td></tr>
+                <tr><td><code>msingi/ramani.swa</code></td><td><code>Ramani</code> (funguo, thamani, uwezo, idadi); <code>ramani_mpya</code>, <code>ramani_weka</code>, <code>ramani_pata</code> (-1 kama haipo), <code>ramani_ina</code>, <code>ramani_futa</code>, <code>ramani_huru</code> (funguo za n32; mchanganyiko wazi, utafutaji wa mstari)</td></tr>
                 <tr><td><code>msingi/faili.swa</code></td><td><code>faili_fungua</code>, <code>faili_funga</code>, <code>faili_soma</code>, <code>faili_andika</code>, <code>faili_soma_yote</code>, <code>faili_andika_yote</code>, <code>faili_ipo</code>, <code>faili_soma_mstari</code> — vifunko vya stdio ya C (fopen, fread, fwrite)</td></tr>
                 <tr><td><code>msingi/nasibu.swa</code></td><td><code>nasibu_anzisha</code>, <code>nasibu_n32</code>, <code>nasibu_katikati</code> — vifunko vya rand/srand ya C</td></tr>
                 <tr><td><code>msingi/wakati.swa</code></td><td><code>wakati_sasa</code> (wakati wa UNIX kwa sekunde) — kifunko cha time() ya C</td></tr>
@@ -416,8 +431,11 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-fname">mfuatano.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N8</span> b[<span class="tok-num">16</span>];
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/mfuatano.swa }
+<span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n8</span> b[<span class="tok-num">16</span>];
     <span class="tok-fn">nakili_mfuatano</span>(b, <span class="tok-str">"habari"</span>);
     <span class="tok-fn">andika</span>(<span class="tok-str">"urefu: %d\n"</span>, <span class="tok-fn">urefu_wa_mfuatano</span>(b));
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
@@ -433,15 +451,18 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-fname">mfuatano_z.swa</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
-    <span class="tok-type">N8</span> b[<span class="tok-num">32</span>];
+            <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/mfuatano.swa }
+<span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+    <span class="tok-type">n8</span> b[<span class="tok-num">32</span>];
     <span class="tok-fn">nakili_mfuatano</span>(b, <span class="tok-str">"habari"</span>);
     <span class="tok-fn">andika</span>(<span class="tok-str">"urefu: %d\n"</span>, <span class="tok-fn">urefu_wa_mfuatano</span>(b));
     <span class="tok-fn">andika</span>(<span class="tok-str">"linganisho na habari: %d\n"</span>, <span class="tok-fn">linganisha_mfuatano</span>(b, <span class="tok-str">"habari"</span>));
     <span class="tok-fn">andika</span>(<span class="tok-str">"herufi b iko faharisi: %d\n"</span>, <span class="tok-fn">tafuta_herufi</span>(b, <span class="tok-num">98</span>));
     <span class="tok-fn">geuza_mfuatano</span>(b);
     <span class="tok-fn">andika</span>(<span class="tok-str">"geuzi: %s\n"</span>, b);
-    <span class="tok-type">N8</span> namba[<span class="tok-num">16</span>];
+    <span class="tok-type">n8</span> namba[<span class="tok-num">16</span>];
     <span class="tok-fn">nambari_kwa_mfuatano</span>(<span class="tok-num">1234</span>, namba);
     <span class="tok-fn">andika</span>(<span class="tok-str">"namba: %s\n"</span>, namba);
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
@@ -471,37 +492,31 @@ chmod +x hello.bin &amp;&amp; ./hello.bin</code></pre>
               <span class="codeblock-fname">amri</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa sampuli.swa &gt; sampuli_zima.swa
-./msingi/mbegu.bin --exe sampuli_zima.swa &gt; sampuli.bin
-chmod +x sampuli.bin &amp;&amp; ./sampuli.bin</code></pre>
+            <pre><code>bin/swa --exe sampuli.swa &gt; sampuli
+chmod +x sampuli &amp;&amp; ./sampuli</code></pre>
           </figure>
-          <p>Au kujenga mkusanyaji kamili wa .swa (stage1-exe) kutoka chanzo, kisha kuitumia kwa programu zako:</p>
+          <p>Au kujenga mkusanyaji kamili wa .swa (<code>bin/swa</code>) kutoka chanzo, kisha kuitumia kwa programu zako:</p>
           <figure class="codeblock" data-fname="amri">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">amri</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa msingi/msomaji.swa \
-    msingi/msambazaji.swa msingi/mteremko.swa msingi/mkaguzi.swa \
-    msingi/uzalishaji.swa msingi/orodha.swa msingi/ramani.swa \
-    msingi/stage1.swa &gt; zima.swa
-./msingi/mbegu.bin --exe zima.swa &gt; stage1-exe
-chmod +x stage1-exe
-./stage1-exe --exe programu.swa &gt; programu.bin
-chmod +x programu.bin &amp;&amp; ./programu.bin</code></pre>
+            <pre><code>bash gharama/jenga.sh               # baiti za mkono -&gt; mbegu -&gt; stage1 -&gt; bin/swa
+bin/swa --exe programu.swa &gt; programu
+chmod +x programu &amp;&amp; ./programu</code></pre>
           </figure>
           <p>Dereva wa zamani wa Rust/LLVM (kande) umehamishiwa hazina ya kumbukumbu <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a> (2026-09-05). Hazina kuu ina lugha moja tu: Swa.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>husisha { faili.swa }</code> ni TANGAZO LA UTEGEMEAJI, si kiingizi cha faili kinachofanya kazi. Mbegu hukiruka kabisa; mnyororo wa .swa huondoa mistari ya <code>husisha</code> kabla ya kuchanganua (kazi <code>ondoa_husisha</code>). Hata hivyo, faili halisi lazima ziunganishwe kwa <code>cat</code>: programu yenye <code>husisha { mfuatano.swa }</code> bila kuunganisha inakusanyika lakini inaanguka SEGV wakati wa utekelezaji. Mfumo halisi wa moduli ni kazi ya siku zijazo.</p>
+            <p><code>husisha { njia/ya/faili.swa }</code> ni kiungo halisi: <code>bin/swa</code> (stage1) hufuata utegemezi kwa mpito, huondoa marudio, na hukataa mzunguko kwa sauti. Mbegu iliyogandishwa pekee ndiyo isiyotatua <code>husisha</code> — tumia <code>bin/swa</code> kwa programu zinazotumia maktaba.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Uthibitisho wa hazina: majaribio 227/227 kwenye dereva wa Rust (146 ya maktaba + 80 ya ujumuishaji + 1 ya nyaraka), na 104/104 kwenye mnyororo wa Swa pekee (<code>gharama/jaribu-mnyororo.sh</code>).</p>
+            <p>Uthibitisho wa hazina: kila PR hupitia mnyororo mzima wa majaribio kwenye minyororo yote miwili (<code>gharama/jaribu-mnyororo.sh</code>), fixpoint, WebAssembly, <code>--kernel</code>, na mifano ya README — angalia <a href="https://github.com/lugha-swa/swa/actions">CI</a>.</p>
           </aside>
           <aside class="callout callout-kidokezo" role="note">
             <p class="callout-title">Kidokezo</p>
-            <p>Kwa orodha kamili ya maneno muhimu 12, familia za aina, waendeshaji, kazi za ndani, na mipaka inayojulikana ya toleo la 1.0 — fungua <a href="marejeo.html">kurasa ya Marejeo</a>.</p>
+            <p>Kwa orodha kamili ya maneno muhimu 13, familia za aina, waendeshaji, kazi za ndani, na mipaka inayojulikana ya toleo la 1.0 — fungua <a href="marejeo.html">kurasa ya Marejeo</a>.</p>
           </aside>
 
         </div>

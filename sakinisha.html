@@ -87,44 +87,47 @@ bash gharama/jenga-kwanza.sh</code></pre>
       </figure>
 
       <h3>Mkusanyaji wa kwanza wa Swa</h3>
-      <p>Unganisha maktaba 10 za mkusanyaji kwa cat — ndivyo viungo vya ndani vinavyofanya kazi kwenye mnyororo huu — kisha mbegu inakusanya mkusanyaji kamili wa Swa moja kwa moja hadi ET_EXEC tuli (bendera --exe), bila kiunganishi:</p>
+      <p>Skripti moja inaendesha mnyororo mzima: kwanza → mbegu → msuluhishi wa <code>husisha</code> (hujengwa na mbegu) hutatua utegemezi wa <code>msingi/mkusanyaji/stage1.swa</code> → mbegu inakusanya stage1 → stage1 hujijenga yenyewe kuwa <code>bin/swa</code>. Kila hatua ni ET_EXEC tuli (bendera <code>--exe</code>), bila kiunganishi:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>cat msingi/kumbukumbu.swa msingi/mfuatano.swa msingi/msomaji.swa \
-    msingi/msambazaji.swa msingi/mteremko.swa msingi/mkaguzi.swa \
-    msingi/uzalishaji.swa msingi/orodha.swa msingi/ramani.swa \
-    msingi/stage1.swa &gt; zima.swa
-./msingi/mbegu.bin --exe zima.swa &gt; stage1-exe
-chmod +x stage1-exe</code></pre>
+        <pre><code>bash gharama/jenga.sh</code></pre>
+        <div class="codeblock-tokeo">
+          <span class="codeblock-prompt">$ bash gharama/jenga.sh</span>
+          <span class="codeblock-pato">bin/swa iko tayari</span>
+        </div>
       </figure>
 
       <h3>Thibitisha fixpoint</h3>
-      <p>stage1-exe inajikusanya yenyewe kuwa stage2, na stage2 inajikusanya kuwa stage3. Ikiwa stage2 na stage3 ni sawa kwa baiti, mnyororo umejithibitisha kikamilifu — mkusanyaji hutoa mkusanyaji ule ule:</p>
+      <p>stage1 inajikusanya yenyewe kuwa stage2, na stage2 inajikusanya kuwa stage3. Ikiwa stage2 na stage3 ni sawa kwa baiti, mnyororo umejithibitisha kikamilifu — mkusanyaji hutoa mkusanyaji ule ule. Ukaguzi huu ni sehemu ya kwanza ya majaribio kamili (chini):</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>./stage1-exe --exe zima.swa &gt; stage2
-chmod +x stage2
-./stage2 --exe zima.swa &gt; stage3
-cmp stage2 stage3</code></pre>
+        <pre><code>bash gharama/jaribu-mnyororo.sh</code></pre>
+        <div class="codeblock-tokeo">
+          <span class="codeblock-prompt">$ bash gharama/jaribu-mnyororo.sh</span>
+          <span class="codeblock-pato">(fixpoint: stage2 == stage3, sawa kwa baiti)</span>
+          <span class="codeblock-pato">===== Matokeo ya mnyororo: 457 yamefaulu, 0 yameshindwa =====</span>
+        </div>
       </figure>
 
       <h3>Programu yako ya kwanza</h3>
-      <p>Programu hukusanywa kwa mbegu au stage1-exe. Maktaba ya msingi huunganishwa kwa cat kabla ya kukusanya. Andika program hii kwenye faili salamu.swa:</p>
+      <p>Programu hukusanywa kwa <code>bin/swa</code>. Maktaba ya msingi huingizwa kwa <code>husisha</code> — mkusanyaji hufuata utegemezi wenyewe, kwa mpito. Njia za <code>husisha</code> ni kutoka mzizi wa hazina ya swa, kwa hiyo endesha amri ukiwa hapo. Andika program hii kwenye faili salamu.swa:</p>
 
       <figure class="codeblock" data-fname="salamu.swa">
         <figcaption class="codeblock-bar">
           <span class="codeblock-fname">salamu.swa</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code><span class="tok-type">N32</span> <span class="tok-fn">main</span>() {
+        <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
+
+<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, Swa!\n"</span>);
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }</code></pre>
@@ -135,12 +138,11 @@ cmp stage2 stage3</code></pre>
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>cat msingi/kumbukumbu.swa salamu.swa &gt; salamu_zima.swa
-./msingi/mbegu.bin --exe salamu_zima.swa &gt; salamu.bin
-chmod +x salamu.bin
-./salamu.bin</code></pre>
+        <pre><code>bin/swa --exe salamu.swa &gt; salamu
+chmod +x salamu
+./salamu</code></pre>
         <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ ./salamu.bin</span>
+          <span class="codeblock-prompt">$ ./salamu</span>
           <span class="codeblock-pato">Habari, Swa!</span>
         </div>
       </figure>
@@ -156,7 +158,7 @@ chmod +x salamu.bin
         <pre><code>bash gharama/jaribu-mnyororo.sh</code></pre>
         <div class="codeblock-tokeo">
           <span class="codeblock-prompt">$ bash gharama/jaribu-mnyororo.sh</span>
-          <span class="codeblock-pato">===== Matokeo ya mnyororo: 104 yamefaulu, 0 yameshindwa =====</span>
+          <span class="codeblock-pato">===== Matokeo ya mnyororo: 457 yamefaulu, 0 yameshindwa =====</span>
         </div>
       </figure>
 
