@@ -56,7 +56,7 @@
   <main id="yaliyomo" class="wrap">
     <div class="page-head">
       <h1>Sakinisha</h1>
-      <p>Swa ina njia moja ya kujenga: mnyororo safi wa Swa — njia ya uzalishaji, bila gcc, ld, clang, libc, Rust wala LLVM. Dereva wa zamani wa Rust/LLVM umehamishiwa hazina ya kumbukumbu <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a> (2026-09-05).</p>
+      <p>Swa ina njia moja ya kujenga: mnyororo safi wa Swa, bila gcc, ld, clang, libc, Rust wala LLVM.</p>
     </div>
 
     <div class="prose">
@@ -69,7 +69,7 @@
       <p>Hii ndiyo njia ya uzalishaji. Mahitaji: x86-64 Linux na bash pamoja na zana za kawaida za mfumo (cat, cmp, chmod, mktemp, timeout, grep, md5sum). Hakuna Rust, hakuna LLVM, hakuna clang, hakuna libc popote kwenye mnyororo huu.</p>
 
       <h3>Kuanza — mzizi wa uaminifu</h3>
-      <p>Mnyororo unaanza na Kwanza, program ya baiti 393 za mkono iliyoandikwa bila lugha nyingine yoyote. Inajijenga yenyewe na kuzalisha mbegu.bin kutoka mbegu.hex — bila NASM wala kiunganishi. Skripti moja inathibitisha mzizi mzima:</p>
+      <p>Mnyororo unaanza na Kwanza, programu ya baiti 393 za mkono iliyoandikwa bila lugha nyingine yoyote. Kizinduzi kidogo cha mkono kinatumia Kwanza pekee kujenga upya mjenzi, mbegu (<code>msingi/awali.bin</code>) na kizinduzi chenyewe kutoka vyanzo vyao, na kuthibitisha kila kimoja ni sawa kwa baiti na kilichohifadhiwa — bila NASM wala kiunganishi:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
@@ -78,47 +78,31 @@
         </figcaption>
         <pre><code>git clone https://github.com/lugha-swa/swa.git
 cd swa
-bash gharama/jenga-kwanza.sh</code></pre>
+./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi</code></pre>
         <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ bash gharama/jenga-kwanza.sh</span>
-          <span class="codeblock-pato">kwanza inajijenga sawa</span>
-          <span class="codeblock-pato">mbegu.bin inazalika kutoka baiti za mkono</span>
+          <span class="codeblock-prompt">$ ./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi</span>
+          <span class="codeblock-pato">mwanzo: kwanza na kizinduzi pekee -&gt; mjenzi, mbegu na kizinduzi kutoka vyanzo -- sawa kwa baiti</span>
         </div>
       </figure>
 
-      <h3>Mkusanyaji wa kwanza wa Swa</h3>
-      <p>Skripti moja inaendesha mnyororo mzima: kwanza → mbegu → msuluhishi wa <code>husisha</code> (hujengwa na mbegu) hutatua utegemezi wa <code>msingi/mkusanyaji/stage1.swa</code> → mbegu inakusanya stage1 → stage1 hujijenga yenyewe kuwa <code>bin/swa</code>. Kila hatua ni ET_EXEC tuli (bendera <code>--exe</code>), bila kiunganishi:</p>
+      <h3>Mkusanyaji wa Swa</h3>
+      <p>Mapishi moja yanaendesha mnyororo mzima: baiti 393 → kusanyiko → mbegu → msuluhishi wa <code>husisha</code> (hujengwa na mbegu) hutatua utegemezi wa <code>msingi/mkusanyaji/kiendeshaji.swa</code> → mbegu inakusanya mkusanyaji kamili → mkusanyaji kamili hujijenga upya kuwa <code>bin/swa</code>. Kila hatua ni ELF tuli (bendera <code>--programu</code>), bila kiunganishi:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>bash gharama/jenga.sh</code></pre>
+        <pre><code>./msingi/mjenzi.bin gharama/jenga.mapishi</code></pre>
         <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ bash gharama/jenga.sh</span>
+          <span class="codeblock-prompt">$ ./msingi/mjenzi.bin gharama/jenga.mapishi</span>
+          <span class="codeblock-pato">mnyororo: mbegu, kusanyiko na mjenzi kutoka baiti 393 -- sawa kwa baiti</span>
           <span class="codeblock-pato">bin/swa iko tayari</span>
         </div>
       </figure>
 
-      <h3>Thibitisha fixpoint</h3>
-      <p>stage1 inajikusanya yenyewe kuwa stage2, na stage2 inajikusanya kuwa stage3. Ikiwa stage2 na stage3 ni sawa kwa baiti, mnyororo umejithibitisha kikamilifu — mkusanyaji hutoa mkusanyaji ule ule. Ukaguzi huu ni sehemu ya kwanza ya majaribio kamili (chini):</p>
-
-      <figure class="codeblock" data-fname="bash">
-        <figcaption class="codeblock-bar">
-          <span class="codeblock-fname">bash</span>
-          <button class="codeblock-copy" type="button">Nakili</button>
-        </figcaption>
-        <pre><code>bash gharama/jaribu-mnyororo.sh</code></pre>
-        <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ bash gharama/jaribu-mnyororo.sh</span>
-          <span class="codeblock-pato">(fixpoint: stage2 == stage3, sawa kwa baiti)</span>
-          <span class="codeblock-pato">===== Matokeo ya mnyororo: 457 yamefaulu, 0 yameshindwa =====</span>
-        </div>
-      </figure>
-
       <h3>Programu yako ya kwanza</h3>
-      <p>Programu hukusanywa kwa <code>bin/swa</code>. Maktaba ya msingi huingizwa kwa <code>husisha</code> — mkusanyaji hufuata utegemezi wenyewe, kwa mpito. Njia za <code>husisha</code> ni kutoka mzizi wa hazina ya swa, kwa hiyo endesha amri ukiwa hapo. Andika program hii kwenye faili salamu.swa:</p>
+      <p>Programu hukusanywa kwa <code>bin/swa</code>. Maktaba ya msingi huingizwa kwa <code>husisha</code> — mkusanyaji hufuata utegemezi wenyewe, kwa mpito. Njia za <code>husisha</code> ni kutoka mzizi wa hazina ya swa, kwa hiyo endesha amri ukiwa hapo. Andika programu hii kwenye faili salamu.swa:</p>
 
       <figure class="codeblock" data-fname="salamu.swa">
         <figcaption class="codeblock-bar">
@@ -127,7 +111,7 @@ bash gharama/jenga-kwanza.sh</code></pre>
         </figcaption>
         <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
 
-<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+<span class="tok-type">n32</span> <span class="tok-fn">anza</span>() {
     <span class="tok-fn">andika</span>(<span class="tok-str">"Habari, Swa!\n"</span>);
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }</code></pre>
@@ -138,7 +122,7 @@ bash gharama/jenga-kwanza.sh</code></pre>
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>bin/swa --exe salamu.swa &gt; salamu
+        <pre><code>bin/swa --programu salamu.swa &gt; salamu
 chmod +x salamu
 ./salamu</code></pre>
         <div class="codeblock-tokeo">
@@ -148,30 +132,22 @@ chmod +x salamu
       </figure>
 
       <h3>Majaribio kamili ya mnyororo</h3>
-      <p>Skripti moja inaendesha majaribio yote ya mnyororo: program za majaribio kwenye minyororo yote miwili (mbegu na stage1), fixpoint, mkazo wa RELA wa wito 1,000 wa mbele, desimali, semantiki ya endelea, mzunguko mfupi, na kujijenga kwa kipanga umbaji. Hakuna Rust, hakuna LLVM, hakuna clang:</p>
+      <p>Mapishi moja yanaendesha majaribio yote ya mnyororo: programu za <code>majaribio/programu/ORODHA.txt</code> kwenye minyororo yote miwili (mbegu na mkusanyaji kamili), fixpoint (mkusanyaji hujijenga mara mbili, na matokeo mawili ni sawa kwa baiti), mkazo wa urekebishaji wa wito 1,000 wa mbele, desimali, na kujiumbiza kwa kipanga umbizo. Hakuna Rust, hakuna LLVM, hakuna clang:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>bash gharama/jaribu-mnyororo.sh</code></pre>
+        <pre><code>./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code></pre>
         <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ bash gharama/jaribu-mnyororo.sh</span>
-          <span class="codeblock-pato">===== Matokeo ya mnyororo: 457 yamefaulu, 0 yameshindwa =====</span>
+          <span class="codeblock-prompt">$ ./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</span>
+          <span class="codeblock-pato">mnyororo: majaribio yote yamefaulu</span>
         </div>
       </figure>
 
-      <h2 id="njia-2">Dereva wa Rust/LLVM — hazina ya kumbukumbu</h2>
-      <p>Dereva wa Rust/LLVM (kande) ulikuwa njia ya majaribio ya kukusanya
-      kupitia LLVM. Tarehe 2026-09-05 umehamishiwa hazina ya kumbukumbu
-      iliyohifadhiwa: <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a>.
-      Hazina kuu ya Swa sasa ina lugha moja tu: Swa.</p>
-
-      <aside class="callout callout-tahadhari" role="note">
-        <p class="callout-title">Kumbuka</p>
-        <p>Uamuzi wa 2026-08-19 (hati/mipaka.md 6): mwisho wa LLVM umeshushwa hadhi kuwa wa majaribio. Mnyororo wa uzalishaji ni mbegu/exe pekee. Uamuzi wa 2026-09-05: dereva umehamishiwa kumbukumbu.</p>
-      </aside>
+      <h2 id="njia-2">Dereva wa zamani wa Rust/LLVM</h2>
+      <p>Hadi 2026-09-05 kulikuwa na dereva wa majaribio wa Rust/LLVM. Umehamishiwa hazina ya kumbukumbu <a href="https://github.com/lugha-swa/swa-dereva">lugha-swa/swa-dereva</a> na haujengwi tena; hazina kuu ya Swa ina lugha moja tu: Swa.</p>
 
       <h2 id="jukwaa">Jukwaa linaloungwa mkono</h2>
       <ul>

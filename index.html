@@ -121,7 +121,7 @@
     <span class="tok-kw">rudisha</span> <span class="tok-num">0</span>;
 }
 
-<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+<span class="tok-type">n32</span> <span class="tok-fn">anza</span>() {
     <span class="tok-fn">salamu</span>(<span class="tok-str">"Dunia"</span>);
     <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">5</span>) != <span class="tok-num">1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
     <span class="tok-kw">kama</span> (<span class="tok-fn">kadirifu</span>(<span class="tok-num">-5</span>) != <span class="tok-num">-1</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">2</span>; }
@@ -155,14 +155,14 @@
             <span class="sifa-namba" aria-hidden="true">02</span>
             <div>
               <h3>Uhuru kamili wa kujikusanya</h3>
-              <p>Mnyororo wa uzalishaji hautegemei lugha nyingine: Kwanza (baiti 393 za mkono), mbegu, stage1-exe, na <code>stage2-exe == stage3-exe</code> — sawa kwa baiti. Hakuna gcc, ld, clang, wala libc.</p>
+              <p>Mnyororo wa uzalishaji hautegemei lugha nyingine: Kwanza (baiti 393 za mkono), mbegu, na mkusanyaji kamili unaojijenga upya hadi matokeo mawili ni <code>sawa kwa baiti</code>. Hakuna gcc, ld, clang, wala libc.</p>
             </div>
           </li>
           <li class="sifa-mstari">
             <span class="sifa-namba" aria-hidden="true">03</span>
             <div>
               <h3>Kizalishe asilia cha x86-64</h3>
-              <p>Kizalishe asilia kinatoa ELF ya x86-64 moja kwa moja, hata ET_EXEC tuli kwa bendera <code>--exe</code>. Njia ya LLVM ipo kwenye dereva wa Rust lakini ni ya majaribio tu.</p>
+              <p>Kizalishe asilia kinatoa ELF tuli ya x86-64 moja kwa moja kwa bendera <code>--programu</code>, msimbo wa ring 0 kwa <code>--kiini</code>, na WebAssembly kwa <code>--wasm</code>.</p>
             </div>
           </li>
           <li class="sifa-mstari">
@@ -176,7 +176,7 @@
             <span class="sifa-namba" aria-hidden="true">05</span>
             <div>
               <h3>Kumbukumbu ya moja kwa moja</h3>
-              <p><code>tenga</code> hutenga, <code>achilia</code> huachilia — hakuna mkusanyaji wa takataka. Maktaba hutumia arena ya kumbukumbu (mmap).</p>
+              <p><code>tenga</code> hutenga, <code>achilia</code> huachilia — hakuna mkusanyaji wa takataka. Maktaba hutumia eneo la utengaji juu ya mmap.</p>
             </div>
           </li>
           <li class="sifa-mstari">
@@ -200,11 +200,11 @@
         <ol class="mtiririko" aria-label="Mnyororo wa kujikusanya">
           <li class="hatua-kipengele"><code>Kwanza</code><span>baiti 393 za mkono</span></li>
           <li class="mtiririko-kiungo" aria-hidden="true">→</li>
-          <li class="hatua-kipengele"><code>mbegu</code><span>kutoka hex, bila kiunganishi</span></li>
+          <li class="hatua-kipengele"><code>mbegu</code><span>kutoka heksa, bila kiunganishi</span></li>
           <li class="mtiririko-kiungo" aria-hidden="true">→</li>
-          <li class="hatua-kipengele"><code>stage1-exe</code><span>ET_EXEC tuli</span></li>
+          <li class="hatua-kipengele"><code>kamili</code><span>ELF tuli</span></li>
           <li class="mtiririko-kiungo" aria-hidden="true">→</li>
-          <li class="hatua-kipengele hatua-thibitisho"><code>stage2-exe ≡ stage3-exe</code><span>sawa kwa baiti</span></li>
+          <li class="hatua-kipengele hatua-thibitisho"><code>bin/swa ≡ kujijenga upya</code><span>sawa kwa baiti</span></li>
         </ol>
         <p class="section-sub">Hakuna <code>gcc</code>, <code>ld</code>, <code>clang</code>, wala <code>libc</code> popote kwenye mnyororo wa uzalishaji.</p>
         <p><a href="habari.html">Soma historia kamili</a></p>
@@ -230,8 +230,8 @@
             <span class="codeblock-fname">bash</span>
             <button class="codeblock-copy" type="button">Nakili</button>
           </figcaption>
-          <pre><code>bash gharama/jenga.sh               # baiti za mkono -&gt; mbegu -&gt; stage1 -&gt; bin/swa
-bin/swa --exe programu.swa &gt; programu
+          <pre><code>./msingi/mjenzi.bin gharama/jenga.mapishi   # baiti 393 -&gt; kusanyiko -&gt; mbegu -&gt; bin/swa
+bin/swa --programu programu.swa &gt; programu
 chmod +x programu &amp;&amp; ./programu</code></pre>
         </figure>
       </div>
