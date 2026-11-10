@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marejeo ya Lugha — Lugha ya Swa</title>
-  <meta name="description" content="Marejeo kamili ya Swa 1.0: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana. Kila kitu kimejaribiwa kwa mkusanyaji halisi.">
+  <meta name="description" content="Marejeo kamili ya Swa: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana. Kila kitu kimejaribiwa kwa mkusanyaji halisi.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://lugha-swa.github.io/marejeo.html">
   <meta property="og:title" content="Marejeo ya Lugha — Lugha ya Swa">
-  <meta property="og:description" content="Marejeo kamili ya Swa 1.0: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana.">
+  <meta property="og:description" content="Marejeo kamili ya Swa: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, sarufi, na mipaka inayojulikana.">
   <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lugha-swa.github.io/marejeo.html">
@@ -59,7 +59,7 @@
     <section class="page-head">
       <div class="wrap">
         <h1>Marejeo ya Lugha</h1>
-        <p>Marejeo kamili ya toleo la 1.0: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, na muundo wa sarufi — pamoja na mipaka inayojulikana, iliyoandikwa kwa uwazi. Kila kitu kimejaribiwa kwa mkusanyaji halisi.</p>
+        <p>Marejeo kamili ya lugha: maneno muhimu 13, familia za aina 5, waendeshaji, kazi za ndani, na muundo wa sarufi — pamoja na mipaka inayojulikana, iliyoandikwa kwa uwazi. Kila kitu kimejaribiwa kwa mkusanyaji halisi.</p>
       </div>
     </section>
     <div class="wrap">
@@ -97,27 +97,27 @@
                 <tr><td><code>fanya</code></td><td>kitanzi cha mwili-kwanza (mwili huendeshwa angalau mara moja)</td><td><code>fanya { ... } wakati (sharti);</code></td></tr>
                 <tr><td><code>chagua</code></td><td>uteuzi</td><td><code>chagua (usemi) { hali 1: ...; sivyo: ...; }</code></td></tr>
                 <tr><td><code>hali</code></td><td>hali ya uteuzi</td><td><code>hali 1: taarifa;</code></td></tr>
-                <tr><td><code>vunja</code></td><td>toka kitanzi</td><td><code>vunja;</code></td></tr>
+                <tr><td><code>acha</code></td><td>toka kitanzi</td><td><code>acha;</code></td></tr>
                 <tr><td><code>endelea</code></td><td>endelea kitanzi</td><td><code>endelea;</code> (ndani ya <code>kwa</code> inaruka hadi hatua)</td></tr>
                 <tr><td><code>rudisha</code></td><td>rudisha thamani</td><td><code>rudisha &lt;usemi&gt;;</code> au <code>rudisha;</code> kwa <code>w0</code></td></tr>
                 <tr><td><code>muundo</code></td><td>muundo wa data</td><td><code>muundo Jina { n32 x; };</code></td></tr>
-                <tr><td><code>achilia</code></td><td>achilia kumbukumbu</td><td><code>achilia(p);</code></td></tr>
-                <tr><td><code>husisha</code></td><td>tangazo la utegemezi</td><td><code>husisha { faili.swa }</code> au <code>husisha C::stdio</code></td></tr>
+                <tr><td><code>achilia_eneo_la_utengaji</code></td><td>achilia kumbukumbu</td><td><code>achilia(p);</code></td></tr>
+                <tr><td><code>husisha</code></td><td>tangazo la utegemezi</td><td><code>husisha { faili.swa }</code></td></tr>
               </tbody>
             </table>
           </div>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
             <p>Maneno muhimu hayawezi kutumika kama majina ya vitambulisho. Aina za nambari SI maneno muhimu — hutambuliwa kisintaksia kwa herufi ndogo <code>[n|a|d|b|w]</code> ikifuatiwa na tarakimu (mf. <code>n32</code>, <code>d64</code>, <code>w0</code>).</p>
-            <p><code>tenga</code> SI neno muhimu. Ni kazi ya kawaida ya maktaba kutoka <code>msingi/kumbukumbu.swa</code>, hivyo moduli hiyo lazima iunganishwe: <code>n32* p = tenga(ukubwa(n32));</code>. Umbo la <code>tenga n32</code> halijawahi kutekelezwa — halitengi kumbukumbu na sasa linakataliwa.</p>
+            <p><code>tenga</code> SI neno muhimu. Ni kazi ya kawaida ya maktaba kutoka <code>msingi/maktaba/kumbukumbu.swa</code>, hivyo moduli hiyo lazima iunganishwe: <code>n32* p = tenga(ukubwa(n32));</code>. Umbo la <code>tenga n32</code> halijawahi kutekelezwa — halitengi kumbukumbu na sasa linakataliwa.</p>
           </aside>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>tenga</code> na <code>achilia</code> zimeorodheshwa kama maneno muhimu, lakini zinapatikana kama KAZI za maktaba kutoka <code>msingi/kumbukumbu.swa</code> — moduli hiyo lazima iunganishwe kwenye chanzo kwa <code>cat</code>. Umbo la taarifa <code>tenga n32</code> linaangusha minyororo yote miwili (SEGV kwenye mbegu; <code>[KITAMB] haijulikani: 'tenga'</code> kwenye stage1); umbo sahihi pekee ni wito <code>tenga(ukubwa)</code>.</p>
+            <p><code>tenga</code>, <code>badili</code> na <code>achilia_eneo_la_utengaji</code> si maneno muhimu: ni KAZI za maktaba kutoka <code>msingi/maktaba/kumbukumbu.swa</code>, zinazopatikana kwa <code>husisha { msingi/maktaba/kumbukumbu.swa }</code>. Umbo la taarifa <code>tenga n32</code> hukataliwa kwa kosa; tumia wito <code>tenga(ukubwa)</code>.</p>
           </aside>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>chagua</code> na <code>hali</code>: mnyororo wa uzalishaji (mbegu) hukataa <code>chagua</code> kabisa; mnyororo wa .swa hukusanya <code>chagua</code> lakini hulinganisha hali ya KWANZA pekee, na <code>sivyo:</code> haichanganuliwi. Zinafanya kazi kwenye dereva wa majaribio wa Rust/LLVM pekee. Hadi marekebisho yafike, andika uteuzi kwa <code>kama</code> / <code>sivyo</code> zilizopachikwa.</p>
+            <p><code>chagua</code> na <code>hali</code>: <code>bin/swa</code> hulinganisha kila <code>hali</code> na kutekeleza <code>sivyo:</code> ikiwa hakuna iliyolingana. Hakuna mwanguko wa mkono hadi mkono: kila mkono unamalizika wenyewe, na <code>acha</code> ndani ya <code>chagua</code> ni ya mzunguko unaoizunguka. Mbegu (<code>msingi/awali.bin</code>) bado hukataa <code>chagua</code>.</p>
           </aside>
 
           <h2 id="aina-za-nambari">2. Aina za nambari</h2>
@@ -140,14 +140,14 @@
           <p><code>T*</code> — kielekezi; <code>T[n]</code> — safu; miundo iliyotangazwa na mtumiaji. Hakuna neno <code>tupu</code>, <code>kweli</code>, wala <code>uongo</code>: <code>w0</code> ni "bila thamani" na ukweli ni 1 au 0. Matokeo ya <code>==</code> <code>!=</code> <code>&lt;</code> <code>&gt;</code> <code>&lt;=</code> <code>&gt;=</code> <code>&amp;&amp;</code> <code>||</code> <code>!</code> ni 1 au 0.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p>Aina zilizothibitishwa na majaribio ni: <code>n8</code>, <code>n16</code>, <code>n32</code>, <code>n64</code>, <code>w0</code>, <code>d64</code>, <code>b1</code>. README inadai upana wowote (<code>N128</code>, <code>A128</code>, <code>D80</code>, <code>b64</code>, <code>w64</code>) — hiyo ni dhamira ya muundo, si yote yaliyojaribiwa. Kwenye mbegu, tangazo la aina nje ya zile zilizoorodheshwa linavunja mkusanyaji (SEGV); kwenye mnyororo wa .swa zinafanya kazi.</p>
+            <p>Aina zilizothibitishwa na majaribio ni: <code>n8</code>, <code>n16</code>, <code>n32</code>, <code>n64</code>, <code>w0</code>, <code>d32</code>, <code>d64</code>, <code>b1</code>, na mifumo ya biti <code>b8</code>–<code>b64</code> na <code>w8</code>–<code>w64</code> kwenye <code>bin/swa</code>. Herufi ndogo pekee ndizo zinazokubalika. Upana usiokuwepo (<code>n128</code>, <code>a128</code>, <code>d80</code>) hukataliwa kwa sauti (<code>aina isiyojulikana</code>). Mbegu inajua aina za msingi pekee.</p>
           </aside>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
             <ul>
               <li>Halisi za herufi (<code>'A'</code>) hazipo kwenye lugha — tumia nambari ya ASCII (<code>65</code>).</li>
-              <li><code>b1</code> ni aina ya ndani: tangazo la kigezo cha <code>b1</code> linavunja mbegu (SEGV) na mkaguzi wa .swa analikataa.</li>
-              <li>Tangazo la <code>d64</code> lenye kianzilishi kwenye kiwango cha juu linashindikana kwenye mbegu (<code>Hitilafu: ulichanganuzi</code>) — tangaza ndani ya kazi.</li>
+              <li><code>b1</code> kama aina ya kigezo inakubalika kwenye <code>bin/swa</code>; mbegu inaikataa.</li>
+              <li><code>d64</code> ya ulimwengu yenye kianzilishi inafanya kazi kwenye <code>bin/swa</code>; mbegu inaikataa.</li>
               <li>Kigezo cha ndani chenye <code>n64</code> kubwa zaidi ya 2^31 - 1 kinahifadhi thamani mbovu kimya kwenye mbegu; kigezo cha ulimwengu kinahifadhiwa kwa usahihi.</li>
               <li>Kigezo kisichoanzishwa kina thamani isiyofahamika — usisome kabla ya kuweka thamani.</li>
             </ul>
@@ -206,7 +206,7 @@
           </aside>
 
           <h2 id="kumbukumbu-na-mifumo">5. Kumbukumbu na mifumo</h2>
-          <p><code>tenga(ukubwa)</code> hutenga kumbukumbu; <code>achilia(p)</code> huachilia; <code>badili(p, ukubwa)</code> hupanua kipande (inayolingana na realloc). Maktaba inatumia arena ya kumbukumbu (mmap ya baiti 1,048,576) badala ya malloc/realloc/free; <code>achilia</code> haifungui kipande kweli — kinarejeshwa kwenye arena.</p>
+          <p><code>tenga(ukubwa)</code> hutenga kumbukumbu; <code>achilia(p)</code> huachilia; <code>badili(p, ukubwa)</code> hupanua kipande (inayolingana na realloc). Maktaba inatumia arena ya kumbukumbu (mmap ya baiti 1,048,576) badala ya malloc/realloc/free; <code>achilia_eneo_la_utengaji</code> haifungui kipande kweli — kinarejeshwa kwenye arena.</p>
           <figure class="codeblock" data-fname="kumbukumbu_z.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">kumbukumbu_z.swa</span>
@@ -214,7 +214,7 @@
             </figcaption>
             <pre><code><span class="tok-kw">husisha</span> { msingi/maktaba/kumbukumbu.swa }
 
-<span class="tok-type">n32</span> <span class="tok-fn">main</span>() {
+<span class="tok-type">n32</span> <span class="tok-fn">anza</span>() {
     <span class="tok-type">n32</span>* p = <span class="tok-fn">tenga</span>(<span class="tok-num">4</span>);
     <span class="tok-kw">kama</span> (p == <span class="tok-num">0</span>) { <span class="tok-kw">rudisha</span> <span class="tok-num">1</span>; }
     *p = <span class="tok-num">42</span>;
@@ -229,27 +229,27 @@
           </figure>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p>Umbo la taarifa <code>tenga n32</code> limevunjika kwenye minyororo yote miwili asilia: kwenye mbegu linakusanyika lakini binary inaanguka SEGV hata maktaba ikiunganishwa; kwenye stage1 linatoa <code>[KITAMB] haijulikani: 'tenga'</code> na mkusanyaji anaendelea kutoa binary batili. Tumia umbo la wito pekee: <code>tenga(ukubwa)</code>.</p>
+            <p>Umbo la taarifa <code>tenga n32</code> hukataliwa kwa kosa (<code>jina la kazi halitumiki kama usemi: tenga</code>). Tumia umbo la wito pekee: <code>tenga(ukubwa)</code>.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Mbegu hukataa wito wa kazi wenye d64 kama hoja au kama thamani ya kurudi (<code>Hitilafu: d64 kwenye wito wa kazi haisaidiwi bado na mbegu</code>) — mnyororo wa .swa una ABI kamili ya xmm0-xmm7. Pia: mbegu na dereva wa Rust huchanganua halisi kama 32-bit (<code>2147483648</code> inageuka <code>-2147483648</code>); mnyororo wa .swa unazifanya n64 kamili.</p>
+            <p>Wito wa kazi wenye <code>d64</code> kama hoja au thamani ya kurudi unafanya kazi kwenye minyororo yote miwili, na halisi kubwa za <code>n64</code> (kama <code>2147483648</code>) huhifadhiwa kwa usahihi.</p>
           </aside>
 
           <h2 id="sarufi">6. Muundo wa sarufi</h2>
           <p>Faharasa ya vipimo rasmi, kipande kwa kipande:</p>
           <ol>
-            <li>Muundo wa kimsingi: matamko ya kiwango cha juu — kazi, miundo, vigezo na safu za ulimwengu, na matamko ya <code>husisha</code>. Sehemu ya kuingia ni <code>n32 main()</code> (au <code>n32 main(n32 argc, n8** argv)</code>). Taarifa ya kiwango cha juu ni kosa la mchanganuzi.</li>
+            <li>Muundo wa kimsingi: matamko ya kiwango cha juu — kazi, miundo, vigezo na safu za ulimwengu, na matamko ya <code>husisha</code>. Sehemu ya kuingia ni <code>n32 anza()</code> (au <code>n32 anza(n32 argc, n8** argv)</code>). Taarifa ya kiwango cha juu ni kosa la mchanganuzi.</li>
             <li>Leksia: vitambulisho (herufi au <code>_</code> kwanza), maneno muhimu 13, halisi (kamili hadi n32/n64, desimali hadi d64, mfuatano), maoni (<code>//</code> na <code>/* ... */</code>, bila kijiuzi), ishara.</li>
             <li>Aina: familia 5 (<code>N</code>, <code>A</code>, <code>D</code>, <code>B</code>, <code>W</code>), kielekezi, safu, miundo.</li>
             <li>Usemi na utangulizi: vina 6 hadi 1, fupi-hali, hesabu ya kielekezi (<code>&amp;</code>, <code>*</code>, <code>-&gt;</code>, <code>a[i]</code>).</li>
             <li>Tangazo la kazi: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;mwili&gt; }</code>.</li>
-            <li>Taarifa: tangazo la kigezo, ugawi, <code>kama</code>/<code>sivyo</code>, <code>wakati</code>, <code>kwa</code>, <code>chagua</code>, <code>vunja</code>, <code>endelea</code>.</li>
+            <li>Taarifa: tangazo la kigezo, ugawi, <code>kama</code>/<code>sivyo</code>, <code>wakati</code>, <code>kwa</code>, <code>chagua</code>, <code>acha</code>, <code>endelea</code>.</li>
             <li>Miundo: sehemu kwa <code>.</code> na <code>-&gt;</code>; kupita na kurejesha kwa thamani.</li>
-            <li>Kuingiza: <code>husisha { faili.swa }</code> — maelekezo ya utegemezi; mnyororo wa sasa huyaondoa na faili huunganishwa kwa <code>cat</code>. <code>husisha C::stdio</code> — jina la kumbukumbu la C kwenye faili la kitu, hutoa kazi yoyote.</li>
+            <li>Kuingiza: <code>husisha { faili.swa }</code> — kiungo halisi: <code>bin/swa</code> hufuata utegemezi kwa mpito, huondoa marudio, na hukataa mzunguko kwa sauti. Swa haina kiungo cha C: <code>husisha C::stdio</code> hukataliwa.</li>
             <li>Kazi za ndani: <code>wito_wa_mfumo</code>, <code>tekeleza</code>, <code>anwani_ya_kazi</code>, <code>ukubwa(T)</code>.</li>
             <li>Maktaba ya kawaida: <code>msingi/*.swa</code> — moduli 9 za watumiaji pamoja na moduli za mkusanyaji.</li>
-            <li>Mipaka ya 1.0: sehemu ya 7 hapa chini.</li>
+            <li>Mipaka: sehemu ya 7 hapa chini.</li>
             <li>Uthibitisho: majaribio ya mnyororo na ya dereva.</li>
           </ol>
           <aside class="callout callout-maelezo" role="note">
@@ -261,42 +261,42 @@
           <p>Swa ina mipaka yake, na mipaka hii imejaribiwa kwa kujenga na kuendesha mkusanyaji. Hali halisi ya kila kipengele:</p>
           <div class="table-wrap">
             <table>
-              <caption class="sr-only">Hali halisi ya vipengele vya Swa 1.0 kwenye minyororo asilia</caption>
+              <caption class="sr-only">Hali halisi ya vipengele vya Swa kwenye minyororo yote miwili</caption>
               <thead>
                 <tr><th scope="col">Kipengele</th><th scope="col">Hali</th></tr>
               </thead>
               <tbody>
-                <tr><td><code>kama</code>, <code>sivyo</code>, <code>wakati</code>, <code>kwa</code>, <code>vunja</code>, <code>endelea</code></td><td>zinafanya kazi kwenye minyororo yote miwili; <code>kwa</code> ina semantiki ya C ya <code>endelea</code> (inaruka hadi hatua)</td></tr>
-                <tr><td><code>chagua</code>, <code>hali</code></td><td>zimevunjika: mbegu inakataa <code>chagua</code> kabisa; mnyororo wa .swa hulinganisha hali ya kwanza pekee. Dereva wa Rust/LLVM (majaribio) ndio pekee unazifanya kazi</td></tr>
+                <tr><td><code>kama</code>, <code>sivyo</code>, <code>wakati</code>, <code>kwa</code>, <code>acha</code>, <code>endelea</code></td><td>zinafanya kazi kwenye minyororo yote miwili; <code>kwa</code> ina semantiki ya C ya <code>endelea</code> (inaruka hadi hatua)</td></tr>
+                <tr><td><code>chagua</code>, <code>hali</code></td><td>zinafanya kazi kwenye <code>bin/swa</code> (hali zote, <code>sivyo</code>, bila mwanguko); mbegu inakataa <code>chagua</code></td></tr>
                 <tr><td>miundo kwa kielekezi (<code>p-&gt;x</code>)</td><td>zinafanya kazi kwenye minyororo yote miwili</td></tr>
-                <tr><td>miundo kwa thamani kama hoja</td><td>mbegu inarudisha matokeo mabaya kimya (<code>pata_x(n)</code> hurudisha 72 badala ya 12); mnyororo wa .swa unafanya kazi. Kurudisha muundo kwa thamani (sret) kunafanya kazi</td></tr>
-                <tr><td><code>tenga(ukubwa)</code> na <code>achilia(p)</code></td><td>zinafanya kazi kwenye minyororo yote miwili — moduli ya kumbukumbu lazima iunganishwe</td></tr>
-                <tr><td><code>tenga n32</code> (umbo la taarifa)</td><td>SEGV kwenye minyororo yote miwili — usitumie</td></tr>
-                <tr><td><code>husisha { faili.swa }</code></td><td>tangazo la utegemezi pekee: mbegu inakiruka, stage1 inakiondoa (<code>ondoa_husisha</code>); faili lazima ziunganishwe kwa <code>cat</code></td></tr>
-                <tr><td>safu yenye kianzilishi cha mfuatano (<code>n8 s[] = "habari"</code>)</td><td>imevunjika kwenye minyororo yote miwili; tumia <code>nakili_mfuatano</code></td></tr>
-                <tr><td>aina pana (<code>N128</code>, <code>A128</code>, <code>D80</code>, <code>b64</code>, <code>w64</code>)</td><td>mbegu SEGV; mnyororo wa .swa unafanya kazi; hazijathibitishwa na majaribio</td></tr>
-                <tr><td>halisi za herufi (<code>'A'</code>)</td><td>hazipo — mchanganuzi analia <code>herufi isiyojulikana</code>; tumia nambari ya ASCII</td></tr>
-                <tr><td><code>d64</code> kwenye kiwango cha juu</td><td>mbegu inashindwa kuchanganua; ndani ya kazi inafanya kazi</td></tr>
-                <tr><td>wito wa kazi wenye d64 (hoja au kurejesha)</td><td>mbegu inakataa kwa sauti (ABI ya xmm haijakamilika); mnyororo wa .swa una ABI kamili</td></tr>
-                <tr><td>uchapishaji wa nambari hasi</td><td><code>%d</code> kwa n32 hasi kwenye mbegu inachapisha 4294967295; n64 hasi kwenye .swa bado si sahihi; <code>%%</code> haitorekaji</td></tr>
-                <tr><td><code>n64</code> kubwa kwenye kigezo cha ndani</td><td>mbegu inahifadhi thamani mbovu kimya; kigezo cha ulimwengu kinahifadhiwa kwa usahihi</td></tr>
-                <tr><td><code>b1</code> kama aina ya kigezo kinachotangazwa</td><td>mbegu SEGV; mkaguzi wa .swa anakataa</td></tr>
-                <tr><td><code>faili.swa</code>, <code>nasibu.swa</code>, <code>wakati.swa</code></td><td>zinahitaji maktaba ya C — haziwezi kufanya kazi kwenye mnyororo safi wa <code>--exe</code></td></tr>
-                <tr><td><code>orodha.swa</code>, <code>ramani.swa</code></td><td>FAIL kwenye MANIFEST kwa mbegu (hesabu ya anwani ya <code>tenga</code>/<code>badili</code>); mnyororo wa .swa unafanya kazi</td></tr>
+                <tr><td>miundo kwa thamani kama hoja</td><td>zinafanya kazi kwenye minyororo yote miwili; kurudisha muundo kwa thamani kunafanya kazi</td></tr>
+                <tr><td><code>tenga(ukubwa)</code> na <code>achilia_eneo_la_utengaji(p)</code></td><td>zinafanya kazi kwenye minyororo yote miwili, kupitia <code>husisha { msingi/maktaba/kumbukumbu.swa }</code></td></tr>
+                <tr><td><code>tenga n32</code> (umbo la taarifa)</td><td>hukataliwa kwa kosa — tumia <code>tenga(ukubwa)</code></td></tr>
+                <tr><td><code>husisha { faili.swa }</code></td><td>kiungo halisi kwenye <code>bin/swa</code> (kwa mpito, bila marudio, mzunguko hukataliwa); mbegu haitatui <code>husisha</code></td></tr>
+                <tr><td>safu yenye kianzilishi cha mfuatano (<code>n8 s[] = "habari"</code>)</td><td><code>bin/swa</code> hukataa kwa sauti; mbegu hukusanya lakini programu huanguka — tumia <code>nakili_mfuatano</code></td></tr>
+                <tr><td>aina pana</td><td><code>n128</code>, <code>a128</code>, <code>d80</code> hazipo (hukataliwa kwa sauti); <code>b64</code> na <code>w64</code> ni mifumo ya biti kwenye <code>bin/swa</code> (hesabu juu yake hukataliwa); mbegu huzikataa</td></tr>
+                <tr><td>halisi za herufi (<code>'A'</code>)</td><td>hazipo — hukataliwa kwa sauti (<code>halisi ya herufi haijaungwa mkono</code>); tumia nambari ya ASCII</td></tr>
+                <tr><td><code>d64</code> kwenye kiwango cha juu</td><td>inafanya kazi kwenye <code>bin/swa</code>; mbegu inaikataa</td></tr>
+                <tr><td>wito wa kazi wenye d64 (hoja au kurejesha)</td><td>unafanya kazi kwenye minyororo yote miwili</td></tr>
+                <tr><td>uchapishaji wa nambari hasi</td><td><code>%d</code> huchapisha n32 na n64 hasi kwa usahihi kwenye minyororo yote miwili; <code>%%</code> huchapisha <code>%</code></td></tr>
+                <tr><td><code>n64</code> kubwa kwenye kigezo cha ndani</td><td>huhifadhiwa kwa usahihi kwenye minyororo yote miwili</td></tr>
+                <tr><td><code>b1</code> kama aina ya kigezo kinachotangazwa</td><td>inakubalika kwenye <code>bin/swa</code>; mbegu inaikataa</td></tr>
+                <tr><td><code>faili.swa</code>, <code>nasibu.swa</code>, <code>wakati.swa</code></td><td>Swa safi (wito wa mfumo, xorshift64*, <code>clock_gettime</code>) — zinafanya kazi kwenye <code>bin/swa</code></td></tr>
+                <tr><td><code>orodha.swa</code>, <code>ramani.swa</code></td><td>zinafanya kazi kwenye <code>bin/swa</code>; mbegu haitatui <code>husisha</code></td></tr>
               </tbody>
             </table>
           </div>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Minyororo miwili: mnyororo asilia wa x86-64 (kutoka mbegu hadi stage1-exe) ndiyo njia ya uzalishaji; dereva wa Rust/LLVM ni wa majaribio tu (O0 inakataa kazi zenye vizuizi zaidi ya 40; majaribio yanaendeshwa kwa O1). Jukwaa linaloungwa mkono: x86-64 Linux pekee; ARM64, RISC-V, na Windows hazijaungwa mkono bado.</p>
+            <p>Minyororo miwili: mbegu (<code>msingi/awali.bin</code>, iliyogandishwa, hujengwa kutoka baiti 393 za mkono) na mkusanyaji kamili (<code>bin/swa</code>, hujengwa na mbegu kisha hujijenga upya). Jukwaa linaloungwa mkono: x86-64 Linux pekee; ARM64, RISC-V, na Windows hazijaungwa mkono bado.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Uthibitisho: kila mabadiliko hupita suti zote kwenye <a href="https://github.com/lugha-swa/swa/actions">CI</a> — mnyororo wa Swa, mkimbiaji asili, WebAssembly na --kernel; fixpoint unashikilia — stage2 na stage3 ni sawa kwa baiti.</p>
+            <p>Uthibitisho: kila mabadiliko hupita suti zote kwenye <a href="https://github.com/lugha-swa/swa/actions">CI</a> — mnyororo wa Swa, mkimbiaji asili, WebAssembly na --kiini; fixpoint unashikilia — mkusanyaji akijijenga mara mbili, matokeo mawili ni sawa kwa baiti.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p><code>andika</code> si C stdio: ni kazi ya <code>msingi/kumbukumbu.swa</code> inayotumia wito wa mfumo moja kwa moja. <code>husisha C::stdio</code> hakitoi kazi yoyote — kiungo cha C kinaandikwa kwenye faili la kitu tu.</p>
+            <p><code>andika</code> si C stdio: ni kazi ya <code>msingi/maktaba/kumbukumbu.swa</code> inayotumia wito wa mfumo moja kwa moja. Swa haina kiungo cha C.</p>
           </aside>
 
         </div>

@@ -64,14 +64,14 @@
 
       <aside class="callout callout-maelezo" role="note">
         <p class="callout-title">Maelezo</p>
-        <p>Michango yote — ujumbe wa commit, ombi la kuvuta, nyaraka, majadiliano — lazima iwe kwa Kiswahili. Mwito ni pia wa kujifunza lugha; isipokuwa pekee ni majina ya vigeu vya Rust, yanayoweza kuwa kwa Kiingereza.</p>
+        <p>Michango yote — ujumbe wa commit, ombi la kuvuta, nyaraka, majadiliano — lazima iwe kwa Kiswahili, pamoja na majina yote ya msimbo. Majina yaliyofafanuliwa na wengine (syscall za Linux, sehemu za ELF, njia za DOM) huingia kama data, si kama majina yetu — angalia <a href="https://github.com/lugha-swa/swa/blob/main/hati/kamusi.md">hati/kamusi.md</a>.</p>
       </aside>
 
       <h3>Kuanzia</h3>
       <p>Tafuta lebo <code>good-first-issue</code> kwenye <a href="https://github.com/lugha-swa/swa/issues">masuala</a>. Kazi za kuanzia: kuongeza maoni ya Kiswahili kwenye msimbo, kutafsiri nyaraka, kuandika majaribio rahisi, na kurekebisha maonyo ya mkusanyaji.</p>
 
       <h3>Kuripoti hitilafu</h3>
-      <p>Tumia kiolezo cha Ripoti ya Hitilafu. Hakikisha umejumuisha hatua za kuzalisha hitilafu, matokeo halisi na yanayotarajiwa, na mazingira yako (mfumo wa uendeshaji, LLVM, Rust).</p>
+      <p>Tumia kiolezo cha Ripoti ya Hitilafu. Hakikisha umejumuisha hatua za kuzalisha hitilafu, matokeo halisi na yanayotarajiwa, na mazingira yako (mfumo wa uendeshaji, na mnyororo uliotumika: awali <code>msingi/awali.bin</code> au kamili <code>bin/swa</code>).</p>
 
       <h3>Kupendekeza vipengele</h3>
       <p>Tumia kiolezo cha Ombi la Kipengele. Jadili kwanza kabla ya kuanza kutekeleza. Swa inalenga kuwa rahisi: mbadala wa C, si C++ wala Rust.</p>
@@ -80,35 +80,37 @@
       <ol>
         <li>Fork hazina na uunde tawi lako.</li>
         <li>Andika msimbo wako kwa Kiswahili.</li>
-        <li>Hakikisha majaribio yote yanapita: <code>cargo test</code>.</li>
+        <li>Hakikisha majaribio yote yanapita: <code>./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code>.</li>
         <li>Tumia ujumbe wa commit kwa Kiswahili.</li>
         <li>Eleza kwa nini unafanya mabadiliko, si nini tu.</li>
       </ol>
       <p>Mwongozo kamili: <a href="https://github.com/lugha-swa/swa/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
 
       <h3>Sheria ya tawi kuu</h3>
-      <p>Tawi kuu (main) linalindwa; kila mabadiliko huingia kupitia ombi la kuvuta. Tawi la kipengele linaitwa <code>feat/jina</code> au <code>kurekebisha/jina</code>.</p>
+      <p>Tawi kuu (main) linalindwa; kila mabadiliko huingia kupitia ombi la kuvuta. Tawi huitwa kwa kazi yake, kwa mfano <code>rekebisha/jina</code> au <code>ongeza/jina</code>.</p>
 
       <h2 id="mzizi">Mzizi wa uaminifu</h2>
-      <p><code>msingi/mbegu.s</code> na <code>msingi/kwanza.bin</code> ni mzizi wa uaminifu wa mnyororo mzima wa kujikusanya.</p>
+      <p><code>msingi/awali.swm</code> na <code>msingi/kwanza.bin</code> ni mzizi wa uaminifu wa mnyororo mzima wa kujikusanya.</p>
 
       <aside class="callout callout-tahadhari" role="note">
         <p class="callout-title">Tahadhari</p>
         <p>Sheria isiyo na mbadala: mabadiliko ya mzizi wa uaminifu hujengwa na kujaribiwa <strong>kabla</strong> ya kugandishwa — hakuna ubaguzi.</p>
       </aside>
 
-      <p>Mpangilio wa lazima: badilisha <code>msingi/mbegu.s</code>; jenga na jaribu kwa chanzo kidogo kwanza, kisha kwa mkusanyiko mzima; endesha jaribio la mkazo la wito wa mbele (angalau 1,000 — <code>jaribio_mbegu_mkazo_wito</code>); kisha tu gandisha (<code>mbegu.bin</code> + <code>mbegu.hex</code>), thibitisha kwa skripti ya mzizi, na endesha <code>cargo test</code> nzima:</p>
+      <p>Mpangilio wa lazima: badilisha <code>msingi/awali.swm</code>; jenga mbegu ya muda kwa <code>gharama/awali-mpya.mapishi</code> na uijaribu kwa chanzo kidogo kwanza, kisha kwa mkusanyiko mzima; endesha jaribio la mkazo la wito wa mbele (angalau 1,000 — <code>majaribio/mkazo/urekebishaji_1000.swa</code>); kisha tu gandisha (<code>gharama/gandisha.mapishi</code> huandika <code>awali.bin</code> + <code>awali.hex</code>), thibitisha mzizi kwa kizinduzi, na endesha majaribio yote:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
           <span class="codeblock-fname">bash</span>
           <button class="codeblock-copy" type="button">Nakili</button>
         </figcaption>
-        <pre><code>bash gharama/jenga-kwanza.sh</code></pre>
+        <pre><code>./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi
+./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code></pre>
         <div class="codeblock-tokeo">
-          <span class="codeblock-prompt">$ bash gharama/jenga-kwanza.sh</span>
-          <span class="codeblock-pato">kwanza inajijenga sawa</span>
-          <span class="codeblock-pato">mbegu.bin inazalika kutoka baiti za mkono</span>
+          <span class="codeblock-prompt">$ ./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi</span>
+          <span class="codeblock-pato">mwanzo: kwanza na kizinduzi pekee -&gt; mjenzi, mbegu na kizinduzi kutoka vyanzo -- sawa kwa baiti</span>
+          <span class="codeblock-prompt">$ ./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</span>
+          <span class="codeblock-pato">mnyororo: majaribio yote yamefaulu</span>
         </div>
       </figure>
 
@@ -119,7 +121,7 @@
         <li><strong>Kiswahili kwanza.</strong> Vigeu, kazi, na maoni yote kwa Kiswahili.</li>
         <li><strong>Rahisi.</strong> Swa inalenga kuwa mbadala wa C, si C++ au Rust.</li>
         <li><strong>Imara.</strong> Hakuna paniki, hakuna tabia isiyotabirika.</li>
-        <li><strong>Inayojikusanya.</strong> Lengo kuu ni kuondoa utegemezi wa Rust kabisa.</li>
+        <li><strong>Inayojikusanya.</strong> Mnyororo mzima hujengwa kutoka baiti 393 za mkono, bila lugha nyingine yoyote.</li>
       </ol>
 
       <h2 id="maadili">Kanuni za maadili</h2>
