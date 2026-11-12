@@ -161,16 +161,16 @@ chmod +x hello &amp;&amp; ./hello</code></pre>
           <p>Programu hii haichapishi chochote: inarudi msimbo 0 ikiwa kila kigezo kinashikilia thamani yake sahihi.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p>Halisi za herufi hazipo kwenye lugha: <code>'A'</code> si halali — tumia nambari ya ASCII (<code>65</code>). <code>b1</code> ni aina ya ndani (matokeo ya ulinganisho): kigezo cha <code>b1</code> kinakubalika kwenye <code>bin/swa</code>; mbegu (<code>msingi/awali.bin</code>) hukikataa. Vivyo hivyo <code>d64</code> ya ulimwengu yenye kianzilishi: <code>bin/swa</code> huikubali, mbegu huikataa.</p>
+            <p>Halisi za herufi hazipo kwenye lugha: <code>'A'</code> si halali — tumia nambari ya ASCII (<code>65</code>). <code>b1</code> ni aina ya ndani (matokeo ya ulinganisho): kigezo cha <code>b1</code> kinakubalika kwenye <code>bin/swa</code>; awali (<code>msingi/awali.bin</code>) hukikataa. Vivyo hivyo <code>d64</code> ya ulimwengu yenye kianzilishi: <code>bin/swa</code> huikubali, awali huikataa.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Kigezo kisichoanzishwa kina thamani isiyofahamika (kumbukumbu ya rafu isiyoanzishwa) — usisome kabla ya kuweka thamani. Halisi kubwa za <code>n64</code> (zaidi ya 2^31 - 1) zinahifadhiwa kwa usahihi kwenye minyororo yote miwili.</p>
+            <p>Kigezo kisichoanzishwa kina thamani isiyofahamika (kumbukumbu ya mrundikano isiyoanzishwa) — usisome kabla ya kuweka thamani. Halisi kubwa za <code>n64</code> (zaidi ya 2^31 - 1) zinahifadhiwa kwa usahihi kwenye mifululizo yote miwili.</p>
           </aside>
 
           <h2 id="udhibiti">Hatua 3 — Mtiririko wa udhibiti</h2>
           <p><code>kama (sharti) { ... }</code> na <code>sivyo { ... }</code> (hiari). Tawi-jingine huandikwa kwa kuingiza <code>kama</code> ndani ya <code>sivyo</code> — hakuna maneno <code>kamasivyo</code> wala <code>sivyo kama</code>.</p>
-          <p><code>wakati (sharti) { ... }</code> ni kitanzi. <code>kwa (kianzilishi; sharti; hatua) { ... }</code> — sehemu zote tatu ni za hiari. Semantiki ya <code>endelea</code> ndani ya <code>kwa</code>: inaruka hadi HATUA (ya tatu), si kwenye sharti — semantiki ya C. <code>acha;</code> inatoka nje ya kitanzi cha ndani; <code>endelea;</code> inaruka hadi mwisho wa mwili wa kitanzi.</p>
+          <p><code>wakati (sharti) { ... }</code> ni mzunguko. <code>kwa (kianzilishi; sharti; hatua) { ... }</code> — sehemu zote tatu ni za hiari. Semantiki ya <code>endelea</code> ndani ya <code>kwa</code>: inaruka hadi HATUA (ya tatu), si kwenye sharti — semantiki ya C. <code>acha;</code> inatoka nje ya mzunguko wa ndani; <code>endelea;</code> inaruka hadi mwisho wa maudhui ya mzunguko.</p>
           <p><code>&amp;&amp;</code> na <code>||</code> zinatathmini kwa fupi-hali: <code>a &amp;&amp; b</code> haitathmini <code>b</code> ikiwa <code>a</code> ni 0 — hii inaruhusu <code>j &gt;= 0 &amp;&amp; a[j] == x</code> bila kusoma nje ya mipaka. Opereta ya ternary <code>sharti ? kweli : uwongo</code> inasaidiwa.</p>
           <figure class="codeblock" data-fname="udhibiti.swa">
             <figcaption class="codeblock-bar">
@@ -212,14 +212,14 @@ chmod +x hello &amp;&amp; ./hello</code></pre>
               <span class="codeblock-pato">wakati: 3, kwa: 25</span>
             </div>
           </figure>
-          <p><code>jumla_kwa_kwa(10)</code> ni 0+1+2+4+5+6+7 = 25: <code>i = 3</code> imerukwa na <code>endelea</code>, na <code>i = 8</code> imevunja kitanzi — semantiki ya C ya <code>endelea</code> ndani ya <code>kwa</code>.</p>
+          <p><code>jumla_kwa_kwa(10)</code> ni 0+1+2+4+5+6+7 = 25: <code>i = 3</code> imerukwa na <code>endelea</code>, na <code>i = 8</code> imevunja mzunguko — semantiki ya C ya <code>endelea</code> ndani ya <code>kwa</code>.</p>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>chagua</code> na <code>hali</code> zinafanya kazi kikamilifu kwenye <code>bin/swa</code> — hali nyingi na <code>sivyo:</code> ya kawaida. Mbegu iliyogandishwa pekee ndiyo haijui <code>chagua</code>. Neno <code>hali</code> ni neno muhimu: halitumiki kama jina la kigeu.</p>
+            <p><code>chagua</code> na <code>hali</code> zinafanya kazi kikamilifu kwenye <code>bin/swa</code> — hali nyingi na <code>sivyo:</code> ya kawaida. Awali iliyogandishwa pekee ndiyo haijui <code>chagua</code>. Neno <code>hali</code> ni neno muhimu: halitumiki kama jina la kigeu.</p>
           </aside>
 
           <h2 id="kazi">Hatua 4 — Kazi</h2>
-          <p>Umbo: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;mwili&gt; }</code>. Vigezo hupitishwa kwa thamani au kwa kielekezi. <code>rudisha &lt;usemi&gt;;</code> kwa kazi yenye thamani; <code>rudisha;</code> kwa <code>w0</code>. Wito wa mbele unaruhusiwa (kazi inaweza kuitwa kabla ya kutangazwa); kujirudia kunasaidiwa.</p>
+          <p>Umbo: <code>&lt;aina&gt; &lt;jina&gt;(&lt;vigezo&gt;) { &lt;maudhui&gt; }</code>. Vigezo hupitishwa kwa thamani au kwa kielekezi. <code>rudisha &lt;usemi&gt;;</code> kwa kazi yenye thamani; <code>rudisha;</code> kwa <code>w0</code>. Wito wa mbele unaruhusiwa (kazi inaweza kuitwa kabla ya kutangazwa); kujirudia kunasaidiwa.</p>
           <figure class="codeblock" data-fname="kazi.swa">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">kazi.swa</span>
@@ -306,7 +306,7 @@ chmod +x hello &amp;&amp; ./hello</code></pre>
           </figure>
           <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p>Hoja za muundo kwa THAMANI zinavunjika kwenye mbegu: <code>pata_x(n)</code> ilirudisha 72 badala ya 12, kimya. Pitisha miundo kwa kielekezi (<code>Nukta* p</code>, <code>p-&gt;x</code>) — kinachofanya kazi kwenye minyororo yote miwili. Kurudisha muundo kwa thamani (sret) kunafanya kazi.</p>
+            <p>Hoja za muundo kwa THAMANI zinavunjika kwenye awali: <code>pata_x(n)</code> ilirudisha 72 badala ya 12, kimya. Pitisha miundo kwa kielekezi (<code>Nukta* p</code>, <code>p-&gt;x</code>) — kinachofanya kazi kwenye mifululizo yote miwili. Kurudisha muundo kwa thamani (sret) kunafanya kazi.</p>
           </aside>
 
           <h2 id="vielekezi-na-safu">Hatua 6 — Vielekezi na safu</h2>
@@ -369,7 +369,7 @@ chmod +x hello &amp;&amp; ./hello</code></pre>
           </figure>
           <aside class="callout callout-kidokezo" role="note">
             <p class="callout-title">Kidokezo</p>
-            <p>Kianzilishi cha safu kutoka kwenye mfuatano (<code>n8 s[] = "habari"</code> au <code>n8 s[4] = "Swa"</code>) kimevunjika kwenye minyororo yote miwili asilia. Njia sahihi: <code>nakili_mfuatano(b, "habari")</code> au kuandika baiti kwa baiti.</p>
+            <p>Kianzilishi cha safu kutoka kwenye mfuatano (<code>n8 s[] = "habari"</code> au <code>n8 s[4] = "Swa"</code>) kimevunjika kwenye mifululizo yote miwili asilia. Njia sahihi: <code>nakili_mfuatano(b, "habari")</code> au kuandika baiti kwa baiti.</p>
           </aside>
 
           <h2 id="kumbukumbu">Hatua 7 — Kumbukumbu na mifumo</h2>
@@ -401,7 +401,7 @@ chmod +x hello &amp;&amp; ./hello</code></pre>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Maktaba ya msingi inatumia eneo la utengaji badala ya malloc/realloc/free: vipande vya mmap (angalau baiti 1,048,576 kila kimoja) ambavyo utengaji husogea ndani yake, na kipande kipya hutengwa kimoja kikijaa. <code>achilia_eneo_la_utengaji</code> haifungui kipande kweli. <code>tenga</code>, <code>badili</code> na <code>achilia_eneo_la_utengaji</code> ni kazi za <code>msingi/maktaba/kumbukumbu.swa</code>; zipate kwa <code>husisha { msingi/maktaba/kumbukumbu.swa }</code>. Wito wa kazi wenye d64 kama hoja au thamani ya kurudi unafanya kazi kwenye minyororo yote miwili.</p>
+            <p>Maktaba ya msingi inatumia eneo la utengaji badala ya malloc/realloc/free: vipande vya mmap (angalau baiti 1,048,576 kila kimoja) ambavyo utengaji husogea ndani yake, na kipande kipya hutengwa kimoja kikijaa. <code>achilia_eneo_la_utengaji</code> haifungui kipande kweli. <code>tenga</code>, <code>badili</code> na <code>achilia_eneo_la_utengaji</code> ni kazi za <code>msingi/maktaba/kumbukumbu.swa</code>; zipate kwa <code>husisha { msingi/maktaba/kumbukumbu.swa }</code>. Wito wa kazi wenye d64 kama hoja au thamani ya kurudi unafanya kazi kwenye mifululizo yote miwili.</p>
           </aside>
 
           <h2 id="maktaba">Hatua 8 — Maktaba ya kawaida</h2>
@@ -482,11 +482,11 @@ chmod +x hello &amp;&amp; ./hello</code></pre>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p><code>orodha.swa</code> na <code>ramani.swa</code> zinafanya kazi kwenye <code>bin/swa</code>. Mbegu (<code>msingi/awali.bin</code>) haitatui <code>husisha</code>, kwa hiyo programu zinazotumia maktaba hukusanywa kwa <code>bin/swa</code>.</p>
+            <p><code>orodha.swa</code> na <code>ramani.swa</code> zinafanya kazi kwenye <code>bin/swa</code>. Awali (<code>msingi/awali.bin</code>) haitatui <code>husisha</code>, kwa hiyo programu zinazotumia maktaba hukusanywa kwa <code>bin/swa</code>.</p>
           </aside>
 
           <h2 id="kuendesha">Hatua 9 — Kuendesha programu</h2>
-          <p>Njia ya uzalishaji ni mnyororo safi wa Swa — bila Rust, LLVM, clang, wala libc. <code>bin/swa</code> hufuata <code>husisha</code> wenyewe:</p>
+          <p>Njia ya uzalishaji ni mfululizo safi wa Swa — bila Rust, LLVM, clang, wala libc. <code>bin/swa</code> hufuata <code>husisha</code> wenyewe:</p>
           <figure class="codeblock" data-fname="amri">
             <figcaption class="codeblock-bar">
               <span class="codeblock-fname">amri</span>
@@ -501,17 +501,17 @@ chmod +x sampuli &amp;&amp; ./sampuli</code></pre>
               <span class="codeblock-fname">amri</span>
               <button class="codeblock-copy" type="button">Nakili</button>
             </figcaption>
-            <pre><code>./msingi/mjenzi.bin gharama/jenga.mapishi   # baiti 393 -&gt; kusanyiko -&gt; mbegu -&gt; bin/swa
+            <pre><code>./msingi/mjenzi.bin gharama/jenga.mapishi   # baiti 393 -&gt; kusanyiko -&gt; awali -&gt; bin/swa
 bin/swa --programu programu.swa &gt; programu
 chmod +x programu &amp;&amp; ./programu</code></pre>
           </figure>
                     <aside class="callout callout-tahadhari" role="note">
             <p class="callout-title">Tahadhari</p>
-            <p><code>husisha { njia/ya/faili.swa }</code> ni kiungo halisi: <code>bin/swa</code> hufuata utegemezi kwa mpito, huondoa marudio, na hukataa mzunguko kwa sauti. Mbegu iliyogandishwa pekee ndiyo isiyotatua <code>husisha</code> — tumia <code>bin/swa</code> kwa programu zinazotumia maktaba.</p>
+            <p><code>husisha { njia/ya/faili.swa }</code> ni kiungo halisi: <code>bin/swa</code> hufuata utegemezi kwa mpito, huondoa marudio, na hukataa mzunguko kwa sauti. Awali iliyogandishwa pekee ndiyo isiyotatua <code>husisha</code> — tumia <code>bin/swa</code> kwa programu zinazotumia maktaba.</p>
           </aside>
           <aside class="callout callout-maelezo" role="note">
             <p class="callout-title">Maelezo</p>
-            <p>Uthibitisho wa hazina: kila PR hupitia mnyororo mzima wa majaribio kwenye minyororo yote miwili (<code>./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code>), fixpoint, WebAssembly, <code>--kiini</code>, na mifano ya README — angalia <a href="https://github.com/lugha-swa/swa/actions">CI</a>.</p>
+            <p>Uthibitisho wa hazina: kila PR hupitia mfululizo mzima wa majaribio kwenye mifululizo yote miwili (<code>./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code>), uthabiti, WebAssembly, <code>--kiini</code>, na mifano ya README — angalia <a href="https://github.com/lugha-swa/swa/actions">CI</a>.</p>
           </aside>
           <aside class="callout callout-kidokezo" role="note">
             <p class="callout-title">Kidokezo</p>

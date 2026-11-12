@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jamii — Swa</title>
-  <meta name="description" content="Jinsi ya kuchangia Swa: masuala, majadiliano, kanuni za maadili, sheria ya mzizi wa uaminifu, na sera ya usalama.">
+  <meta name="description" content="Jinsi ya kuchangia Swa: masuala, majadiliano, kanuni za maadili, sheria ya chanzo cha uaminifu, na sera ya usalama.">
   <link rel="canonical" href="https://lugha-swa.github.io/jamii.html">
   <meta property="og:title" content="Jamii — Swa">
-  <meta property="og:description" content="Jinsi ya kuchangia Swa: michango yote kwa Kiswahili, ombi la kuvuta pekee kwenye tawi kuu, sheria ya mzizi wa uaminifu, na sera ya usalama.">
+  <meta property="og:description" content="Jinsi ya kuchangia Swa: michango yote kwa Kiswahili, ombi la kuvuta pekee kwenye tawi kuu, sheria ya chanzo cha uaminifu, na sera ya usalama.">
   <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
   <meta name="theme-color" content="#FAF7EF">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -71,7 +71,7 @@
       <p>Tafuta lebo <code>good-first-issue</code> kwenye <a href="https://github.com/lugha-swa/swa/issues">masuala</a>. Kazi za kuanzia: kuongeza maoni ya Kiswahili kwenye msimbo, kutafsiri nyaraka, kuandika majaribio rahisi, na kurekebisha maonyo ya mkusanyaji.</p>
 
       <h3>Kuripoti hitilafu</h3>
-      <p>Tumia kiolezo cha Ripoti ya Hitilafu. Hakikisha umejumuisha hatua za kuzalisha hitilafu, matokeo halisi na yanayotarajiwa, na mazingira yako (mfumo wa uendeshaji, na mnyororo uliotumika: awali <code>msingi/awali.bin</code> au kamili <code>bin/swa</code>).</p>
+      <p>Tumia kiolezo cha Ripoti ya Hitilafu. Hakikisha umejumuisha hatua za kuzalisha hitilafu, matokeo halisi na yanayotarajiwa, na mazingira yako (mfumo wa uendeshaji, na mfululizo uliotumika: awali <code>msingi/awali.bin</code> au kamili <code>bin/swa</code>).</p>
 
       <h3>Kupendekeza vipengele</h3>
       <p>Tumia kiolezo cha Ombi la Kipengele. Jadili kwanza kabla ya kuanza kutekeleza. Swa inalenga kuwa rahisi: mbadala wa C, si C++ wala Rust.</p>
@@ -89,15 +89,15 @@
       <h3>Sheria ya tawi kuu</h3>
       <p>Tawi kuu (main) linalindwa; kila mabadiliko huingia kupitia ombi la kuvuta. Tawi huitwa kwa kazi yake, kwa mfano <code>rekebisha/jina</code> au <code>ongeza/jina</code>.</p>
 
-      <h2 id="mzizi">Mzizi wa uaminifu</h2>
-      <p><code>msingi/awali.swm</code> na <code>msingi/kwanza.bin</code> ni mzizi wa uaminifu wa mnyororo mzima wa kujikusanya.</p>
+      <h2 id="chanzo-cha-uaminifu">Chanzo cha uaminifu</h2>
+      <p><code>msingi/awali.swm</code> na <code>msingi/kwanza.bin</code> ni chanzo cha uaminifu cha mfululizo mzima wa kujikusanya.</p>
 
       <aside class="callout callout-tahadhari" role="note">
         <p class="callout-title">Tahadhari</p>
-        <p>Sheria isiyo na mbadala: mabadiliko ya mzizi wa uaminifu hujengwa na kujaribiwa <strong>kabla</strong> ya kugandishwa — hakuna ubaguzi.</p>
+        <p>Sheria isiyo na mbadala: mabadiliko ya chanzo cha uaminifu hujengwa na kujaribiwa <strong>kabla</strong> ya kugandishwa — hakuna ubaguzi.</p>
       </aside>
 
-      <p>Mpangilio wa lazima: badilisha <code>msingi/awali.swm</code>; jenga mbegu ya muda kwa <code>gharama/awali-mpya.mapishi</code> na uijaribu kwa chanzo kidogo kwanza, kisha kwa mkusanyiko mzima; endesha jaribio la mkazo la wito wa mbele (angalau 1,000 — <code>majaribio/mkazo/urekebishaji_1000.swa</code>); kisha tu gandisha (<code>gharama/gandisha.mapishi</code> huandika <code>awali.bin</code> + <code>awali.hex</code>), thibitisha mzizi kwa kizinduzi, na endesha majaribio yote:</p>
+      <p>Mpangilio wa lazima: badilisha <code>msingi/awali.swm</code>; jenga awali ya muda kwa <code>gharama/awali-mpya.mapishi</code> na uijaribu kwa chanzo kidogo kwanza, kisha kwa mkusanyiko mzima; endesha jaribio la mkazo la wito wa mbele (angalau 1,000 — <code>majaribio/mkazo/urekebishaji_1000.swa</code>); kisha tu gandisha (<code>gharama/gandisha.mapishi</code> huandika <code>awali.bin</code> + <code>awali.heksa</code>), thibitisha chanzo cha uaminifu kwa kizinduzi, na endesha majaribio yote:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
@@ -108,20 +108,20 @@
 ./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code></pre>
         <div class="codeblock-tokeo">
           <span class="codeblock-prompt">$ ./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi</span>
-          <span class="codeblock-pato">mwanzo: kwanza na kizinduzi pekee -&gt; mjenzi, mbegu na kizinduzi kutoka vyanzo -- sawa kwa baiti</span>
+          <span class="codeblock-pato">mwanzo: kwanza na kizinduzi pekee -&gt; mjenzi, awali na kizinduzi kutoka vyanzo -- sawa kwa baiti</span>
           <span class="codeblock-prompt">$ ./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</span>
-          <span class="codeblock-pato">mnyororo: majaribio yote yamefaulu</span>
+          <span class="codeblock-pato">mfululizo: majaribio yote yamefaulu</span>
         </div>
       </figure>
 
-      <p>Kwa nini ukali huu: hitilafu kwenye mzizi ni ya darasa baya zaidi. Mbegu iliyovunjika inaweza bado kutoa fixpoint imara lakini mbaya, na mnyororo mzima unashindwa kimya kimya.</p>
+      <p>Kwa nini ukali huu: hitilafu kwenye chanzo cha uaminifu ni ya darasa baya zaidi. Awali iliyovunjika inaweza bado kutoa uthabiti wa uwongo, na mfululizo mzima unashindwa kimya kimya.</p>
 
       <h2 id="falsafa">Falsafa ya msimbo</h2>
       <ol>
         <li><strong>Kiswahili kwanza.</strong> Vigeu, kazi, na maoni yote kwa Kiswahili.</li>
         <li><strong>Rahisi.</strong> Swa inalenga kuwa mbadala wa C, si C++ au Rust.</li>
         <li><strong>Imara.</strong> Hakuna paniki, hakuna tabia isiyotabirika.</li>
-        <li><strong>Inayojikusanya.</strong> Mnyororo mzima hujengwa kutoka baiti 393 za mkono, bila lugha nyingine yoyote.</li>
+        <li><strong>Inayojikusanya.</strong> Mfululizo mzima hujengwa kutoka baiti 393 za mkono, bila lugha nyingine yoyote.</li>
       </ol>
 
       <h2 id="maadili">Kanuni za maadili</h2>
