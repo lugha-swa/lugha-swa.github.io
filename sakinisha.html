@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sakinisha — Swa</title>
-  <meta name="description" content="Jinsi ya kujenga Swa kwenye x86-64 Linux: mnyororo safi wa Swa bila gcc, ld, clang, libc, Rust wala LLVM.">
+  <meta name="description" content="Jinsi ya kujenga Swa kwenye x86-64 Linux: mfululizo safi wa Swa bila gcc, ld, clang, libc, Rust wala LLVM.">
   <link rel="canonical" href="https://lugha-swa.github.io/sakinisha.html">
   <meta property="og:title" content="Sakinisha — Swa">
-  <meta property="og:description" content="Njia moja ya kujenga Swa: mnyororo safi wa Swa (njia ya uzalishaji) bila gcc, ld, clang, libc, Rust wala LLVM. Jukwaa: x86-64 Linux.">
+  <meta property="og:description" content="Njia moja ya kujenga Swa: mfululizo safi wa Swa (njia ya uzalishaji) bila gcc, ld, clang, libc, Rust wala LLVM. Jukwaa: x86-64 Linux.">
   <meta property="og:image" content="https://lugha-swa.github.io/favicon.svg">
   <meta name="theme-color" content="#FAF7EF">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -56,7 +56,7 @@
   <main id="yaliyomo" class="wrap">
     <div class="page-head">
       <h1>Sakinisha</h1>
-      <p>Swa ina njia moja ya kujenga: mnyororo safi wa Swa, bila gcc, ld, clang, libc, Rust wala LLVM.</p>
+      <p>Swa ina njia moja ya kujenga: mfululizo safi wa Swa, bila gcc, ld, clang, libc, Rust wala LLVM.</p>
     </div>
 
     <div class="prose">
@@ -65,11 +65,11 @@
         <p>Jukwaa linaloungwa mkono ni <strong>x86-64 Linux pekee</strong>. ARM64, RISC-V na Windows hazijaungwa mkono bado — maelezo chini.</p>
       </aside>
 
-      <h2 id="njia-1">Njia ya 1 — Mnyororo safi wa Swa</h2>
-      <p>Hii ndiyo njia ya uzalishaji. Mahitaji: x86-64 Linux na bash pamoja na zana za kawaida za mfumo (cat, cmp, chmod, mktemp, timeout, grep, md5sum). Hakuna Rust, hakuna LLVM, hakuna clang, hakuna libc popote kwenye mnyororo huu.</p>
+      <h2 id="njia-1">Njia ya 1 — Mfululizo safi wa Swa</h2>
+      <p>Hii ndiyo njia ya uzalishaji. Mahitaji: x86-64 Linux na bash pamoja na zana za kawaida za mfumo (cat, cmp, chmod, mktemp, timeout, grep, md5sum). Hakuna Rust, hakuna LLVM, hakuna clang, hakuna libc popote kwenye mfululizo huu.</p>
 
-      <h3>Kuanza — mzizi wa uaminifu</h3>
-      <p>Mnyororo unaanza na Kwanza, programu ya baiti 393 za mkono iliyoandikwa bila lugha nyingine yoyote. Kizinduzi kidogo cha mkono kinatumia Kwanza pekee kujenga upya mjenzi, mbegu (<code>msingi/awali.bin</code>) na kizinduzi chenyewe kutoka vyanzo vyao, na kuthibitisha kila kimoja ni sawa kwa baiti na kilichohifadhiwa — bila NASM wala kiunganishi:</p>
+      <h3>Kuanza — chanzo cha uaminifu</h3>
+      <p>Mfululizo unaanza na Kwanza, programu ya baiti 393 za mkono iliyoandikwa bila lugha nyingine yoyote. Kizinduzi kidogo cha mkono kinatumia Kwanza pekee kujenga upya mjenzi, awali (<code>msingi/awali.bin</code>) na kizinduzi chenyewe kutoka vyanzo vyao, na kuthibitisha kila kimoja ni sawa kwa baiti na kilichohifadhiwa — bila NASM wala kiunganishi:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
@@ -81,12 +81,12 @@ cd swa
 ./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi</code></pre>
         <div class="codeblock-tokeo">
           <span class="codeblock-prompt">$ ./msingi/kizinduzi.bin gharama/mwanzo.kizinduzi</span>
-          <span class="codeblock-pato">mwanzo: kwanza na kizinduzi pekee -&gt; mjenzi, mbegu na kizinduzi kutoka vyanzo -- sawa kwa baiti</span>
+          <span class="codeblock-pato">mwanzo: kwanza na kizinduzi pekee -&gt; mjenzi, awali na kizinduzi kutoka vyanzo -- sawa kwa baiti</span>
         </div>
       </figure>
 
       <h3>Mkusanyaji wa Swa</h3>
-      <p>Mapishi moja yanaendesha mnyororo mzima: baiti 393 → kusanyiko → mbegu → msuluhishi wa <code>husisha</code> (hujengwa na mbegu) hutatua utegemezi wa <code>msingi/mkusanyaji/kiendeshaji.swa</code> → mbegu inakusanya mkusanyaji kamili → mkusanyaji kamili hujijenga upya kuwa <code>bin/swa</code>. Kila hatua ni ELF tuli (bendera <code>--programu</code>), bila kiunganishi:</p>
+      <p>Mapishi moja yanaendesha mfululizo mzima: baiti 393 → kusanyiko → awali → msuluhishi wa <code>husisha</code> (hujengwa na awali) hutatua utegemezi wa <code>msingi/mkusanyaji/kiendeshaji.swa</code> → awali inakusanya mkusanyaji kamili → mkusanyaji kamili hujijenga upya kuwa <code>bin/swa</code>. Kila hatua ni ELF tuli (bendera <code>--programu</code>), bila kiunganishi:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
@@ -96,13 +96,13 @@ cd swa
         <pre><code>./msingi/mjenzi.bin gharama/jenga.mapishi</code></pre>
         <div class="codeblock-tokeo">
           <span class="codeblock-prompt">$ ./msingi/mjenzi.bin gharama/jenga.mapishi</span>
-          <span class="codeblock-pato">mnyororo: mbegu, kusanyiko na mjenzi kutoka baiti 393 -- sawa kwa baiti</span>
+          <span class="codeblock-pato">mfululizo: awali, kusanyiko na mjenzi kutoka baiti 393 -- sawa kwa baiti</span>
           <span class="codeblock-pato">bin/swa iko tayari</span>
         </div>
       </figure>
 
       <h3>Programu yako ya kwanza</h3>
-      <p>Programu hukusanywa kwa <code>bin/swa</code>. Maktaba ya msingi huingizwa kwa <code>husisha</code> — mkusanyaji hufuata utegemezi wenyewe, kwa mpito. Njia za <code>husisha</code> ni kutoka mzizi wa hazina ya swa, kwa hiyo endesha amri ukiwa hapo. Andika programu hii kwenye faili salamu.swa:</p>
+      <p>Programu hukusanywa kwa <code>bin/swa</code>. Maktaba ya msingi huingizwa kwa <code>husisha</code> — mkusanyaji hufuata utegemezi wenyewe, kwa mpito. Njia za <code>husisha</code> ni kutoka saraka kuu ya hazina ya swa, kwa hiyo endesha amri ukiwa hapo. Andika programu hii kwenye faili salamu.swa:</p>
 
       <figure class="codeblock" data-fname="salamu.swa">
         <figcaption class="codeblock-bar">
@@ -131,8 +131,8 @@ chmod +x salamu
         </div>
       </figure>
 
-      <h3>Majaribio kamili ya mnyororo</h3>
-      <p>Mapishi moja yanaendesha majaribio yote ya mnyororo: programu za <code>majaribio/programu/ORODHA.txt</code> kwenye minyororo yote miwili (mbegu na mkusanyaji kamili), fixpoint (mkusanyaji hujijenga mara mbili, na matokeo mawili ni sawa kwa baiti), mkazo wa urekebishaji wa wito 1,000 wa mbele, desimali, na kujiumbiza kwa kipanga umbizo. Hakuna Rust, hakuna LLVM, hakuna clang:</p>
+      <h3>Majaribio kamili ya mfululizo</h3>
+      <p>Mapishi moja yanaendesha majaribio yote ya mfululizo: programu za <code>majaribio/programu/ORODHA.txt</code> kwenye mifululizo yote miwili (awali na mkusanyaji kamili), uthabiti (mkusanyaji hujijenga mara mbili, na matokeo mawili ni sawa kwa baiti), mkazo wa urekebishaji wa wito 1,000 wa mbele, desimali, na kujiumbiza kwa kipanga umbizo. Hakuna Rust, hakuna LLVM, hakuna clang:</p>
 
       <figure class="codeblock" data-fname="bash">
         <figcaption class="codeblock-bar">
@@ -142,7 +142,7 @@ chmod +x salamu
         <pre><code>./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</code></pre>
         <div class="codeblock-tokeo">
           <span class="codeblock-prompt">$ ./msingi/mjenzi.bin gharama/jaribu-mfululizo.mapishi</span>
-          <span class="codeblock-pato">mnyororo: majaribio yote yamefaulu</span>
+          <span class="codeblock-pato">mfululizo: majaribio yote yamefaulu</span>
         </div>
       </figure>
 
@@ -152,7 +152,7 @@ chmod +x salamu
       <h2 id="jukwaa">Jukwaa linaloungwa mkono</h2>
       <ul>
         <li><strong>x86-64 Linux</strong> ndilo jukwaa pekee la uzalishaji.</li>
-        <li><strong>ARM64 na RISC-V</strong> hazijaungwa mkono bado. Kila usanifu ni mradi wake: unahitaji baiti mpya za mkono za Kwanza, kizalishe kipya cha mbegu, na ABI ya jukwaa.</li>
+        <li><strong>ARM64 na RISC-V</strong> hazijaungwa mkono bado. Kila usanifu ni mradi wake: unahitaji baiti mpya za mkono za Kwanza, kizalishe kipya cha awali, na ABI ya jukwaa.</li>
         <li><strong>Windows</strong> haijaungwa mkono — kizuizi cha BSS bado hakijatatuliwa.</li>
         <li>Zana ambazo bado hazipo: LSP, debugger, na kidhibiti cha vifurushi. Kipanga umbaji kipo (zana/umbizaji.swa).</li>
       </ul>

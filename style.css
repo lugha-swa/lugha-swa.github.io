@@ -202,7 +202,7 @@ html {
 }
 
 html,
-body { overflow-x: clip; }  /* hakuna ukanda wa mlalo kwenye mwili kamwe */
+body { overflow-x: clip; }  /* hakuna ukanda wa mlalo kwenye ukurasa kamwe */
 
 body {
   margin: 0;
@@ -326,7 +326,7 @@ section > .split-grid:not(.wrap) {
   margin: 0;
 }
 
-/* Bendi ya usiku (mnyororo wa kujikusanya) — ukuta wa kisima */
+/* Bendi ya usiku (mfululizo wa kujikusanya) — ukuta wa kisima */
 .band {
   background: var(--code-bg);
   color: var(--code-ink);
@@ -726,7 +726,7 @@ section > .split-grid:not(.wrap) {
 }
 
 /* ------------------------------------------------------------
-   8. Kadi za sifa, kadi za habari, mnyororo wa kujikusanya
+   8. Kadi za sifa, kadi za habari, mfululizo wa kujikusanya
    ------------------------------------------------------------ */
 .sifa-eneo {
   display: grid;
@@ -841,7 +841,7 @@ section > .split-grid:not(.wrap) {
 }
 .news-more:hover { color: var(--accent-strong); }
 
-/* Mnyororo wa kujikusanya — mstari mmoja wa kimtiririko, si duara za namba */
+/* Mfululizo wa kujikusanya — mstari mmoja wa kimtiririko, si duara za namba */
 .mtiririko {
   display: flex;
   flex-wrap: wrap;
